@@ -52,6 +52,7 @@ void stack_push (char* id)
             p_p->next = p_l;
     // point pp_pile on new element
          pp_stack = p_l;
+         printstack();
       }
       else
       {
@@ -83,7 +84,7 @@ void stack_pop ()
 }
 
 void profondeur_pop (){
-   printf("je suis la la prof est %d\n",profondeur);
+   //printf("je suis la la prof est %d\n",profondeur);
    while (pp_stack !=NULL && (pp_stack)->profondeur == profondeur){
       stack_pop(pp_stack);  
    }
@@ -121,15 +122,18 @@ void printstack (){
    {
    stack_s *pp = pp_stack;
       while ((pp)->prev != NULL){
-         printf("----------------------- %d ----------- \n",(pp)->address);
+         printf("--------- %d --- %d -----%s--- \n",(pp)->address ,(pp)->profondeur ,(pp)->id);
          pp = (pp)->prev;
          }
-      printf("----------------------- %d ----------- \n",(pp)->address);
+      printf("--------- %d --- %d -----%s--- \n",(pp)->address ,(pp)->profondeur ,(pp)->id);
+
+
+      printf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");
    }
 
 }
 
-//#if 0
+#if 0
 int main(){
    /* tests de la pile*/
 
@@ -149,4 +153,4 @@ int main(){
     printf("la profondeur est %d \n", profondeur);
     printf("%d \n",est_prest("toto"));
 }
-//#endif
+#endif

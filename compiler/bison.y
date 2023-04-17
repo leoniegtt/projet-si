@@ -31,12 +31,12 @@ void yyerror (const char *);
 %%
 program :
     %empty
-    | program function {printf("main program\n");}
+    | program function
     ;
 
 function :
-    tVOID tID tLPAR parameters tRPAR tLBRACE statement tRBRACE {printf("void function\n");}
-    | tINT tID tLPAR parameters tRPAR tLBRACE statement Return tSEMI tRBRACE {printf("int function\n");}
+    tVOID tID tLPAR parameters tRPAR tLBRACE statement tRBRACE
+    | tINT tID tLPAR parameters tRPAR tLBRACE statement Return tSEMI tRBRACE
 ;
 
 statement :
@@ -44,19 +44,19 @@ statement :
     /**/
     | declarations_int tSEMI statement
     | declarations_const tSEMI statement
-    | assign tSEMI statement {printf("assign\n");}
-    | while statement {printf("while\n");}
+    | assign tSEMI statement
+    | while statement
     | if statement
-    | print statement {printf("print\n");}
+    | print statement
 ;
 
 declarations_int : tINT declaration_int declarations1_int ;
 
 declaration_int :
     tID
-        { stack_push($1, 0); }
+        { stack_push($1); }
   | tID tASSIGN term
-        { stack_push($1, 1); };
+        { stack_push($1); };
 
 declarations1_int : %empty | tCOMMA declaration_int declarations1_int ;
 
@@ -64,9 +64,9 @@ declarations_const : tCONST declaration_const declarations1_const ;
 
 declaration_const :
     tID
-        { stack_push($1, 0); }
+        { stack_push($1); }
   | tID tASSIGN term
-        { stack_push($1, 1); };
+        { stack_push($1); };
 
 declarations1_const : %empty | tCOMMA declaration_const declarations1_const ;
 
@@ -82,11 +82,11 @@ parameter :
 ;
 
 assign :
-    tID tASSIGN term {printf("on push ici ?\n");}
+    tID tASSIGN term
 ;
 
 body :
-tLBRACE {/*inc;*/} statement tRBRACE {/*dec;*/} ;
+tLBRACE {inc();} statement tRBRACE {profondeur_pop();}
 
 while : 
     tWHILE tLPAR expression tRPAR body
@@ -97,12 +97,12 @@ print :
 ;
 
 Return :
-    tRETURN term {printf("return\n");}
+    tRETURN term
 ;
 
 if : 
-      tIF tLPAR expression tRPAR body {printf("simple if\n");}
-    | tIF tLPAR expression tRPAR body tELSE body {printf("if else\n");}
+      tIF tLPAR expression tRPAR body
+    | tIF tLPAR expression tRPAR body tELSE body
 ;
 
 term :
@@ -121,20 +121,20 @@ args :
 ;
 
 expression: 
-    term comparison term {printf("simple comp\n");}
-    | term comparison term tAND expression {printf("comp and\n");}
-    | term comparison term tOR expression {printf("comp or\n");}
-    | tNOT expression {printf("not comp\n");}
+    term comparison term
+    | term comparison term tAND expression
+    | term comparison term tOR expression
+    | tNOT expression
 ;
 
 
 comparison : 
-    tNE {printf("not eq\n");}
-    | tEQ {printf("eq\n");}
-    | tGE {printf("greater eq\n");}
-    | tLE {printf("less eq\n");}
-    | tLT {printf("less than\n");}
-    | tGT {printf("greater than\n");}
+    tNE
+    | tEQ
+    | tGE
+    | tLE
+    | tLT
+    | tGT
 ;
 
 

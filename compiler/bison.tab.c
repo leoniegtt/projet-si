@@ -1410,164 +1410,44 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 3:
-#line 34 "bison.y"
-                       {printf("main program\n");}
-#line 1417 "bison.tab.c"
-    break;
-
-  case 4:
-#line 38 "bison.y"
-                                                               {printf("void function\n");}
-#line 1423 "bison.tab.c"
-    break;
-
-  case 5:
-#line 39 "bison.y"
-                                                                             {printf("int function\n");}
-#line 1429 "bison.tab.c"
-    break;
-
-  case 9:
-#line 47 "bison.y"
-                             {printf("assign\n");}
-#line 1435 "bison.tab.c"
-    break;
-
-  case 10:
-#line 48 "bison.y"
-                      {printf("while\n");}
-#line 1441 "bison.tab.c"
-    break;
-
-  case 12:
-#line 50 "bison.y"
-                      {printf("print\n");}
-#line 1447 "bison.tab.c"
-    break;
-
   case 14:
 #line 57 "bison.y"
-        { stack_push((yyvsp[0].var), 0); }
-#line 1453 "bison.tab.c"
+        { stack_push((yyvsp[0].var)); }
+#line 1417 "bison.tab.c"
     break;
 
   case 15:
 #line 59 "bison.y"
-        { stack_push((yyvsp[-2].var), 1); }
-#line 1459 "bison.tab.c"
+        { stack_push((yyvsp[-2].var)); }
+#line 1423 "bison.tab.c"
     break;
 
   case 19:
 #line 67 "bison.y"
-        { stack_push((yyvsp[0].var), 0); }
-#line 1465 "bison.tab.c"
+        { stack_push((yyvsp[0].var)); }
+#line 1429 "bison.tab.c"
     break;
 
   case 20:
 #line 69 "bison.y"
-        { stack_push((yyvsp[-2].var), 1); }
-#line 1471 "bison.tab.c"
-    break;
-
-  case 28:
-#line 85 "bison.y"
-                     {printf("on push ici ?\n");}
-#line 1477 "bison.tab.c"
+        { stack_push((yyvsp[-2].var)); }
+#line 1435 "bison.tab.c"
     break;
 
   case 29:
 #line 89 "bison.y"
-        {/*inc;*/}
-#line 1483 "bison.tab.c"
+        {inc();}
+#line 1441 "bison.tab.c"
     break;
 
   case 30:
 #line 89 "bison.y"
-                                     {/*dec;*/}
-#line 1489 "bison.tab.c"
-    break;
-
-  case 33:
-#line 100 "bison.y"
-                 {printf("return\n");}
-#line 1495 "bison.tab.c"
-    break;
-
-  case 34:
-#line 104 "bison.y"
-                                      {printf("simple if\n");}
-#line 1501 "bison.tab.c"
-    break;
-
-  case 35:
-#line 105 "bison.y"
-                                                 {printf("if else\n");}
-#line 1507 "bison.tab.c"
-    break;
-
-  case 45:
-#line 124 "bison.y"
-                         {printf("simple comp\n");}
-#line 1513 "bison.tab.c"
-    break;
-
-  case 46:
-#line 125 "bison.y"
-                                           {printf("comp and\n");}
-#line 1519 "bison.tab.c"
-    break;
-
-  case 47:
-#line 126 "bison.y"
-                                          {printf("comp or\n");}
-#line 1525 "bison.tab.c"
-    break;
-
-  case 48:
-#line 127 "bison.y"
-                      {printf("not comp\n");}
-#line 1531 "bison.tab.c"
-    break;
-
-  case 49:
-#line 132 "bison.y"
-        {printf("not eq\n");}
-#line 1537 "bison.tab.c"
-    break;
-
-  case 50:
-#line 133 "bison.y"
-          {printf("eq\n");}
-#line 1543 "bison.tab.c"
-    break;
-
-  case 51:
-#line 134 "bison.y"
-          {printf("greater eq\n");}
-#line 1549 "bison.tab.c"
-    break;
-
-  case 52:
-#line 135 "bison.y"
-          {printf("less eq\n");}
-#line 1555 "bison.tab.c"
-    break;
-
-  case 53:
-#line 136 "bison.y"
-          {printf("less than\n");}
-#line 1561 "bison.tab.c"
-    break;
-
-  case 54:
-#line 137 "bison.y"
-          {printf("greater than\n");}
-#line 1567 "bison.tab.c"
+                                   {profondeur_pop();}
+#line 1447 "bison.tab.c"
     break;
 
 
-#line 1571 "bison.tab.c"
+#line 1451 "bison.tab.c"
 
       default: break;
     }

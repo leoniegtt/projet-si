@@ -11,4 +11,6 @@ void stack_pop ();
 void stack_delete ();
 void profondeur_pop ();
 int est_prest(char* id);
+void inc();
+void dec();
 #endif /* not H_PILE */
