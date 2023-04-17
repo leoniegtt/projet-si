@@ -43,6 +43,7 @@ statement :
     %empty
     /**/
     | declarations_int tSEMI statement
+    | declarations_const tSEMI statement
     | assign tSEMI statement {printf("assign\n");}
     | while statement {printf("while\n");}
     | if statement
@@ -58,6 +59,16 @@ declaration_int :
         { stack_push($1, 1); };
 
 declarations1_int : %empty | tCOMMA declaration_int declarations1_int ;
+
+declarations_const : tCONST declaration_const declarations1_const ;
+
+declaration_const :
+    tID
+        { stack_push($1, 0); }
+  | tID tASSIGN term
+        { stack_push($1, 1); };
+
+declarations1_const : %empty | tCOMMA declaration_const declarations1_const ;
 
 parameters :
       parameter
@@ -75,7 +86,7 @@ assign :
 ;
 
 body :
-tLBRACE {inc} statement tRBRACE {dec} ;
+tLBRACE {/*inc;*/} statement tRBRACE {/*dec;*/} ;
 
 while : 
     tWHILE tLPAR expression tRPAR body
