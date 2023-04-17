@@ -1,23 +1,21 @@
 int compute(int a, int d) {
-    //int b, c = a + d * 5;
+    int b, c = a + d * 5;
 
-    d = a;
+    b = a;
 
     while (c > 0) {
 
-      d = d + a * 4;
+      b = b + a * 4;
 
     }
 
-    return d;
-
+    return b;
 }
 
 
 void main(void) {
 
   const a = 1;
-  int b, c = a + d * 5;
 
   if (a == 3) {
 

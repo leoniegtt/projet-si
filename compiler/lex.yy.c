@@ -942,7 +942,7 @@ YY_RULE_SETUP
 case 32:
 YY_RULE_SETUP
 #line 60 "lex.l"
-{return tID;}
+{strcpy(yylval.var, yytext); return tID;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP

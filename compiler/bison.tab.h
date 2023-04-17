@@ -87,8 +87,8 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 9 "bison.y"
- int num; char* var ;
+#line 13 "bison.y"
+ int num; char var[16];
 
 #line 94 "bison.tab.h"
 

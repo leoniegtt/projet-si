@@ -7,7 +7,10 @@ int yylex (void);
 void yyerror (const char *);
 %}
 
-%union { int num; char* var ;}
+%define parse.error verbose
+%verbose
+
+%union { int num; char var[16];}
 
 %token tIF tELSE tWHILE 
 %token tPRINT tRETURN tINT tVOID tCONST
@@ -20,11 +23,14 @@ void yyerror (const char *);
 %token tAND tNOT tOR
 %token tEQ tNE tLT tLE tGT tGE
 
+%left tADD tSUB
+%left tMUL tDIV
+
 %start program
 
 %%
-program : 
-    /**/
+program :
+    %empty
     | program function {printf("main program\n");}
     ;
 
@@ -34,38 +40,45 @@ function :
 ;
 
 statement :
+    %empty
     /**/
-    | tCONST declare tSEMI statement {printf("declare const\n");}
-    | tINT declare tSEMI statement {printf("declare\n");}
+    | declarations_int tSEMI statement
     | assign tSEMI statement {printf("assign\n");}
     | while statement {printf("while\n");}
     | if statement
     | print statement {printf("print\n");}
 ;
 
+declarations_int : tINT declaration_int declarations1_int ;
+
+declaration_int :
+    tID
+        { stack_push($1, 0); }
+  | tID tASSIGN term
+        { stack_push($1, 1); };
+
+declarations1_int : %empty | tCOMMA declaration_int declarations1_int ;
+
 parameters :
-    parameter 
+      parameter
     | parameters tCOMMA parameter
 ;
 
-parameter :  
-    /**/
+parameter :
+    %empty
     | tVOID
     | tINT tID
 ;
 
 assign :
-    tID tASSIGN term 
+    tID tASSIGN term {printf("on push ici ?\n");}
 ;
 
-declare :
-    tID
-    | assign
-    | declare tCOMMA declare
-;
+body :
+tLBRACE {inc} statement tRBRACE {dec} ;
 
 while : 
-    tWHILE tLPAR expression tRPAR tLBRACE statement tRBRACE 
+    tWHILE tLPAR expression tRPAR body
 ;
 
 print : 
@@ -77,27 +90,23 @@ Return :
 ;
 
 if : 
-    tIF tLPAR expression tRPAR tLBRACE statement tRBRACE {printf("simple if\n");}
-    | tIF tLPAR expression tRPAR tLBRACE statement tRBRACE tELSE tLBRACE statement tRBRACE {printf("if else\n");}
+      tIF tLPAR expression tRPAR body {printf("simple if\n");}
+    | tIF tLPAR expression tRPAR body tELSE body {printf("if else\n");}
 ;
 
 term :
-    tID 
+      tID
     | tNB
-    | term operator term 
+    | term tSUB term
+    | term tADD term
+    | term tMUL term
+    | term tDIV term
     | tID tLPAR args tRPAR 
 ;
 
 args : 
     term 
     |term tCOMMA args
-;
-
-operator : 
-    | tSUB  {printf("SOU ");}
-    | tADD  {printf("ADD ");}
-    | tMUL  {printf("MUL ");}
-    | tDIV  {printf("DIV ");}
 ;
 
 expression: 

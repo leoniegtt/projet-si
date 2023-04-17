@@ -14,45 +14,44 @@ typedef struct stack
   
 } stack_s;
 
-void stack_push (stack_s ** pp_stack, char* id, int address , int profondeur)
+stack_s* pp_stack = NULL;
+int address = 0;
+
+void stack_push (char* id, int profondeur)
+{
+// insert element after p_p pointer
+  stack_s *p_p = pp_stack;
+  stack_s *p_l = NULL;
+
+// create element pointed by p_l
+  p_l = malloc (sizeof (stack_s));
+  if (p_l != NULL)
+  {
+     strcpy(p_l->id,id);
+     (*p_l).address = address++;
+     (*p_l).profondeur = profondeur ;
+// add new element at the end of the stack
+     p_l->next = NULL;
+     p_l->prev = p_p;
+     if (p_p != NULL)
+        p_p->next = p_l;
+// point pp_pile on new element
+     pp_stack = p_l;
+  }
+  else
+  {
+     fprintf (stderr, "Memoire insuffisante\n");
+     exit (EXIT_FAILURE);
+  }
+   return;
+}
+
+void stack_pop ()
 {
 
    if (pp_stack != NULL)
    {
-// insert element after p_p pointer
-      stack_s *p_p = *pp_stack;
-      stack_s *p_l = NULL;
-
-// create element pointed by p_l
-      p_l = malloc (sizeof (stack_s));
-      if (p_l != NULL)
-      {
-         strcpy(p_l->id,id);
-         (*p_l).address = address;
-         (*p_l).profondeur = profondeur ;
-// add new element at the end of the stack
-         p_l->next = NULL;
-         p_l->prev = p_p;
-         if (p_p != NULL)
-            p_p->next = p_l;
-// point pp_pile on new element
-         *pp_stack = p_l;
-      }
-      else
-      {
-         fprintf (stderr, "Memoire insuffisante\n");
-         exit (EXIT_FAILURE);
-      }
-   }
-   return;
-}
-
-void stack_pop (stack_s ** pp_stack)
-{
-
-   if (pp_stack != NULL && *pp_stack != NULL)
-   {
-      stack_s *p_l = *pp_stack;
+      stack_s *p_l = pp_stack;
       stack_s *p_p = p_l->prev;
 
       if (p_p != NULL)
@@ -60,28 +59,28 @@ void stack_pop (stack_s ** pp_stack)
       
       free (p_l);
       p_l = NULL;
-      *pp_stack = p_p;
+      pp_stack = p_p;
+      address--;
    }
    
 }
 
-void profondeur_pop (stack_s ** pp_stack)
+void profondeur_pop ()
 {
 
-    
-   int profondeur_actu = (*pp_stack)->profondeur;
+   int profondeur_actu = (pp_stack)->profondeur;
    printf("la prof est %d \n",profondeur_actu);
-   while ((*pp_stack)->profondeur == profondeur_actu){   
+   while ((pp_stack)->profondeur == profondeur_actu){
       stack_pop(pp_stack);  
    }
 }
 
- int est_prest(stack_s ** pp_stack,char* id)
+ int est_prest(char* id)
 {
    int est_pres=0;
-   if (pp_stack != NULL && *pp_stack != NULL)
+   if (pp_stack != NULL)
    {  
-      stack_s *pp = *pp_stack; 
+      stack_s *pp = pp_stack;
       while (pp != NULL){
          if( strcmp(((pp)->id), id) == 0 ){
             est_pres=1;
@@ -95,20 +94,17 @@ void profondeur_pop (stack_s ** pp_stack)
 }
 
 
-void stack_delete (stack_s ** pp_stack)
+void stack_delete ()
 {
-   if (pp_stack != NULL && *pp_stack != NULL)
-   {
-      while (*pp_stack != NULL)
+      while (pp_stack != NULL)
          stack_pop (pp_stack);
-   }
 
 }
 
-void printstack (stack_s ** pp_stack){
-   if (pp_stack != NULL && *pp_stack != NULL)
+void printstack (){
+   if (pp_stack != NULL)
    {
-   stack_s *pp = *pp_stack; 
+   stack_s *pp = pp_stack;
       while ((pp)->prev != NULL){
          printf("----------------------- %d ----------- \n",(pp)->address);
          pp = (pp)->prev;
@@ -117,6 +113,8 @@ void printstack (stack_s ** pp_stack){
    }
 
 }
+
+#if 0
 int main(){
    /* tests de la pile*/
     stack_s* mapile = NULL;
@@ -130,6 +128,5 @@ int main(){
     profondeur_pop(&mapile);
     printstack(&mapile);
     printf("%d \n",est_prest(&mapile , "tito"));
-
-
 }
+#endif

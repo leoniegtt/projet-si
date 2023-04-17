@@ -57,7 +57,7 @@ LETTER [a-zA-Z]
 "//".*             /* ignore single line comment */
 \/\*([^*]|\*+[^/])*\*+\/ /* ignore multiple line comment */
 
-{LETTER}({DIGIT}|{LETTER})*  {return tID;}
+{LETTER}({DIGIT}|{LETTER})*  {strcpy(yylval.var, yytext); return tID;}
 0x.[0-9a-zA-Z]+|[1-9]*[0-9]+|[1-9]*[0-9]+e[1-9]*[0-9]+  { return tNB;}
 
 .       {return tERROR;}
