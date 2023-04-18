@@ -17,6 +17,7 @@ typedef struct stack
 stack_s* pp_stack = NULL;
 int address = 0;
 int profondeur;
+int BP= 0;
 
 void inc (){
 profondeur ++;
@@ -26,17 +27,20 @@ void dec (){
 profondeur --;
 }
 
+void hautPile (){
+    BP = pp_stack->address;
+}
 void stack_push (char* id)
 {
     int est_pres;
     est_pres = est_prest(id);
     if (est_pres == 0)
     {
-        // insert element after p_p pointer
+      // insert element after p_p pointer
       stack_s *p_p = pp_stack;
       stack_s *p_l = NULL;
 
-    // create element pointed by p_l
+      // create element pointed by p_l
       p_l = malloc (sizeof (stack_s));
       if (p_l != NULL)
       {
@@ -45,12 +49,12 @@ void stack_push (char* id)
          (*p_l).address = address;
          address = address +4 ;
          (*p_l).profondeur = profondeur ;
-    // add new element at the end of the stack
+         // add new element at the end of the stack
          p_l->next = NULL;
          p_l->prev = p_p;
          if (p_p != NULL)
             p_p->next = p_l;
-    // point pp_pile on new element
+         // point pp_pile on new element
          pp_stack = p_l;
          printstack();
       }
@@ -63,6 +67,8 @@ void stack_push (char* id)
     else{}
        return;
     }
+
+
 
 void stack_pop ()
 {
@@ -91,7 +97,7 @@ void profondeur_pop (){
    dec();
 }
 
- int est_prest(char* id)
+int est_prest(char* id)
 {
    int est_pres=0;
    if (pp_stack != NULL)
@@ -106,7 +112,6 @@ void profondeur_pop (){
       }
       return est_pres;
    }
-   
 }
 
 
@@ -114,8 +119,13 @@ void stack_delete ()
 {
       while (pp_stack != NULL)
          stack_pop (pp_stack);
-
+         address = 0;
 }
+
+/*void call (char* id){
+    //boucle qui parcourt le fichier
+        if(ligne == "int "
+}*/
 
 void printstack (){
    if (pp_stack != NULL)
@@ -124,19 +134,16 @@ void printstack (){
       while ((pp)->prev != NULL){
          printf("--------- %d --- %d -----%s--- \n",(pp)->address ,(pp)->profondeur ,(pp)->id);
          pp = (pp)->prev;
-         }
+      }
       printf("--------- %d --- %d -----%s--- \n",(pp)->address ,(pp)->profondeur ,(pp)->id);
-
 
       printf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");
    }
-
 }
 
 #if 0
 int main(){
-   /* tests de la pile*/
-
+    // tests de la pile
     stack_push("toto");
     stack_push("titi");
     stack_push( "tata");

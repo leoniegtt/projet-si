@@ -13,6 +13,7 @@ int compute(int a, int d) {
 }
 
 
+
 void main(void) {
 
   const a = 1;
@@ -23,7 +24,7 @@ void main(void) {
 
   } else {
 
-    int b = compute(a, 2 * a);
+    int b = compute(a, 2 * a) ;
 
     print(b);
 

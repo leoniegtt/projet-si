@@ -35,8 +35,8 @@ program :
     ;
 
 function :
-    tVOID tID tLPAR parameters tRPAR tLBRACE statement tRBRACE
-    | tINT tID tLPAR parameters tRPAR tLBRACE statement Return tSEMI tRBRACE
+    {stack_delete();} tVOID tID tLPAR parameters tRPAR tLBRACE statement tRBRACE
+    | {stack_delete();} tINT tID tLPAR parameters tRPAR tLBRACE statement Return tSEMI tRBRACE
 ;
 
 statement :
@@ -66,7 +66,8 @@ declaration_const :
     tID
         { stack_push($1); }
   | tID tASSIGN term
-        { stack_push($1); };
+        { stack_push($1); }
+;
 
 declarations1_const : %empty | tCOMMA declaration_const declarations1_const ;
 
@@ -78,7 +79,7 @@ parameters :
 parameter :
     %empty
     | tVOID
-    | tINT tID
+    | tINT tID { stack_push($2); };
 ;
 
 assign :
@@ -108,11 +109,11 @@ if :
 term :
       tID
     | tNB
-    | term tSUB term
+    | term tSUB term {computation(3,$1, $3);}
     | term tADD term
     | term tMUL term
     | term tDIV term
-    | tID tLPAR args tRPAR 
+    | tID tLPAR args tRPAR
 ;
 
 args : 

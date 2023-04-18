@@ -13,4 +13,7 @@ void profondeur_pop ();
 int est_prest(char* id);
 void inc();
 void dec();
+void printstack ();
+void hautPile();
+
 #endif /* not H_PILE */
