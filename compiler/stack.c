@@ -10,8 +10,6 @@ typedef struct stack
    char id[20];
    int address;
    int profondeur;
-   /*char type[20];*/
-  
 } stack_s;
 
 stack_s* pp_stack = NULL;
@@ -26,51 +24,80 @@ profondeur ++;
 void dec (){
 profondeur --;
 }
+/*
+stack_s* getprev (){
+    return pp_stack->prev;}
+
+int getaddress(stack_s* pp){
+    return pp->address;
+}
+*/
 
 void hautPile (){
     BP = pp_stack->address;
 }
-void stack_push (char* id)
-{
-    int est_pres;
-    est_pres = est_prest(id);
-    if (est_pres == 0)
-    {
-      // insert element after p_p pointer
-      stack_s *p_p = pp_stack;
-      stack_s *p_l = NULL;
+void stack_push (char* id){
+    if (strcmp(id,"0")!=0){
+        int est_pres;
+        est_pres = est_prest(id);
+        if (est_pres == 0)
+        {
+          // insert element after p_p pointer
+          stack_s *p_p = pp_stack;
+          stack_s *p_l = NULL;
 
-      // create element pointed by p_l
-      p_l = malloc (sizeof (stack_s));
-      if (p_l != NULL)
-      {
-         strcpy(p_l->id,id);
+          // create element pointed by p_l
+          p_l = malloc (sizeof (stack_s));
+          if (p_l != NULL)
+          {
+             strcpy(p_l->id,id);
 
-         (*p_l).address = address;
-         address = address +4 ;
-         (*p_l).profondeur = profondeur ;
-         // add new element at the end of the stack
-         p_l->next = NULL;
-         p_l->prev = p_p;
-         if (p_p != NULL)
-            p_p->next = p_l;
-         // point pp_pile on new element
-         pp_stack = p_l;
-         printstack();
-      }
-      else
-      {
-         fprintf (stderr, "Memoire insuffisante\n");
-         exit (EXIT_FAILURE);
-      }
-    }
+             (*p_l).address = address;
+             address = address +4 ;
+             (*p_l).profondeur = profondeur ;
+             // add new element at the end of the stack
+             p_l->next = NULL;
+             p_l->prev = p_p;
+             if (p_p != NULL)
+                p_p->next = p_l;
+             // point pp_pile on new element
+             pp_stack = p_l;
+             printstack();
+          }
+          else
+          {
+             fprintf (stderr, "Memoire insuffisante\n");
+             exit (EXIT_FAILURE);
+          }
+        }
     else{}
+    }
+    else {// insert element after p_p pointer
+                stack_s *p_p = pp_stack;
+                stack_s *p_l = NULL;
+
+                // create element pointed by p_l
+                p_l = malloc (sizeof (stack_s));
+                if (p_l != NULL)
+                {
+                   strcpy(p_l->id,id);
+
+                   (*p_l).address = address;
+                   address = address +4 ;
+                   (*p_l).profondeur = profondeur ;
+                   // add new element at the end of the stack
+                   p_l->next = NULL;
+                   p_l->prev = p_p;
+                   if (p_p != NULL)
+                      p_p->next = p_l;
+                   // point pp_pile on new element
+                   pp_stack = p_l;
+                }
        return;
     }
+}
 
-
-
-void stack_pop ()
+int stack_pop ()
 {
 
    if (pp_stack != NULL)
@@ -80,13 +107,26 @@ void stack_pop ()
 
       if (p_p != NULL)
          p_p->next = NULL;
-      
+
+      return p_p->address;
+
       free (p_l);
       p_l = NULL;
       pp_stack = p_p;
       address--;
    }
-   
+}
+
+int find_element(char* id){
+    int found = 0;
+    while (pp_stack != NULL && !found){
+        if(strcmp(pp_stack->id , id ) != 0){
+            pp_stack = pp_stack->prev;
+        }
+        else found =1;
+
+    }
+    return pp_stack->address;
 }
 
 void profondeur_pop (){
@@ -118,14 +158,19 @@ int est_prest(char* id)
 void stack_delete ()
 {
       while (pp_stack != NULL)
-         stack_pop (pp_stack);
-         address = 0;
+         stack_pop ();
+      address = 0;
 }
 
 /*void call (char* id){
     //boucle qui parcourt le fichier
         if(ligne == "int "
 }*/
+void pop_tmp(){
+    while (strcmp(pp_stack->id,"0" )==0){
+        stack_pop();
+    }
+}
 
 void printstack (){
    if (pp_stack != NULL)
@@ -149,6 +194,11 @@ int main(){
     stack_push( "tata");
     stack_push( "tt");
     stack_push( "tt");
+    stack_push( "0");
+    stack_push( "0");
+    stack_push( "0");
+
+
     inc();
     stack_push( "ttd");
     printstack();
@@ -159,5 +209,10 @@ int main(){
     printstack();
     printf("la profondeur est %d \n", profondeur);
     printf("%d \n",est_prest("toto"));
+    printf("%d \n",find_element("tt"));
+     pop_tmp();
+     printstack();
+
+
 }
 #endif

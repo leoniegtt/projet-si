@@ -41,10 +41,9 @@ function :
 
 statement :
     %empty
-    /**/
     | declarations_int tSEMI statement
     | declarations_const tSEMI statement
-    | assign tSEMI statement
+    | assign tSEMI statement {pop_tmp();}; //delete all temp variable after computations
     | while statement
     | if statement
     | print statement
@@ -53,20 +52,16 @@ statement :
 declarations_int : tINT declaration_int declarations1_int ;
 
 declaration_int :
-    tID
-        { stack_push($1); }
-  | tID tASSIGN term
-        { stack_push($1); };
+    tID { stack_push($1); }
+  | tID tASSIGN term { stack_push($1); };
 
 declarations1_int : %empty | tCOMMA declaration_int declarations1_int ;
 
 declarations_const : tCONST declaration_const declarations1_const ;
 
 declaration_const :
-    tID
-        { stack_push($1); }
-  | tID tASSIGN term
-        { stack_push($1); }
+    tID { stack_push($1); }
+  | tID tASSIGN term { stack_push($1); }
 ;
 
 declarations1_const : %empty | tCOMMA declaration_const declarations1_const ;
@@ -87,7 +82,7 @@ assign :
 ;
 
 body :
-tLBRACE {inc();} statement tRBRACE {profondeur_pop();}
+    tLBRACE {inc();} statement tRBRACE {profondeur_pop();}
 
 while : 
     tWHILE tLPAR expression tRPAR body
@@ -107,10 +102,10 @@ if :
 ;
 
 term :
-      tID
-    | tNB
-    | term tSUB term {computation(3,$1, $3);}
-    | term tADD term
+      tID {stack_push("0");}
+    | tNB { stack_push("0");}
+    | term tSUB term {int op2 = stack_pop(); int op1, result = stack_pop(); printf("SOU %d %d %d\n", result,op1, op2  ) ;} /* getaddress(getprev()) , getaddress() , getaddress(getprev())) ; stack_pop();*/
+    | term tADD term {int op2 = stack_pop(); int op1, result = stack_pop(); printf("ADD %d %d %d\n" , result,op1, op2 ) ;}
     | term tMUL term
     | term tDIV term
     | tID tLPAR args tRPAR

@@ -1,4 +1,6 @@
-#include <stdio.h>
+//inutile
+
+/* #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -23,3 +25,4 @@ void computation(int opcode, int op1, int op2){
     //à l'addr de retour on a var1 à l'addr op 1 - var2 à l'addr op 2
     }
 }
+*/
