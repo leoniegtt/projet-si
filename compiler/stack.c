@@ -117,15 +117,6 @@ int stack_pop ()
       }
 
       return ret;
-
-      /*p_p->next = NULL;
-
-      return p_p->address;
-
-      free (p_l);
-      p_l = NULL;
-      pp_stack = p_p;
-      address--;*/
    }
 }
 
@@ -149,7 +140,6 @@ stack_s* tmp = pp_stack;
 }
 
 void profondeur_pop (){
-   //printf("je suis la la prof est %d\n",profondeur);
    while (pp_stack !=NULL && (pp_stack)->profondeur == profondeur){
       stack_pop(pp_stack);  
    }
@@ -181,10 +171,6 @@ void stack_delete ()
       address = 0;
 }
 
-/*void call (char* id){
-    //boucle qui parcourt le fichier
-        if(ligne == "int "
-}*/
 void pop_tmp(){
     while (strcmp(pp_stack->id,"0" )==0){
         stack_pop();
