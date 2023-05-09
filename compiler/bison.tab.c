@@ -544,10 +544,10 @@ static const yytype_uint8 yyrline[] =
 {
        0,    33,    33,    34,    38,    38,    39,    39,    43,    44,
       45,    46,    47,    48,    49,    52,    55,    56,    58,    58,
-      60,    63,    64,    67,    67,    70,    71,    75,    76,    77,
-      81,    85,    85,    88,    92,    96,   100,   101,   105,   106,
-     107,   108,   109,   110,   111,   115,   116,   120,   121,   122,
-     123,   128,   129,   130,   131,   132,   133
+      60,    63,    64,    67,    68,    71,    72,    76,    77,    78,
+      82,    86,    86,    89,    93,    97,   101,   102,   106,   107,
+     108,   109,   110,   111,   112,   116,   117,   121,   122,   123,
+     124,   129,   130,   131,   132,   133,   134
 };
 #endif
 
@@ -1436,7 +1436,7 @@ yyreduce:
 
   case 17:
 #line 56 "bison.y"
-                     { stack_push((yyvsp[-2].var)); }
+                     { stack_pop();  stack_push((yyvsp[-2].var)); }
 #line 1441 "bison.tab.c"
     break;
 
@@ -1453,44 +1453,44 @@ yyreduce:
     break;
 
   case 29:
-#line 77 "bison.y"
+#line 78 "bison.y"
                { stack_push((yyvsp[0].var)); }
 #line 1459 "bison.tab.c"
     break;
 
   case 31:
-#line 85 "bison.y"
+#line 86 "bison.y"
             {inc();}
 #line 1465 "bison.tab.c"
     break;
 
   case 32:
-#line 85 "bison.y"
+#line 86 "bison.y"
                                        {profondeur_pop();}
 #line 1471 "bison.tab.c"
     break;
 
   case 38:
-#line 105 "bison.y"
-          {stack_push("0");}
+#line 106 "bison.y"
+          {stack_push("0"); printf("COP %d %d\n", last_address(), find_element((yyvsp[0].var)));}
 #line 1477 "bison.tab.c"
     break;
 
   case 39:
-#line 106 "bison.y"
-          { stack_push("0");}
+#line 107 "bison.y"
+          { stack_push("0"); printf("AFC %d %d\n", last_address(), (yyvsp[0].num));}
 #line 1483 "bison.tab.c"
     break;
 
   case 40:
-#line 107 "bison.y"
-                     {int op2 = stack_pop(); int op1, result = stack_pop(); printf("SOU %d %d %d\n", result,op1, op2  ) ;}
+#line 108 "bison.y"
+                     {int op2 = stack_pop() ; int result = stack_pop(); int op1 = stack_pop() ; printf("SOU %d %d %d\n", result,op2, op1  ) ;}
 #line 1489 "bison.tab.c"
     break;
 
   case 41:
-#line 108 "bison.y"
-                     {int op2 = stack_pop(); int op1, result = stack_pop(); printf("ADD %d %d %d\n" , result,op1, op2 ) ;}
+#line 109 "bison.y"
+                     {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("ADD %d %d %d\n" , last_address(),op1, op2 ) ;}
 #line 1495 "bison.tab.c"
     break;
 
@@ -1727,7 +1727,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 137 "bison.y"
+#line 138 "bison.y"
 
 
 

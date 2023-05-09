@@ -58,6 +58,7 @@ LETTER [a-zA-Z]
 \/\*([^*]|\*+[^/])*\*+\/ /* ignore multiple line comment */
 
 {LETTER}({DIGIT}|{LETTER})*  {strcpy(yylval.var, yytext); return tID;}
+[1-9]*[0-9]+  { yylval.num = atoi(yytext); return tNB;}
 0x.[0-9a-zA-Z]+|[1-9]*[0-9]+|[1-9]*[0-9]+e[1-9]*[0-9]+  { return tNB;}
 
 .       {return tERROR;}

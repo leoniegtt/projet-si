@@ -354,8 +354,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 35
-#define YY_END_OF_BUFFER 36
+#define YY_NUM_RULES 36
+#define YY_END_OF_BUFFER 37
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -365,13 +365,13 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[85] =
     {   0,
-        0,    0,   36,   34,   29,   35,   22,   34,   25,   26,
+        0,    0,   37,   35,   29,   36,   22,   35,   25,   26,
        11,    9,   28,   10,   12,   33,   33,   27,   13,   19,
        14,   32,   32,   32,   32,   32,   32,   32,   32,   23,
-       34,   24,   29,   15,   20,    0,   30,   33,    0,    0,
+       35,   24,   29,   15,   20,    0,   30,   33,    0,    0,
        33,   18,   16,   17,   32,   32,   32,    1,   32,   32,
-       32,   32,   32,   21,    0,    0,   30,   33,   33,    0,
-       32,   32,    6,   32,   32,   32,   32,    0,   31,   33,
+       32,   32,   32,   21,    0,    0,   30,   34,   34,    0,
+       32,   32,    6,   32,   32,   32,   32,    0,   31,   34,
        32,    2,   32,   32,    8,   32,    0,   31,    7,    4,
        32,    3,    5,    0
     } ;
@@ -947,19 +947,24 @@ YY_RULE_SETUP
 case 33:
 YY_RULE_SETUP
 #line 61 "lex.l"
-{ return tNB;}
+{ yylval.num = atoi(yytext); return tNB;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 63 "lex.l"
-{return tERROR;}
+#line 62 "lex.l"
+{ return tNB;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 66 "lex.l"
+#line 64 "lex.l"
+{return tERROR;}
+	YY_BREAK
+case 36:
+YY_RULE_SETUP
+#line 67 "lex.l"
 ECHO;
 	YY_BREAK
-#line 963 "lex.yy.c"
+#line 968 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1927,7 +1932,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 66 "lex.l"
+#line 67 "lex.l"
 
 
 /* user code */  

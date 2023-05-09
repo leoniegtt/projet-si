@@ -37,6 +37,7 @@ void hautPile (){
     BP = pp_stack->address;
 }
 void stack_push (char* id){
+printf("?????????? %s\n", id);
     if (strcmp(id,"0")!=0){
         int est_pres;
         est_pres = est_prest(id);
@@ -72,6 +73,7 @@ void stack_push (char* id){
         }
     else{}
     }
+    //tmp var => arg = 0 (will be deleted after)
     else {// insert element after p_p pointer
                 stack_s *p_p = pp_stack;
                 stack_s *p_l = NULL;
@@ -105,28 +107,45 @@ int stack_pop ()
       stack_s *p_l = pp_stack;
       stack_s *p_p = p_l->prev;
 
-      if (p_p != NULL)
-         p_p->next = NULL;
+      int ret = pp_stack->address;
+      address-=4;
+      free(pp_stack);
+      pp_stack = p_p;
+
+      if (p_p != NULL) {
+      p_p ->next = NULL;
+      }
+
+      return ret;
+
+      /*p_p->next = NULL;
 
       return p_p->address;
 
       free (p_l);
       p_l = NULL;
       pp_stack = p_p;
-      address--;
+      address--;*/
    }
 }
 
+int last_address() {
+return pp_stack->address;
+}
+
 int find_element(char* id){
+stack_s* tmp = pp_stack;
     int found = 0;
-    while (pp_stack != NULL && !found){
-        if(strcmp(pp_stack->id , id ) != 0){
-            pp_stack = pp_stack->prev;
+    while (tmp != NULL && !found){
+        if(strcmp(tmp->id , id ) != 0){
+            tmp = tmp->prev;
         }
         else found =1;
 
     }
-    return pp_stack->address;
+    if (found)
+    return tmp->address;
+    else return -1;
 }
 
 void profondeur_pop (){

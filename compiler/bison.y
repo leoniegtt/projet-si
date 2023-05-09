@@ -53,7 +53,7 @@ declarations_int : tINT declaration_int declarations1_int ;
 
 declaration_int :
     tID { stack_push($1); }
-  | tID tASSIGN term { stack_push($1); };
+  | tID tASSIGN term { stack_pop();  stack_push($1); };
 
 declarations1_int : %empty | tCOMMA declaration_int declarations1_int ;
 
@@ -64,7 +64,8 @@ declaration_const :
   | tID tASSIGN term { stack_push($1); }
 ;
 
-declarations1_const : %empty | tCOMMA declaration_const declarations1_const ;
+declarations1_const : %empty
+    | tCOMMA declaration_const declarations1_const ;
 
 parameters :
       parameter
@@ -102,10 +103,10 @@ if :
 ;
 
 term :
-      tID {stack_push("0");}
-    | tNB { stack_push("0");}
-    | term tSUB term {int op2 = stack_pop(); int op1, result = stack_pop(); printf("SOU %d %d %d\n", result,op1, op2  ) ;} /* getaddress(getprev()) , getaddress() , getaddress(getprev())) ; stack_pop();*/
-    | term tADD term {int op2 = stack_pop(); int op1, result = stack_pop(); printf("ADD %d %d %d\n" , result,op1, op2 ) ;}
+      tID {stack_push("0"); printf("COP %d %d\n", last_address(), find_element($1));}
+    | tNB { stack_push("0"); printf("AFC %d %d\n", last_address(), $1);}
+    | term tSUB term {int op2 = stack_pop() ; int result = stack_pop(); int op1 = stack_pop() ; printf("SOU %d %d %d\n", result,op2, op1  ) ;}
+    | term tADD term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("ADD %d %d %d\n" , last_address(),op1, op2 ) ;}
     | term tMUL term
     | term tDIV term
     | tID tLPAR args tRPAR
