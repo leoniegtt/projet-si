@@ -100,15 +100,17 @@ Return :
 if : 
       tIF tLPAR expression tRPAR body
     | tIF tLPAR expression tRPAR body tELSE body
+    |  tIF tLPAR logique tRPAR body
+    | tIF tLPAR logique tRPAR body tELSE body
 ;
 
 term :
       tID {stack_push("0"); printf("COP %d %d\n", last_address(), find_element($1));}
     | tNB { stack_push("0"); printf("AFC %d %d\n", last_address(), $1);}
-    | term tSUB term {int op2 = stack_pop() ; int result = stack_pop(); int op1 = stack_pop() ; printf("SOU %d %d %d\n", result,op2, op1  ) ;}
+    | term tSUB term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("SOU %d %d %d\n" , last_address(),op1, op2 ) ;}
     | term tADD term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("ADD %d %d %d\n" , last_address(),op1, op2 ) ;}
-    | term tMUL term
-    | term tDIV term
+    | term tMUL term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("MUL %d %d %d\n" , last_address(),op1, op2 ) ;}
+    | term tDIV term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("DIV %d %d %d\n" , last_address(),op1, op2 ) ;}
     | tID tLPAR args tRPAR
 ;
 
@@ -118,21 +120,20 @@ args :
 ;
 
 expression: 
-    term comparison term
-    | term comparison term tAND expression
-    | term comparison term tOR expression
-    | tNOT expression
+    term tNE term {printf("not equal\n") ;}
+    |term tEQ term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("EQU %d %d %d\n" , last_address(),op1, op2 ) ;}
+    |term tGE term {printf("greater or equal\n") ;}
+    |term tLE term {printf("less or equal\n") ;}
+    |term tLT term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("INF %d %d %d\n" , last_address(),op1, op2 ) ;}
+    |term tGT term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("SUP %d %d %d\n" , last_address(),op1, op2 ) ;}
+;
+logique :
+    expression tAND expression {printf("and\n") ;}
+    | expression tOR expression {printf("or\n") ;}
+    | tNOT expression {printf("not\n") ;}
 ;
 
 
-comparison : 
-    tNE
-    | tEQ
-    | tGE
-    | tLE
-    | tLT
-    | tGT
-;
 
 
 %%

@@ -1,5 +1,5 @@
 int compute(int a, int d) {
-   /* int b, c = a + d * 5;
+   int b, c = a + d * 5;
 
     b = a;
 
@@ -8,12 +8,10 @@ int compute(int a, int d) {
       b = b + a * 4;
 
     }
-*/
+
     int b = 5-4;
     return b;
 }
-
-
 
 void main(void) {
 
@@ -30,5 +28,4 @@ void main(void) {
     print(b);
 
   }
-
 }

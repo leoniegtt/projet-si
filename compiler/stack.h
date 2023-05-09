@@ -15,6 +15,7 @@ void profondeur_pop ();
 int est_prest(char* id);
 void inc();
 void dec();
+int last_address();
 int find_element(char* id);
 void printstack ();
 void hautPile();
