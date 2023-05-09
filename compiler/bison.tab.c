@@ -71,11 +71,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "stack.h"
+#include "instructions.h"
+
 int yylex (void);
 void yyerror (const char *);
 
-#line 79 "bison.tab.c"
+#line 82 "bison.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -161,10 +164,10 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 13 "bison.y"
+#line 16 "bison.y"
  int num; char var[16];
 
-#line 168 "bison.tab.c"
+#line 171 "bison.tab.c"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -542,12 +545,12 @@ static const yytype_int8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    33,    33,    34,    38,    38,    39,    39,    43,    44,
-      45,    46,    47,    48,    49,    52,    55,    56,    58,    58,
-      60,    63,    64,    67,    68,    71,    72,    76,    77,    78,
-      82,    86,    86,    89,    93,    97,   101,   102,   103,   104,
-     108,   109,   110,   111,   112,   113,   114,   118,   119,   123,
-     124,   125,   126,   127,   128,   131,   132,   133
+       0,    36,    36,    37,    41,    41,    42,    42,    46,    47,
+      48,    49,    50,    51,    52,    55,    58,    59,    61,    61,
+      63,    66,    67,    70,    71,    74,    75,    79,    80,    81,
+      85,    89,    89,    92,    96,   100,   104,   105,   106,   107,
+     111,   112,   113,   114,   115,   116,   117,   121,   122,   126,
+     127,   128,   129,   130,   131,   134,   135,   136
 };
 #endif
 
@@ -1414,157 +1417,157 @@ yyreduce:
   switch (yyn)
     {
   case 4:
-#line 38 "bison.y"
+#line 41 "bison.y"
     {stack_delete();}
-#line 1420 "bison.tab.c"
+#line 1423 "bison.tab.c"
     break;
 
   case 6:
-#line 39 "bison.y"
+#line 42 "bison.y"
       {stack_delete();}
-#line 1426 "bison.tab.c"
+#line 1429 "bison.tab.c"
     break;
 
   case 11:
-#line 46 "bison.y"
+#line 49 "bison.y"
                              {pop_tmp();}
-#line 1432 "bison.tab.c"
+#line 1435 "bison.tab.c"
     break;
 
   case 16:
-#line 55 "bison.y"
+#line 58 "bison.y"
         { stack_push((yyvsp[0].var)); }
-#line 1438 "bison.tab.c"
+#line 1441 "bison.tab.c"
     break;
 
   case 17:
-#line 56 "bison.y"
+#line 59 "bison.y"
                      { stack_pop();  stack_push((yyvsp[-2].var)); }
-#line 1444 "bison.tab.c"
+#line 1447 "bison.tab.c"
     break;
 
   case 21:
-#line 63 "bison.y"
+#line 66 "bison.y"
         { stack_push((yyvsp[0].var)); }
-#line 1450 "bison.tab.c"
+#line 1453 "bison.tab.c"
     break;
 
   case 22:
-#line 64 "bison.y"
+#line 67 "bison.y"
                      { stack_push((yyvsp[-2].var)); }
-#line 1456 "bison.tab.c"
+#line 1459 "bison.tab.c"
     break;
 
   case 29:
-#line 78 "bison.y"
+#line 81 "bison.y"
                { stack_push((yyvsp[0].var)); }
-#line 1462 "bison.tab.c"
+#line 1465 "bison.tab.c"
     break;
 
   case 31:
-#line 86 "bison.y"
+#line 89 "bison.y"
             {inc();}
-#line 1468 "bison.tab.c"
+#line 1471 "bison.tab.c"
     break;
 
   case 32:
-#line 86 "bison.y"
+#line 89 "bison.y"
                                        {profondeur_pop();}
-#line 1474 "bison.tab.c"
+#line 1477 "bison.tab.c"
     break;
 
   case 40:
-#line 108 "bison.y"
+#line 111 "bison.y"
           {stack_push("0"); printf("COP %d %d\n", last_address(), find_element((yyvsp[0].var)));}
-#line 1480 "bison.tab.c"
+#line 1483 "bison.tab.c"
     break;
 
   case 41:
-#line 109 "bison.y"
+#line 112 "bison.y"
           { stack_push("0"); printf("AFC %d %d\n", last_address(), (yyvsp[0].num));}
-#line 1486 "bison.tab.c"
+#line 1489 "bison.tab.c"
     break;
 
   case 42:
-#line 110 "bison.y"
-                     {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("SOU %d %d %d\n" , last_address(),op1, op2 ) ;}
-#line 1492 "bison.tab.c"
+#line 113 "bison.y"
+                     {sub_ins();}
+#line 1495 "bison.tab.c"
     break;
 
   case 43:
-#line 111 "bison.y"
-                     {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("ADD %d %d %d\n" , last_address(),op1, op2 ) ;}
-#line 1498 "bison.tab.c"
+#line 114 "bison.y"
+                     {add_ins();}
+#line 1501 "bison.tab.c"
     break;
 
   case 44:
-#line 112 "bison.y"
-                     {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("MUL %d %d %d\n" , last_address(),op1, op2 ) ;}
-#line 1504 "bison.tab.c"
+#line 115 "bison.y"
+                     {mul_ins();}
+#line 1507 "bison.tab.c"
     break;
 
   case 45:
-#line 113 "bison.y"
-                     {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("DIV %d %d %d\n" , last_address(),op1, op2 ) ;}
-#line 1510 "bison.tab.c"
+#line 116 "bison.y"
+                     {div_ins();}
+#line 1513 "bison.tab.c"
     break;
 
   case 49:
-#line 123 "bison.y"
+#line 126 "bison.y"
                   {printf("not equal\n") ;}
-#line 1516 "bison.tab.c"
+#line 1519 "bison.tab.c"
     break;
 
   case 50:
-#line 124 "bison.y"
+#line 127 "bison.y"
                    {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("EQU %d %d %d\n" , last_address(),op1, op2 ) ;}
-#line 1522 "bison.tab.c"
+#line 1525 "bison.tab.c"
     break;
 
   case 51:
-#line 125 "bison.y"
+#line 128 "bison.y"
                    {printf("greater or equal\n") ;}
-#line 1528 "bison.tab.c"
+#line 1531 "bison.tab.c"
     break;
 
   case 52:
-#line 126 "bison.y"
+#line 129 "bison.y"
                    {printf("less or equal\n") ;}
-#line 1534 "bison.tab.c"
+#line 1537 "bison.tab.c"
     break;
 
   case 53:
-#line 127 "bison.y"
+#line 130 "bison.y"
                    {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("INF %d %d %d\n" , last_address(),op1, op2 ) ;}
-#line 1540 "bison.tab.c"
+#line 1543 "bison.tab.c"
     break;
 
   case 54:
-#line 128 "bison.y"
+#line 131 "bison.y"
                    {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("SUP %d %d %d\n" , last_address(),op1, op2 ) ;}
-#line 1546 "bison.tab.c"
+#line 1549 "bison.tab.c"
     break;
 
   case 55:
-#line 131 "bison.y"
+#line 134 "bison.y"
                                {printf("and\n") ;}
-#line 1552 "bison.tab.c"
+#line 1555 "bison.tab.c"
     break;
 
   case 56:
-#line 132 "bison.y"
+#line 135 "bison.y"
                                 {printf("or\n") ;}
-#line 1558 "bison.tab.c"
+#line 1561 "bison.tab.c"
     break;
 
   case 57:
-#line 133 "bison.y"
+#line 136 "bison.y"
                       {printf("not\n") ;}
-#line 1564 "bison.tab.c"
+#line 1567 "bison.tab.c"
     break;
 
 
-#line 1568 "bison.tab.c"
+#line 1571 "bison.tab.c"
 
       default: break;
     }
@@ -1796,7 +1799,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 139 "bison.y"
+#line 142 "bison.y"
 
 
 

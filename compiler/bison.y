@@ -2,7 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "stack.h"
+#include "instructions.h"
+
 int yylex (void);
 void yyerror (const char *);
 %}
@@ -107,10 +110,10 @@ if :
 term :
       tID {stack_push("0"); printf("COP %d %d\n", last_address(), find_element($1));}
     | tNB { stack_push("0"); printf("AFC %d %d\n", last_address(), $1);}
-    | term tSUB term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("SOU %d %d %d\n" , last_address(),op1, op2 ) ;}
-    | term tADD term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("ADD %d %d %d\n" , last_address(),op1, op2 ) ;}
-    | term tMUL term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("MUL %d %d %d\n" , last_address(),op1, op2 ) ;}
-    | term tDIV term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("DIV %d %d %d\n" , last_address(),op1, op2 ) ;}
+    | term tSUB term {sub_ins();}
+    | term tADD term {add_ins();}
+    | term tMUL term {mul_ins();}
+    | term tDIV term {div_ins();}
     | tID tLPAR args tRPAR
 ;
 

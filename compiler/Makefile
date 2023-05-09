@@ -1,7 +1,7 @@
 all: parser
 
-parser: lex.yy.c bison.tab.c bison.tab.h stack.h stack.c
-	gcc -g -o parser bison.tab.c lex.yy.c stack.c
+parser: lex.yy.c bison.tab.c bison.tab.h stack.h stack.c instructions.h instructions.c
+	gcc -g -o parser bison.tab.c lex.yy.c stack.c instructions.c
 
 lex.yy.c: lex.l bison.tab.h
 	flex lex.l
