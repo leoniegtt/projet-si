@@ -108,8 +108,8 @@ if :
 ;
 
 term :
-      tID {stack_push("0"); printf("COP %d %d\n", last_address(), find_element($1));}
-    | tNB { stack_push("0"); printf("AFC %d %d\n", last_address(), $1);}
+      tID {cop_ins((int) $1);} //to check
+    | tNB { afc_ins((int) $1);} //to check
     | term tSUB term {sub_ins();}
     | term tADD term {add_ins();}
     | term tMUL term {mul_ins();}
@@ -151,5 +151,6 @@ void yyerror(const char *msg) {
 //main function
 int main (int argc, char **argv){
   yyparse();
+  main1();
 }
 

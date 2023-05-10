@@ -87,3 +87,33 @@ void sup_ins() {
     k=k+1;
     printf("DIV %d %d %d\n" , last_address(),op1, op2 ) ;
 }
+
+void cop_ins(int arg){
+    int op1 = last_address();
+    int op2 = find_element(arg) ;
+    stack_push("0"); //temp var
+    instructions[k][0] = 5;
+    instructions[k][1] = op1;
+    instructions[k][2] = op2;
+    k=k+1;
+    printf("COP %d %d\n", op1, op2);
+}
+
+void afc_ins(int arg){
+    int op1 = last_address();
+    stack_push("0"); //temp var
+    instructions[k][0] = 6;
+    instructions[k][1] = op1;
+    instructions[k][2] = arg;
+    k=k+1;
+    printf("AFC %d %d\n", op1, arg);
+}
+
+void main1(){
+    for (int i =0 ; i<1024 ; i++){
+        for (int j = 0 ; j<4 ; j++){
+        printf("%d",instructions[i][j]);}
+    printf("\n");
+    }
+
+}

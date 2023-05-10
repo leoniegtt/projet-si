@@ -1478,13 +1478,13 @@ yyreduce:
 
   case 40:
 #line 111 "bison.y"
-          {stack_push("0"); printf("COP %d %d\n", last_address(), find_element((yyvsp[0].var)));}
+          {cop_ins((int) (yyvsp[0].var));}
 #line 1483 "bison.tab.c"
     break;
 
   case 41:
 #line 112 "bison.y"
-          { stack_push("0"); printf("AFC %d %d\n", last_address(), (yyvsp[0].num));}
+          { afc_ins((int) (yyvsp[0].num));}
 #line 1489 "bison.tab.c"
     break;
 
@@ -1812,5 +1812,6 @@ void yyerror(const char *msg) {
 //main function
 int main (int argc, char **argv){
   yyparse();
+  main1();
 }
 
