@@ -91,7 +91,7 @@ void sup_ins() {
 void cop_ins(int arg){
     int op1 = arg;
     int op2 =  last_address();
-    stack_pop(); //temp var
+    //stack_pop(); //temp var
     instructions[k][0] = 5;
     instructions[k][1] = op1;
     instructions[k][2] = op2;

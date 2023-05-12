@@ -99,18 +99,18 @@ Return :
 ;
 
 if : 
-      tIF tLPAR expression tRPAR body
+      tIF tLPAR expression tRPAR body {/*stack_push('0');*/}
     | tIF tLPAR expression tRPAR body tELSE body
     |  tIF tLPAR logique tRPAR body
     | tIF tLPAR logique tRPAR body tELSE body
 ;
 
 assign :
-    tID tASSIGN term {cop_ins( find_element($1));}
+    tID tASSIGN term {cop_ins( find_element($1));stack_pop();}
 ;
 
 term :
-      tID {/*cop_ins( find_element($1));*/ printf("j'ai un id\n");}
+      tID {cop_ins(find_element($1));}
     | tNB {int arg = $1; afc_ins( arg);}
     | term tSUB term {sub_ins();}
     | term tADD term {add_ins();}

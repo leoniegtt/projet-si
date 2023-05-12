@@ -1476,104 +1476,110 @@ yyreduce:
 #line 1477 "bison.tab.c"
     break;
 
+  case 35:
+#line 102 "bison.y"
+                                      {/*stack_push('0');*/}
+#line 1483 "bison.tab.c"
+    break;
+
   case 39:
 #line 109 "bison.y"
-                     {cop_ins( find_element((yyvsp[-2].var)));}
-#line 1483 "bison.tab.c"
+                     {cop_ins( find_element((yyvsp[-2].var)));stack_pop();}
+#line 1489 "bison.tab.c"
     break;
 
   case 40:
 #line 113 "bison.y"
-          {/*cop_ins( find_element($1));*/ printf("j'ai un id\n");}
-#line 1489 "bison.tab.c"
+          {cop_ins(find_element((yyvsp[0].var)));}
+#line 1495 "bison.tab.c"
     break;
 
   case 41:
 #line 114 "bison.y"
           {int arg = (yyvsp[0].num); afc_ins( arg);}
-#line 1495 "bison.tab.c"
+#line 1501 "bison.tab.c"
     break;
 
   case 42:
 #line 115 "bison.y"
                      {sub_ins();}
-#line 1501 "bison.tab.c"
+#line 1507 "bison.tab.c"
     break;
 
   case 43:
 #line 116 "bison.y"
                      {add_ins();}
-#line 1507 "bison.tab.c"
+#line 1513 "bison.tab.c"
     break;
 
   case 44:
 #line 117 "bison.y"
                      {mul_ins();}
-#line 1513 "bison.tab.c"
+#line 1519 "bison.tab.c"
     break;
 
   case 45:
 #line 118 "bison.y"
                      {div_ins();}
-#line 1519 "bison.tab.c"
+#line 1525 "bison.tab.c"
     break;
 
   case 49:
 #line 128 "bison.y"
                   {printf("not equal\n") ;}
-#line 1525 "bison.tab.c"
+#line 1531 "bison.tab.c"
     break;
 
   case 50:
 #line 129 "bison.y"
                    {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("EQU %d %d %d\n" , last_address(),op1, op2 ) ;}
-#line 1531 "bison.tab.c"
+#line 1537 "bison.tab.c"
     break;
 
   case 51:
 #line 130 "bison.y"
                    {printf("greater or equal\n") ;}
-#line 1537 "bison.tab.c"
+#line 1543 "bison.tab.c"
     break;
 
   case 52:
 #line 131 "bison.y"
                    {printf("less or equal\n") ;}
-#line 1543 "bison.tab.c"
+#line 1549 "bison.tab.c"
     break;
 
   case 53:
 #line 132 "bison.y"
                    {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("INF %d %d %d\n" , last_address(),op1, op2 ) ;}
-#line 1549 "bison.tab.c"
+#line 1555 "bison.tab.c"
     break;
 
   case 54:
 #line 133 "bison.y"
                    {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("SUP %d %d %d\n" , last_address(),op1, op2 ) ;}
-#line 1555 "bison.tab.c"
+#line 1561 "bison.tab.c"
     break;
 
   case 55:
 #line 136 "bison.y"
                                {printf("and\n") ;}
-#line 1561 "bison.tab.c"
+#line 1567 "bison.tab.c"
     break;
 
   case 56:
 #line 137 "bison.y"
                                 {printf("or\n") ;}
-#line 1567 "bison.tab.c"
+#line 1573 "bison.tab.c"
     break;
 
   case 57:
 #line 138 "bison.y"
                       {printf("not\n") ;}
-#line 1573 "bison.tab.c"
+#line 1579 "bison.tab.c"
     break;
 
 
-#line 1577 "bison.tab.c"
+#line 1583 "bison.tab.c"
 
       default: break;
     }
