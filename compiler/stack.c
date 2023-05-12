@@ -178,6 +178,7 @@ void pop_tmp(){
     }
 }
 
+int get_profondeur(){return profondeur;}
 void printstack (){
    if (pp_stack != NULL)
    {

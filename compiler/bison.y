@@ -83,13 +83,6 @@ parameter :
 
 
 
-body :
-    tLBRACE {inc();} statement tRBRACE {profondeur_pop();}
-
-while : 
-    tWHILE tLPAR expression tRPAR body
-;
-
 print : 
     tPRINT tLPAR tID tRPAR tSEMI
 ;
@@ -98,12 +91,19 @@ Return :
     tRETURN term
 ;
 
+while :
+    tWHILE tLPAR expression tRPAR body
+;
+
 if : 
-      tIF tLPAR expression tRPAR body {/*stack_push('0');*/}
+      tIF tLPAR expression tRPAR body
     | tIF tLPAR expression tRPAR body tELSE body
     |  tIF tLPAR logique tRPAR body
     | tIF tLPAR logique tRPAR body tELSE body
 ;
+
+body :
+    tLBRACE statement tRBRACE {profondeur_pop();}
 
 assign :
     tID tASSIGN term {cop_ins( find_element($1));stack_pop();}
@@ -119,13 +119,14 @@ term :
     | tID tLPAR args tRPAR
 ;
 
-args : 
+args :
     term 
     |term tCOMMA args
 ;
 
-expression: 
-    term tNE term {printf("not equal\n") ;}
+expression:
+    tID{ stack_push("0") ; inc();cop_if(find_element($1)) ; }
+    |term tNE term {printf("not equal\n") ;}
     |term tEQ term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("EQU %d %d %d\n" , last_address(),op1, op2 ) ;}
     |term tGE term {printf("greater or equal\n") ;}
     |term tLE term {printf("less or equal\n") ;}
