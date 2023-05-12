@@ -12,5 +12,5 @@ bison.tab.c bison.tab.h: bison.y
 clean:
 	rm parser bison.tab.c lex.yy.c bison.tab.h parser.output
 
-test: parser test2.c
-	./parser < test2.c
+test: parser test.c
+	./parser < test.c

@@ -15,7 +15,7 @@ int compute(int a, int d) {
 
 void main(void) {
 
-  const a = 1;
+  int a = 1;
 
   if (a == 3) {
 

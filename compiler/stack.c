@@ -121,7 +121,8 @@ int stack_pop ()
 }
 
 int last_address() {
-return pp_stack->address;
+    if (pp_stack == NULL) {return 0;}
+    return pp_stack->address;
 }
 
 int find_element(char* id){

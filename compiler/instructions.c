@@ -89,9 +89,9 @@ void sup_ins() {
 }
 
 void cop_ins(int arg){
-    int op1 = last_address();
-    int op2 = find_element(arg) ;
-    stack_push("0"); //temp var
+    int op1 = arg;
+    int op2 =  last_address();
+    stack_pop(); //temp var
     instructions[k][0] = 5;
     instructions[k][1] = op1;
     instructions[k][2] = op2;
@@ -100,8 +100,10 @@ void cop_ins(int arg){
 }
 
 void afc_ins(int arg){
+    stack_push("0");
     int op1 = last_address();
-    stack_push("0"); //temp var
+    //int op1 = 1;
+    //temp var
     instructions[k][0] = 6;
     instructions[k][1] = op1;
     instructions[k][2] = arg;

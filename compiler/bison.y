@@ -64,7 +64,7 @@ declarations_const : tCONST declaration_const declarations1_const ;
 
 declaration_const :
     tID { stack_push($1); }
-  | tID tASSIGN term { stack_push($1); }
+  | tID tASSIGN term { stack_push($1);  }
 ;
 
 declarations1_const : %empty
@@ -81,9 +81,7 @@ parameter :
     | tINT tID { stack_push($2); };
 ;
 
-assign :
-    tID tASSIGN term
-;
+
 
 body :
     tLBRACE {inc();} statement tRBRACE {profondeur_pop();}
@@ -107,9 +105,13 @@ if :
     | tIF tLPAR logique tRPAR body tELSE body
 ;
 
+assign :
+    tID tASSIGN term {cop_ins( find_element($1));}
+;
+
 term :
-      tID {cop_ins((int) $1);} //to check
-    | tNB { afc_ins((int) $1);} //to check
+      tID {/*cop_ins( find_element($1));*/ printf("j'ai un id\n");}
+    | tNB {int arg = $1; afc_ins( arg);}
     | term tSUB term {sub_ins();}
     | term tADD term {add_ins();}
     | term tMUL term {mul_ins();}
