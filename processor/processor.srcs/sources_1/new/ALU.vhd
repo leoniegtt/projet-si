@@ -46,38 +46,47 @@ end ALU;
 
 architecture Behavioral of ALU is
     
-    signal Aux1 : STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
-    signal Aux2 : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
-    signal Aux3 : STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
+    signal Aux1 : STD_LOGIC_VECTOR (15 downto 0) := (others => '0'); --signal aux pour MUL
+    signal Aux2 : STD_LOGIC_VECTOR (8 downto 0) := (others => '0'); --signal aux pour ADD
+    signal Aux3 : STD_LOGIC_VECTOR (7 downto 0) := (others => '0'); --signal aux pour SUB
+    signal S_inter : STD_LOGIC_VECTOR (7 downto 0) := (others => '0'); --signal aux pour testSortie
   begin
   
+  S <= S_inter;
+  with S_inter select 
+    Z <= '1' when "00000000",
+    '0' when others; 
+     
 
-  process       
+  process (A,B,Ctrl_Alu,Aux1, Aux2, Aux3)     
+   
     begin
+    
         if (Ctrl_Alu="001") then --ADD
-            Aux2 <=(A + B);
+            Aux2 <=(('0' & A) + ('0' & B));
             C <= Aux2 (8);
-            S <= Aux2 (7 downto 0);
+            S_inter <= Aux2 (7 downto 0);
         elsif (Ctrl_Alu="010") then --MUL
+
             Aux1 <=(A * B);
             if (Aux1 > "0000000011111111") then
                 O <= '1'; -- overflow
             end if;
-            S <= Aux1 (7 downto 0);
+            S_inter <= Aux1 (7 downto 0);
         elsif (Ctrl_Alu="011") then --SUB
             if (A < B) then
+                Aux3 <= (B-A);
                 N <= '1';
+                S_inter <= Aux3 (7 downto 0);
+            else
+                Aux3 <=(A - B);
+                S_inter <= Aux3 (7 downto 0);
             end if;
-            Aux <=(A - B);
-            S <= Aux (7 downto 0);
-        elsif (Ctrl_Alu="100") then --DIV
-           std_logic_
-     
-                
-                
-            
-            S <= Aux (7 downto 0);
+        --elsif (Ctrl_Alu="100") then --DIV
+           --rien (on ne gère pas la div)
+          -- Aux3 <= std_logic_vector(to_unsigned(to_integer(unsigned(A)) / to_integer(unsigned(B)),8)) ;
+         --   S <= Aux3(7 downto 0);
         end if;
-        end process;
-   
+end process;
+        
 end Behavioral;
