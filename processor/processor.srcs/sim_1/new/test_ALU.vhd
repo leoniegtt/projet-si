@@ -76,19 +76,20 @@ ALUtest : ALU PORT MAP (
 --A_test <= "00010000";
 --B_test <= "00010000";
 --Ctrl_Alu_test <= "011";
+
 --test sub S<0
---A_test <= "00000100";
---B_test <= "00010000";
---Ctrl_Alu_test <= "011";
+A_test <= "00000100";
+B_test <= "00010000";
+Ctrl_Alu_test <= "011";
 
 ----test mul
 --A_test <= "10000000";
 --B_test <= "10000000";
 --Ctrl_Alu_test <= "010";
 ----test mul
-A_test <= "11111111";
-B_test <= "11111111";
-Ctrl_Alu_test <= "010";
+--A_test <= "11111111";
+--B_test <= "11111111";
+--Ctrl_Alu_test <= "010";
 
 
 end Behavioral;

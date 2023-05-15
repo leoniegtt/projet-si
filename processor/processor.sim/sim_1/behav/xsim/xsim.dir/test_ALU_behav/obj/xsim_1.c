@@ -43,14 +43,14 @@
 #define alloca _alloca
 #endif
 typedef void (*funcp)(char *, char *);
-extern void execute_38(char*, char *);
-extern void execute_39(char*, char *);
-extern void execute_40(char*, char *);
-extern void execute_35(char*, char *);
 extern void execute_36(char*, char *);
 extern void execute_37(char*, char *);
+extern void execute_38(char*, char *);
+extern void execute_33(char*, char *);
+extern void execute_34(char*, char *);
+extern void execute_35(char*, char *);
 extern void vhdl_transfunc_eventcallback(char*, char*, unsigned, unsigned, unsigned, char *);
-funcp funcTab[7] = {(funcp)execute_38, (funcp)execute_39, (funcp)execute_40, (funcp)execute_35, (funcp)execute_36, (funcp)execute_37, (funcp)vhdl_transfunc_eventcallback};
+funcp funcTab[7] = {(funcp)execute_36, (funcp)execute_37, (funcp)execute_38, (funcp)execute_33, (funcp)execute_34, (funcp)execute_35, (funcp)vhdl_transfunc_eventcallback};
 const int NumRelocateId= 7;
 
 void relocate(char *dp)

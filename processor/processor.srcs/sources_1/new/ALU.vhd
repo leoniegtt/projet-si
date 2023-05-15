@@ -74,14 +74,16 @@ architecture Behavioral of ALU is
             end if;
             S_inter <= Aux1 (7 downto 0);
         elsif (Ctrl_Alu="011") then --SUB
-            if (A < B) then
-                Aux3 <= (B-A);
-                N <= '1';
-                S_inter <= Aux3 (7 downto 0);
-            else
-                Aux3 <=(A - B);
-                S_inter <= Aux3 (7 downto 0);
-            end if;
+            Aux3 <=(A - B);
+            S_inter <= Aux3 (7 downto 0);
+            N <= Aux3 (7);
+--            if (A < B) then
+--                --Aux3 <= (B-A);
+--                N <= '1';
+--                --S_inter <= Aux3 (7 downto 0);
+--            end if;
+                
+            
         --elsif (Ctrl_Alu="100") then --DIV
            --rien (on ne gère pas la div)
           -- Aux3 <= std_logic_vector(to_unsigned(to_integer(unsigned(A)) / to_integer(unsigned(B)),8)) ;
