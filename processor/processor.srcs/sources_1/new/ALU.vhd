@@ -66,8 +66,19 @@ architecture Behavioral of ALU is
             Aux2 <=(('0' & A) + ('0' & B));
             C <= Aux2 (8);
             S_inter <= Aux2 (7 downto 0);
+            --for warnings
+            Aux1<= "0000000000000000";
+            Aux3 <= "00000000";
+            O <= '0';
+            N <= '0';
         elsif (Ctrl_Alu="010") then --MUL
-
+        --for warnings
+            Aux2 <= "000000000";
+            N <= '0';
+            C <= '0';
+            O <= '0';
+            Aux3 <= "00000000";
+            --actual code
             Aux1 <=(A * B);
             if (Aux1 > "0000000011111111") then
                 O <= '1'; -- overflow
@@ -77,17 +88,17 @@ architecture Behavioral of ALU is
             Aux3 <=(A - B);
             S_inter <= Aux3 (7 downto 0);
             N <= Aux3 (7);
+            --for warnings
+            Aux1<= "0000000000000000";
+            O <= '0';
+            Aux2 <= "000000000";
+            C <= '0';
 --            if (A < B) then
 --                --Aux3 <= (B-A);
 --                N <= '1';
 --                --S_inter <= Aux3 (7 downto 0);
 --            end if;
-                
-            
-        --elsif (Ctrl_Alu="100") then --DIV
-           --rien (on ne gère pas la div)
-          -- Aux3 <= std_logic_vector(to_unsigned(to_integer(unsigned(A)) / to_integer(unsigned(B)),8)) ;
-         --   S <= Aux3(7 downto 0);
+
         end if;
 end process;
         
