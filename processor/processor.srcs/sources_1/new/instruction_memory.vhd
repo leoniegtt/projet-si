@@ -38,15 +38,18 @@ entity instruction_memory is
 end instruction_memory;
 
 architecture Behavioral of instruction_memory is
-type myTab is array(255 downto 0) of std_logic_vector(31 downto 0);
-signal registre : myTab;
+
+    type myTab is array(255 downto 0) of std_logic_vector(31 downto 0);
+    signal registre : myTab:= (others => "11110000111100001111000011110000"); -- init des valeurs
+    signal Aux : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
 
 begin
-
+    O <= Aux;
 process 
 begin
+    --variable ins : myTab := (others => "11110000111100001111000011110000");
     wait until CLK'event and CLK='1';
-    O <= registre(to_integer(unsigned(Addr)));
+    Aux <= registre(to_integer(unsigned(Addr)));
     
 end process;
 
