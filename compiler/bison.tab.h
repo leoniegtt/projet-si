@@ -88,7 +88,7 @@ extern int yydebug;
 union YYSTYPE
 {
 #line 16 "bison.y"
- int num; char var[16];
+ int num; char var[16];int index;
 
 #line 94 "bison.tab.h"
 

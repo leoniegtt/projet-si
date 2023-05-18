@@ -13,7 +13,10 @@ void yyerror (const char *);
 %define parse.error verbose
 %verbose
 
-%union { int num; char var[16];}
+%union { int num; char var[16];int index;}
+
+%type <index> tIF
+%type <index> index_jmf
 
 %token tIF tELSE tWHILE 
 %token tPRINT tRETURN tINT tVOID tCONST
@@ -56,7 +59,7 @@ declarations_int : tINT declaration_int declarations1_int ;
 
 declaration_int :
     tID { stack_push($1); }
-  | tID tASSIGN term { stack_pop();  stack_push($1); };
+  | tID {  stack_push($1);  } tASSIGN term {cop_ins( find_element($1));stack_pop();};
 
 declarations1_int : %empty | tCOMMA declaration_int declarations1_int ;
 
@@ -64,7 +67,7 @@ declarations_const : tCONST declaration_const declarations1_const ;
 
 declaration_const :
     tID { stack_push($1); }
-  | tID tASSIGN term { stack_push($1);  }
+  | tID {  stack_push($1);  }  tASSIGN term { cop_ins( find_element($1));stack_pop(); }
 ;
 
 declarations1_const : %empty
@@ -95,15 +98,18 @@ while :
     tWHILE tLPAR expression tRPAR body
 ;
 
+index_jmf :%empty {jmf_ins(); stack_pop();$$=get_current_ins();}
+
 if : 
-      tIF tLPAR expression tRPAR body
-    | tIF tLPAR expression tRPAR body tELSE body
+      tIF tLPAR expression tRPAR index_jmf body {patch_jmf($5); }
+    | tIF tLPAR expression tRPAR index_jmf body {jmp_ins();$1=get_current_ins();patch_jmf($5);}tELSE body{patch_jmp($1);}
     |  tIF tLPAR logique tRPAR body
     | tIF tLPAR logique tRPAR body tELSE body
 ;
 
 body :
-    tLBRACE statement tRBRACE {profondeur_pop();}
+    tLBRACE {inc(); printf(" la prondeur actuelle en entree est : %d",get_profondeur()); } statement tRBRACE {dec(); printf(" la prondeur actuelle en sortie est : %d",get_profondeur());  }
+
 
 assign :
     tID tASSIGN term {cop_ins( find_element($1));stack_pop();}
@@ -111,7 +117,7 @@ assign :
 
 term :
       tID {cop_ins(find_element($1));}
-    | tNB {int arg = $1; afc_ins( arg);}
+    | tNB {int arg = $1; afc_ins(arg);}
     | term tSUB term {sub_ins();}
     | term tADD term {add_ins();}
     | term tMUL term {mul_ins();}
@@ -125,7 +131,7 @@ args :
 ;
 
 expression:
-    tID{ stack_push("0") ; inc();cop_if(find_element($1)) ; }
+    tID{ stack_push("0") ; cop_if(find_element($1)) ; stack_pop(); }
     |term tNE term {printf("not equal\n") ;}
     |term tEQ term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("EQU %d %d %d\n" , last_address(),op1, op2 ) ;}
     |term tGE term {printf("greater or equal\n") ;}

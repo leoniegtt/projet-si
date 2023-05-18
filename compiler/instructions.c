@@ -120,6 +120,38 @@ void afc_ins(int arg){
     k=k+1;
     printf("AFC %d %d\n", op1, arg);
 }
+void jmf_ins(){
+    stack_push("0");
+    int op1 = last_address();
+    int op2 =  -1;
+    //stack_pop(); //temp var
+    instructions[k][0] = 8;
+    instructions[k][1] = op1;
+    instructions[k][2] = op2;
+    k=k+1;
+    printf("JMF %d %d\n", op1, op2);
+}
+void jmp_ins(){
+
+    int op1 = -1;
+    //stack_pop(); //temp var
+    instructions[k][0] = 7;
+    instructions[k][1] = op1 ;
+
+    k=k+1;
+    printf("JMF %d \n", op1);
+}
+int get_current_ins(){
+    return k-1;
+}
+void patch_jmf(int pos){
+    instructions[pos][2] = k;
+}
+void patch_jmp(int pos){
+    instructions[pos][1] = k;
+}
+
+//void jmf_patch(){}
 
 void main1(){
     for (int i =0 ; i<1024 ; i++){

@@ -1,10 +1,28 @@
 void main(void) {
-  int a;
-  int b;
-  int c;
-  a=0;
+  /*int a=8;
+  if(a){
+    int b=0;
+  }
+  else{
+    a=9;
+  }
+*/
+    int a = 7;
+    if (a) {
+     int b = 8;
+     if (b) {
+    int c = 9;
+    }
+    int y=9;
+}
 
-  if(a){int c;}
+  /*if(a){
+    a=0;
+    if(a){
+        a=9;
+    }
+    a=7;
+    }*/
   /*int b = a;
   int c = b + a;
   int d;
