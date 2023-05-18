@@ -45,10 +45,10 @@ entity Pipeline is
 end Pipeline;
 
 architecture Behavioral of Pipeline is
-    signal inter_op1 : std_logic_vector(7 downto 0 );
-    signal inter_op2 : std_logic_vector(7 downto 0 );
-    signal inter_op3 : std_logic_vector(7 downto 0 );
-    signal inter_op4 : std_logic_vector(7 downto 0 );
+    signal inter_op1 : std_logic_vector(7 downto 0 ):= (others => '0');
+    signal inter_op2 : std_logic_vector(7 downto 0 ):= (others => '0');
+    signal inter_op3 : std_logic_vector(7 downto 0 ):= (others => '0');
+    signal inter_op4 : std_logic_vector(7 downto 0 ):= (others => '0');
 begin
 
     out1 <= inter_op1;

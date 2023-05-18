@@ -1,13 +1,13 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
--------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Thu May 18 14:02:27 2023
+| Date         : Thu May 18 14:30:18 2023
 | Host         : insa-11268 running 64-bit Ubuntu 20.04.6 LTS
-| Command      : report_utilization -file instruction_memory_utilization_synth.rpt -pb instruction_memory_utilization_synth.pb
-| Design       : instruction_memory
+| Command      : report_utilization -file Pipeline_utilization_synth.rpt -pb Pipeline_utilization_synth.pb
+| Design       : Pipeline
 | Device       : 7a35tcpg236-1
 | Design State : Synthesized
--------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
 
 Utilization Design Information
 
@@ -33,8 +33,8 @@ Table of Contents
 | Slice LUTs*             |    0 |     0 |     20800 |  0.00 |
 |   LUT as Logic          |    0 |     0 |     20800 |  0.00 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |    1 |     0 |     41600 | <0.01 |
-|   Register as Flip Flop |    1 |     0 |     41600 | <0.01 |
+| Slice Registers         |   32 |     0 |     41600 |  0.08 |
+|   Register as Flip Flop |   32 |     0 |     41600 |  0.08 |
 |   Register as Latch     |    0 |     0 |     41600 |  0.00 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 1     |          Yes |       Reset |            - |
+| 32    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -90,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   33 |     0 |       106 | 31.13 |
+| Bonded IOB                  |   66 |     0 |       106 | 62.26 |
 | Bonded IPADs                |    0 |     0 |        10 |  0.00 |
 | Bonded OPADs                |    0 |     0 |         4 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         5 |  0.00 |
@@ -149,9 +149,9 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
+| IBUF     |   34 |                  IO |
 | OBUF     |   32 |                  IO |
-| IBUF     |    1 |                  IO |
-| FDRE     |    1 |        Flop & Latch |
+| FDRE     |   32 |        Flop & Latch |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 
