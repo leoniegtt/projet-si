@@ -1,22 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 17.05.2023 10:45:34
--- Design Name: 
--- Module Name: data_memory - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
 
 
 library IEEE;
@@ -42,8 +23,12 @@ end data_memory;
 
 architecture Behavioral of data_memory is
 type myTab is array(255 downto 0) of std_logic_vector(7 downto 0);
-signal registre : myTab;
+signal registre : myTab:= (others => "11110011");
+signal Aux : STD_LOGIC_VECTOR (7 downto 0):= (others => '0');
+
 begin
+
+O <= Aux;
 
 process 
 begin
@@ -58,7 +43,7 @@ begin
             registre(to_integer(unsigned(Addr))) <= I;
         else
         --lecture
-            O <= registre(to_integer(unsigned(Addr)));
+            Aux <= registre(to_integer(unsigned(Addr)));
     end if;
         
     end if;

@@ -34,26 +34,7 @@ architecture Behavioral of Banc_De_Registres is
 begin
     QA <= Aux_A;
     QB <= Aux_B;
-    
---    Aux_A <= Data when (Addr_A = Addr_W and W='1') 
---        else registre(to_integer(unsigned(Addr_A)));
---    Aux_B <= Data when (Addr_B = Addr_W and W='1') 
---        else registre(to_integer(unsigned(Addr_B)));
 
---                if (Addr_A = Addr_W and W='1') then
---                  Aux_A <= Data  ;
---                else 
---                   Aux_A <= registre(to_integer(unsigned(Addr_A)));
---                   end if;
---                 if (Addr_B = Addr_W and W='1') then
---                    Aux_B <= Data  ;
---                  else 
---                     Aux_B <= registre(to_integer(unsigned(Addr_B)));
---                     end if;   
---                if(W='1') then
---                    registre(to_integer(unsigned(Addr_W))) <= Data;
---                end if;
-            
 process
     begin
     wait until CLK'event and CLK='1';
