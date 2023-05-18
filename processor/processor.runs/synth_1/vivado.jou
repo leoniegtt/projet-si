@@ -2,11 +2,11 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Thu May 18 14:29:52 2023
-# Process ID: 23795
+# Start of session at: Thu May 18 16:55:07 2023
+# Process ID: 63883
 # Current directory: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1
-# Command line: vivado -log Pipeline.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Pipeline.tcl
-# Log file: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/Pipeline.vds
+# Command line: vivado -log Banc_De_Registres.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Banc_De_Registres.tcl
+# Log file: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/Banc_De_Registres.vds
 # Journal file: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
-source Pipeline.tcl -notrace
+source Banc_De_Registres.tcl -notrace

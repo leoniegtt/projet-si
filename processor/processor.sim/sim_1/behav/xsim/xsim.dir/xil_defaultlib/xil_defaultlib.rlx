@@ -3,8 +3,10 @@
 Jun 14 2018
 20:07:38
 /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sim_1/new/test_ALU.vhd,1684154809,vhdl,,,,test_alu,,,,,,,,
+/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sim_1/new/test_BDR.vhd,1684422141,vhdl,,,,test_bdr,,,,,,,,
 /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sim_1/new/test_ins_memory.vhd,1684411485,vhdl,,,,test_ins_memory,,,,,,,,
 /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sim_1/new/test_pipeline.vhd,1684413607,vhdl,,,,test_pipeline,,,,,,,,
 /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/ALU.vhd,1684155691,vhdl,,,,alu,,,,,,,,
+/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd,1684421696,vhdl,,,,banc_de_registres,,,,,,,,
 /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd,1684412987,vhdl,,,,pipeline,,,,,,,,
 /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd,1684411316,vhdl,,,,instruction_memory,,,,,,,,
