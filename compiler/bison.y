@@ -108,7 +108,7 @@ if :
 ;
 
 body :
-    tLBRACE {inc(); printf(" la prondeur actuelle en entree est : %d",get_profondeur()); } statement tRBRACE {dec(); printf(" la prondeur actuelle en sortie est : %d",get_profondeur());  }
+    tLBRACE {inc(); printf(" la prondeur actuelle en entree est : %d",get_profondeur()); } statement tRBRACE {profondeur_pop(); printf(" la prondeur actuelle en sortie est : %d",get_profondeur());  }
 
 
 assign :

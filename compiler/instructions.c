@@ -151,8 +151,6 @@ void patch_jmp(int pos){
     instructions[pos][1] = k;
 }
 
-//void jmf_patch(){}
-
 void main1(){
     for (int i =0 ; i<1024 ; i++){
         for (int j = 0 ; j<4 ; j++){

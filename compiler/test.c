@@ -14,7 +14,9 @@ void main(void) {
     int c = 9;
     }
     int y=9;
-}
+    }
+    int x=1;
+    }
 
   /*if(a){
     a=0;
@@ -27,5 +29,5 @@ void main(void) {
   int c = b + a;
   int d;
    d= b * c;
-*/
-}
+
+}*/

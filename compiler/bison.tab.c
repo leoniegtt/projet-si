@@ -1517,7 +1517,7 @@ yyreduce:
 
   case 42:
 #line 111 "bison.y"
-                                                                                                             {dec(); printf(" la prondeur actuelle en sortie est : %d",get_profondeur());  }
+                                                                                                             {profondeur_pop(); printf(" la prondeur actuelle en sortie est : %d",get_profondeur());  }
 #line 1522 "bison.tab.c"
     break;
 
