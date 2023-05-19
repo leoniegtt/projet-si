@@ -44,7 +44,7 @@ test_DM : data_memory PORT MAP (
 
 Addr_test <= "00000000";
 I_test <= "10101010";
-RW_test <= '0'; -- lecture
+RW_test <= '1'; 
 RST_test <= '0';
 CLK_test <='1'; 
 
