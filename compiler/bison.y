@@ -15,8 +15,9 @@ void yyerror (const char *);
 
 %union { int num; char var[16];int index;}
 
-%type <index> tIF
+%type <index> tIF tWHILE
 %type <index> index_jmf
+
 
 %token tIF tELSE tWHILE 
 %token tPRINT tRETURN tINT tVOID tCONST
@@ -37,12 +38,13 @@ void yyerror (const char *);
 %%
 program :
     %empty
-    | program function
+    | program function {nop_ins();}
+
     ;
 
 function :
-    {stack_delete();} tVOID tID tLPAR parameters tRPAR tLBRACE statement tRBRACE
-    | {stack_delete();} tINT tID tLPAR parameters tRPAR tLBRACE statement Return tSEMI tRBRACE
+    {stack_delete();} tVOID tID tLPAR {inc(); stack_push("?adr");stack_push("?val"); if(strcmp($3 , "main")!=0){jmp_ins(-1);}; } parameters tRPAR tLBRACE {inc();} statement {dec();}tRBRACE
+    | {stack_delete();} tINT tID tLPAR {inc(); stack_push("?adr");stack_push("?val"); jmp_ins(-1);} parameters {dec();}tRPAR tLBRACE statement Return {cop_ins(find_element("?val"));ret_ins();ret_ins();} tSEMI tRBRACE
 ;
 
 statement :
@@ -95,14 +97,14 @@ Return :
 ;
 
 while :
-    tWHILE tLPAR expression tRPAR body
+    tWHILE tLPAR expression tRPAR {jmf_ins(); stack_pop();$1=get_current_ins();}  body { jmp_ins($1);patch_jmf($1); }
 ;
 
 index_jmf :%empty {jmf_ins(); stack_pop();$$=get_current_ins();}
 
 if : 
       tIF tLPAR expression tRPAR index_jmf body {patch_jmf($5); }
-    | tIF tLPAR expression tRPAR index_jmf body {jmp_ins();$1=get_current_ins();patch_jmf($5);}tELSE body{patch_jmp($1);}
+    | tIF tLPAR expression tRPAR index_jmf body {jmp_ins(-1);$1=get_current_ins();patch_jmf($5);}tELSE body{patch_jmp($1);}
     |  tIF tLPAR logique tRPAR body
     | tIF tLPAR logique tRPAR body tELSE body
 ;
@@ -116,13 +118,13 @@ assign :
 ;
 
 term :
-      tID {cop_ins(find_element($1));}
+      tID {stack_push("0") ; cop_tmp(find_element($1));}
     | tNB {int arg = $1; afc_ins(arg);}
     | term tSUB term {sub_ins();}
     | term tADD term {add_ins();}
     | term tMUL term {mul_ins();}
     | term tDIV term {div_ins();}
-    | tID tLPAR args tRPAR
+    | tID {stack_push("!adr");stack_push("!val");}tLPAR args tRPAR {}
 ;
 
 args :
@@ -131,7 +133,7 @@ args :
 ;
 
 expression:
-    tID{ stack_push("0") ; cop_if(find_element($1)) ; stack_pop(); }
+    tID{ stack_push("0") ; cop_tmp(find_element($1)) ; stack_pop(); }
     |term tNE term {printf("not equal\n") ;}
     |term tEQ term {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("EQU %d %d %d\n" , last_address(),op1, op2 ) ;}
     |term tGE term {printf("greater or equal\n") ;}

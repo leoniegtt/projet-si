@@ -98,7 +98,7 @@ void cop_ins(int arg){
     k=k+1;
     printf("COP %d %d\n", op1, op2);
 }
-void cop_if(int arg){
+void cop_tmp(int arg){
     int op2 = arg;
     int op1 =  last_address();
     //stack_pop(); //temp var
@@ -131,15 +131,33 @@ void jmf_ins(){
     k=k+1;
     printf("JMF %d %d\n", op1, op2);
 }
-void jmp_ins(){
+void jmp_ins(int arg){
 
-    int op1 = -1;
+    int op1 = arg;
     //stack_pop(); //temp var
     instructions[k][0] = 7;
     instructions[k][1] = op1 ;
 
     k=k+1;
-    printf("JMF %d \n", op1);
+    printf("JMP %d \n", op1);
+}
+void ret_ins(){
+    //int op1 = 1;
+    //temp var
+    instructions[k][0] = 13;
+    instructions[k][1] = 0;
+    instructions[k][2] = 0;
+    k=k+1;
+    printf("RET 0 0 0\n");
+}
+void nop_ins(){
+    //int op1 = 1;
+    //temp var
+    instructions[k][0] = 14;
+    instructions[k][1] = 0;
+    instructions[k][2] = 0;
+    k=k+1;
+    printf("NOP 0 0 0\n");
 }
 int get_current_ins(){
     return k-1;
