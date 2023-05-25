@@ -1,13 +1,14 @@
-
-*** Running vivado
-    with args -log chemin_donnees.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source chemin_donnees.tcl
-
-
-****** Vivado v2018.2 (64-bit)
-  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
-  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
-
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu May 25 11:13:04 2023
+# Process ID: 17094
+# Current directory: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1
+# Command line: vivado -log chemin_donnees.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source chemin_donnees.tcl
+# Log file: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/chemin_donnees.vds
+# Journal file: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
 source chemin_donnees.tcl -notrace
 Command: synth_design -top chemin_donnees -part xc7a35tcpg236-1
 Starting synth_design

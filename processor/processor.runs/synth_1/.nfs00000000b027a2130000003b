@@ -1,14 +1,13 @@
-#-----------------------------------------------------------
-# Vivado v2018.2 (64-bit)
-# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
-# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Fri May 19 13:00:41 2023
-# Process ID: 2638
-# Current directory: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1
-# Command line: vivado -log data_memory.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source data_memory.tcl
-# Log file: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/data_memory.vds
-# Journal file: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/vivado.jou
-#-----------------------------------------------------------
+
+*** Running vivado
+    with args -log data_memory.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source data_memory.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
 source data_memory.tcl -notrace
 Command: synth_design -top data_memory -part xc7a35tcpg236-1
 Starting synth_design

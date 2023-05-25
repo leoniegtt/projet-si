@@ -41,7 +41,7 @@ entity Pipeline is
            out3 : out STD_LOGIC_VECTOR (7 downto 0);
            out4 : out STD_LOGIC_VECTOR (7 downto 0);
            CLK : in STD_LOGIC;
-           flush : in STD_LOGIC);
+           rst : in STD_LOGIC);
 end Pipeline;
 
 architecture Behavioral of Pipeline is
@@ -60,7 +60,7 @@ begin
     process 
         begin
         wait until CLK'event and CLK='1';
-        if flush ='1' then
+        if rst ='1' then
             inter_op1 <= "00000000";
             inter_op2 <= "00000000";
             inter_op3 <= "00000000";

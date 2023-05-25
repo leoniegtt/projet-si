@@ -26,7 +26,7 @@ COMPONENT pipeline
          out3 : out STD_LOGIC_VECTOR (7 downto 0);
          out4 : out STD_LOGIC_VECTOR (7 downto 0);
          CLK : in STD_LOGIC;
-         flush : in STD_LOGIC);
+         rst : in STD_LOGIC);
 end COMPONENT;
 
          SIGNAL op1_test  : STD_LOGIC_VECTOR (7 downto 0):= (others => '0');
@@ -52,7 +52,7 @@ test_pipeline : pipeline PORT MAP (
         out3 => out3_test,
         out4 => out4_test,
         CLK => CLK_test,
-        flush => flush_test);
+        rst => flush_test);
         
         
  --test pipeline
