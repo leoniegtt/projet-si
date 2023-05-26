@@ -11,12 +11,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="764813127fs"></ZoomEndTime>
-      <Cursor1Time time="500000000fs"></Cursor1Time>
+      <ZoomEndTime time="1328295030fs"></ZoomEndTime>
+      <Cursor1Time time="778317000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="159"></NameColumnWidth>
-      <ValueColumnWidth column_width="125"></ValueColumnWidth>
+      <ValueColumnWidth column_width="121"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="10" />
    <wvobject type="logic" fp_name="/test_CDD/CLK_test">
@@ -34,7 +34,6 @@
    <wvobject type="group" fp_name="group176">
       <obj_property name="label">mi</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/INS_MEM/Addr">
          <obj_property name="ElementShortName">Addr[7:0]</obj_property>
          <obj_property name="ObjectShortName">Addr[7:0]</obj_property>
@@ -59,7 +58,6 @@
    <wvobject type="group" fp_name="group86">
       <obj_property name="label">lidi</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/NV_LI_DI/op1">
          <obj_property name="ElementShortName">op1[7:0]</obj_property>
          <obj_property name="ObjectShortName">op1[7:0]</obj_property>
@@ -120,7 +118,6 @@
    <wvobject type="group" fp_name="group101">
       <obj_property name="label">diex</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/NV_DI_EX/op1">
          <obj_property name="ElementShortName">op1[7:0]</obj_property>
          <obj_property name="ObjectShortName">op1[7:0]</obj_property>
@@ -241,7 +238,6 @@
    <wvobject type="group" fp_name="group131">
       <obj_property name="label">memre</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/NV_MEM_RE/op1">
          <obj_property name="ElementShortName">op1[7:0]</obj_property>
          <obj_property name="ObjectShortName">op1[7:0]</obj_property>

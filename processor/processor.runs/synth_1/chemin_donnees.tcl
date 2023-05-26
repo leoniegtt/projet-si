@@ -30,6 +30,7 @@ set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
 set_property ip_output_repo /home/goutte/4A/Projet_SI/projet-si/processor/processor.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
+  /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/ALU.vhd
   /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd
   /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd
   /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd

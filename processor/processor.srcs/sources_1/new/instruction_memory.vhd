@@ -22,14 +22,14 @@ architecture Behavioral of instruction_memory is
     type myTab is array(0 to 255) of std_logic_vector(31 downto 0);
     signal registre : myTab:=
         (x"00000000",
-         x"06015600",
+         x"06030601",
+         x"00000000",
+         x"00000000",
+         x"06040204",
          x"00000000",
          x"00000000",
          x"00000000",
-         x"00000000",
-         x"00000000",
-         x"00000000",
-         x"07020100",
+         x"03080304",
          others => x"00000000"); -- init des valeurs pour test
     signal Aux : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
 

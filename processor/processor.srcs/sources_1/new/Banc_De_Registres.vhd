@@ -27,7 +27,7 @@ end Banc_De_Registres;
 
 architecture Behavioral of Banc_De_Registres is
     type myTab is array(15 downto 0) of std_logic_vector(7 downto 0);
-    signal registre : myTab := (others => "11110000");
+    signal registre : myTab := (others => "00000000");
     signal Aux_A : STD_LOGIC_VECTOR (7 downto 0):= (others => '0');
     signal Aux_B : STD_LOGIC_VECTOR (7 downto 0):= (others => '0');
 

@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Thu May 25 11:13:04 2023
-# Process ID: 17094
+# Start of session at: Fri May 26 15:18:03 2023
+# Process ID: 108505
 # Current directory: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1
 # Command line: vivado -log chemin_donnees.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source chemin_donnees.tcl
 # Log file: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/chemin_donnees.vds
@@ -15,36 +15,41 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 17109 
+INFO: Helper process launched with PID 108536 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1255.273 ; gain = 83.828 ; free physical = 3246 ; free virtual = 14199
+Starting Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1255.273 ; gain = 83.699 ; free physical = 54628 ; free virtual = 67952
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'chemin_donnees' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:20]
-INFO: [Synth 8-3491] module 'instruction_memory' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd:14' bound to instance 'INS_MEM' of component 'instruction_memory' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:107]
+INFO: [Synth 8-3491] module 'instruction_memory' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd:14' bound to instance 'INS_MEM' of component 'instruction_memory' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:124]
 INFO: [Synth 8-638] synthesizing module 'instruction_memory' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd:20]
 INFO: [Synth 8-256] done synthesizing module 'instruction_memory' (1#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd:20]
-INFO: [Synth 8-3491] module 'Pipeline' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:34' bound to instance 'NV_LI_DI' of component 'pipeline' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:120]
+INFO: [Synth 8-3491] module 'ALU' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/ALU.vhd:17' bound to instance 'UAL' of component 'ALU' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:136]
+INFO: [Synth 8-638] synthesizing module 'ALU' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/ALU.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'ALU' (2#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/ALU.vhd:28]
+INFO: [Synth 8-3491] module 'Pipeline' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:34' bound to instance 'NV_LI_DI' of component 'pipeline' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:138]
 INFO: [Synth 8-638] synthesizing module 'Pipeline' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:47]
-INFO: [Synth 8-256] done synthesizing module 'Pipeline' (2#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:47]
-INFO: [Synth 8-3491] module 'Pipeline' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:34' bound to instance 'NV_DI_EX' of component 'pipeline' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:132]
-INFO: [Synth 8-3491] module 'Pipeline' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:34' bound to instance 'NV_MEM_RE' of component 'pipeline' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:143]
-INFO: [Synth 8-3491] module 'Banc_De_Registres' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:16' bound to instance 'BDR' of component 'Banc_De_Registres' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:155]
+INFO: [Synth 8-256] done synthesizing module 'Pipeline' (3#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:47]
+INFO: [Synth 8-3491] module 'Pipeline' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:34' bound to instance 'NV_DI_EX' of component 'pipeline' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:154]
+INFO: [Synth 8-3491] module 'Pipeline' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:34' bound to instance 'NV_EX_MEM' of component 'pipeline' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:169]
+INFO: [Synth 8-3491] module 'Pipeline' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:34' bound to instance 'NV_MEM_RE' of component 'pipeline' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:179]
+INFO: [Synth 8-3491] module 'Banc_De_Registres' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:16' bound to instance 'BDR' of component 'Banc_De_Registres' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:191]
 INFO: [Synth 8-638] synthesizing module 'Banc_De_Registres' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:28]
-INFO: [Synth 8-256] done synthesizing module 'Banc_De_Registres' (3#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:28]
-INFO: [Synth 8-256] done synthesizing module 'chemin_donnees' (4#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'Banc_De_Registres' (4#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:28]
+WARNING: [Synth 8-3848] Net C_EX_MEM in module/entity chemin_donnees does not have driver. [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:92]
+INFO: [Synth 8-256] done synthesizing module 'chemin_donnees' (5#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:20]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1299.898 ; gain = 128.453 ; free physical = 3252 ; free virtual = 14206
+Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1299.898 ; gain = 128.324 ; free physical = 54635 ; free virtual = 67959
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1299.898 ; gain = 128.453 ; free physical = 3254 ; free virtual = 14207
+Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1299.898 ; gain = 128.324 ; free physical = 54634 ; free virtual = 67958
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
----------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1307.902 ; gain = 136.457 ; free physical = 3254 ; free virtual = 14207
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1307.902 ; gain = 136.328 ; free physical = 54634 ; free virtual = 67958
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "registre" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "registre_reg[15]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -63,11 +68,9 @@ INFO: [Synth 8-5544] ROM "registre_reg[3]" won't be mapped to Block RAM because 
 INFO: [Synth 8-5544] ROM "registre_reg[2]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "registre_reg[1]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "registre_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-WARNING: [Synth 8-327] inferring latch for variable 'LC_reg' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:153]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1323.918 ; gain = 152.473 ; free physical = 3236 ; free virtual = 14192
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1323.918 ; gain = 152.344 ; free physical = 54619 ; free virtual = 67943
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-223] decloning instance 'NV_DI_EX' (Pipeline) to 'NV_MEM_RE'
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -80,13 +83,18 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   3 Input     16 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 1     
 	   2 Input      8 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 1     
-	                8 Bit    Registers := 27    
+	                8 Bit    Registers := 35    
 +---Muxes : 
 	 257 Input     32 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 5     
+	   4 Input     16 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 8     
+	   2 Input      3 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 32    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -101,12 +109,23 @@ Detailed RTL Component Info :
 	   2 Input      8 Bit       Adders := 1     
 +---Registers : 
 	                8 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 3     
+	   2 Input      3 Bit        Muxes := 1     
 Module instruction_memory 
 Detailed RTL Component Info : 
 +---Registers : 
 	               32 Bit    Registers := 1     
 +---Muxes : 
 	 257 Input     32 Bit        Muxes := 1     
+Module ALU 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     16 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 1     
++---Muxes : 
+	   4 Input     16 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
 Module Pipeline 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -135,27 +154,8 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-6014] Unused sequential element NV_LI_DI/inter_op4_reg was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:57]
-WARNING: [Synth 8-6014] Unused sequential element NV_DI_EX/inter_op4_reg was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:57]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[15] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[14] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[13] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[12] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[11] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[10] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[9] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[8] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[7] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[6] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[5] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[4] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[3] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[2] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[1] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/registre_reg[0] was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:43]
-WARNING: [Synth 8-6014] Unused sequential element BDR/Aux_A_reg was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:35]
-WARNING: [Synth 8-6014] Unused sequential element BDR/Aux_B_reg was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:36]
-WARNING: [Synth 8-3332] Sequential element (LC_reg) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-6014] Unused sequential element NV_EX_MEM/inter_op4_reg was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:57]
+WARNING: [Synth 8-6014] Unused sequential element NV_MEM_RE/inter_op4_reg was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:57]
 WARNING: [Synth 8-3332] Sequential element (INS_MEM/Aux_reg[31]) is unused and will be removed from module chemin_donnees.
 WARNING: [Synth 8-3332] Sequential element (INS_MEM/Aux_reg[30]) is unused and will be removed from module chemin_donnees.
 WARNING: [Synth 8-3332] Sequential element (INS_MEM/Aux_reg[29]) is unused and will be removed from module chemin_donnees.
@@ -188,6 +188,14 @@ WARNING: [Synth 8-3332] Sequential element (INS_MEM/Aux_reg[3]) is unused and wi
 WARNING: [Synth 8-3332] Sequential element (INS_MEM/Aux_reg[2]) is unused and will be removed from module chemin_donnees.
 WARNING: [Synth 8-3332] Sequential element (INS_MEM/Aux_reg[1]) is unused and will be removed from module chemin_donnees.
 WARNING: [Synth 8-3332] Sequential element (INS_MEM/Aux_reg[0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[0]) is unused and will be removed from module chemin_donnees.
 WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op2_reg[7]) is unused and will be removed from module chemin_donnees.
 WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op2_reg[6]) is unused and will be removed from module chemin_donnees.
 WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op2_reg[5]) is unused and will be removed from module chemin_donnees.
@@ -204,40 +212,53 @@ WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op2_reg[3]) is unused
 WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op2_reg[2]) is unused and will be removed from module chemin_donnees.
 WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op2_reg[1]) is unused and will be removed from module chemin_donnees.
 WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op2_reg[0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op3_reg[0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op3_reg[7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op3_reg[6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op3_reg[5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op3_reg[4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op3_reg[3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op3_reg[2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op3_reg[1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op3_reg[0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op1_reg[7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op1_reg[6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op1_reg[5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op1_reg[4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op1_reg[3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op1_reg[2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op1_reg[1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_LI_DI/inter_op1_reg[0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op1_reg[7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op1_reg[6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op1_reg[5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op1_reg[4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op1_reg[3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op1_reg[2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op1_reg[1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (NV_DI_EX/inter_op1_reg[0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_EX_MEM/inter_op2_reg[7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_EX_MEM/inter_op2_reg[6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_EX_MEM/inter_op2_reg[5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_EX_MEM/inter_op2_reg[4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_EX_MEM/inter_op2_reg[3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_EX_MEM/inter_op2_reg[2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_EX_MEM/inter_op2_reg[1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_EX_MEM/inter_op2_reg[0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_MEM_RE/inter_op2_reg[7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_MEM_RE/inter_op2_reg[6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_MEM_RE/inter_op2_reg[5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_MEM_RE/inter_op2_reg[4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_MEM_RE/inter_op2_reg[3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_MEM_RE/inter_op2_reg[2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_MEM_RE/inter_op2_reg[1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (NV_MEM_RE/inter_op2_reg[0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[15][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[15][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[15][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[15][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[15][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[15][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[15][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[15][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[14][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[14][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[14][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[14][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[14][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[14][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[14][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[14][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[13][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[13][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[13][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[13][4]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[13][3]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[13][2]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[13][1]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[13][0]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[12][7]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[12][6]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[12][5]) is unused and will be removed from module chemin_donnees.
+WARNING: [Synth 8-3332] Sequential element (BDR/registre_reg[12][4]) is unused and will be removed from module chemin_donnees.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1406.988 ; gain = 235.543 ; free physical = 3071 ; free virtual = 14045
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 1415.004 ; gain = 243.430 ; free physical = 54474 ; free virtual = 67800
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -250,7 +271,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1406.988 ; gain = 235.543 ; free physical = 3071 ; free virtual = 14045
+Finished Timing Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 1415.004 ; gain = 243.430 ; free physical = 54474 ; free virtual = 67800
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -262,7 +283,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1406.988 ; gain = 235.543 ; free physical = 3071 ; free virtual = 14045
+Finished Technology Mapping : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1415.004 ; gain = 243.430 ; free physical = 54474 ; free virtual = 67800
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -286,7 +307,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1406.988 ; gain = 235.543 ; free physical = 3071 ; free virtual = 14045
+Finished IO Insertion : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1415.004 ; gain = 243.430 ; free physical = 54474 ; free virtual = 67799
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -299,7 +320,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1406.988 ; gain = 235.543 ; free physical = 3071 ; free virtual = 14045
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1415.004 ; gain = 243.430 ; free physical = 54474 ; free virtual = 67799
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -311,25 +332,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1406.988 ; gain = 235.543 ; free physical = 3071 ; free virtual = 14045
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1415.004 ; gain = 243.430 ; free physical = 54474 ; free virtual = 67799
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1406.988 ; gain = 235.543 ; free physical = 3071 ; free virtual = 14045
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1415.004 ; gain = 243.430 ; free physical = 54474 ; free virtual = 67799
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1406.988 ; gain = 235.543 ; free physical = 3071 ; free virtual = 14045
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1415.004 ; gain = 243.430 ; free physical = 54474 ; free virtual = 67799
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1406.988 ; gain = 235.543 ; free physical = 3071 ; free virtual = 14045
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1415.004 ; gain = 243.430 ; free physical = 54474 ; free virtual = 67799
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -354,11 +375,11 @@ Report Instance Areas:
 |1     |top      |       |     0|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1406.988 ; gain = 235.543 ; free physical = 3071 ; free virtual = 14045
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1415.004 ; gain = 243.430 ; free physical = 54474 ; free virtual = 67799
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 102 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1406.988 ; gain = 235.543 ; free physical = 3071 ; free virtual = 14045
-Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1406.996 ; gain = 235.543 ; free physical = 3086 ; free virtual = 14060
+Synthesis finished with 0 errors, 0 critical warnings and 299 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1415.004 ; gain = 243.430 ; free physical = 54474 ; free virtual = 67799
+Synthesis Optimization Complete : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1415.012 ; gain = 243.430 ; free physical = 54489 ; free virtual = 67815
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -366,11 +387,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-38 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
+42 Infos, 103 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:19 . Memory (MB): peak = 1498.059 ; gain = 338.238 ; free physical = 3036 ; free virtual = 14024
+synth_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1499.027 ; gain = 339.207 ; free physical = 54447 ; free virtual = 67773
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint '/home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/chemin_donnees.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file chemin_donnees_utilization_synth.rpt -pb chemin_donnees_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.11 . Memory (MB): peak = 1522.070 ; gain = 0.000 ; free physical = 3025 ; free virtual = 14013
-INFO: [Common 17-206] Exiting Vivado at Thu May 25 11:13:32 2023...
+report_utilization: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.09 . Memory (MB): peak = 1523.039 ; gain = 0.000 ; free physical = 54438 ; free virtual = 67764
+INFO: [Common 17-206] Exiting Vivado at Fri May 26 15:18:29 2023...
