@@ -11,14 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1328295030fs"></ZoomEndTime>
-      <Cursor1Time time="778317000fs"></Cursor1Time>
+      <ZoomEndTime time="1882124353fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="159"></NameColumnWidth>
-      <ValueColumnWidth column_width="121"></ValueColumnWidth>
+      <ValueColumnWidth column_width="113"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="11" />
    <wvobject type="logic" fp_name="/test_CDD/CLK_test">
       <obj_property name="ElementShortName">CLK_test</obj_property>
       <obj_property name="ObjectShortName">CLK_test</obj_property>
@@ -351,6 +351,47 @@
       <wvobject type="array" fp_name="/test_CDD/test_CDD/BDR/Aux_B">
          <obj_property name="ElementShortName">Aux_B[7:0]</obj_property>
          <obj_property name="ObjectShortName">Aux_B[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group365">
+      <obj_property name="label">ual</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/test_CDD/test_CDD/UAL/A">
+         <obj_property name="ElementShortName">A[7:0]</obj_property>
+         <obj_property name="ObjectShortName">A[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/test_CDD/test_CDD/UAL/B">
+         <obj_property name="ElementShortName">B[7:0]</obj_property>
+         <obj_property name="ObjectShortName">B[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/test_CDD/test_CDD/UAL/N">
+         <obj_property name="ElementShortName">N</obj_property>
+         <obj_property name="ObjectShortName">N</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/test_CDD/test_CDD/UAL/O">
+         <obj_property name="ElementShortName">O</obj_property>
+         <obj_property name="ObjectShortName">O</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/test_CDD/test_CDD/UAL/Z">
+         <obj_property name="ElementShortName">Z</obj_property>
+         <obj_property name="ObjectShortName">Z</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/test_CDD/test_CDD/UAL/C">
+         <obj_property name="ElementShortName">C</obj_property>
+         <obj_property name="ObjectShortName">C</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/test_CDD/test_CDD/UAL/S">
+         <obj_property name="ElementShortName">S[7:0]</obj_property>
+         <obj_property name="ObjectShortName">S[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/test_CDD/test_CDD/UAL/Ctrl_Alu">
+         <obj_property name="ElementShortName">Ctrl_Alu[2:0]</obj_property>
+         <obj_property name="ObjectShortName">Ctrl_Alu[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/test_CDD/test_CDD/UAL/Aux1">
+         <obj_property name="ElementShortName">Aux1[15:0]</obj_property>
+         <obj_property name="ObjectShortName">Aux1[15:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

@@ -164,11 +164,11 @@ begin
                               rst => rst);
                               
    LC_UAL <= OP_DI_EX(2 downto 0) when OP_DI_EX =x"01" or OP_DI_EX =x"02" or OP_DI_EX =x"03" or OP_DI_EX =x"4" else "000";                        
-   b_exmem_in <= S_UAL when OP_DI_EX = x"01" or OP_DI_EX =x"02" or OP_DI_EX =x"03" or OP_DI_EX =x"04" else B_DI_EX;                           
+   b_exmem_in <= S_UAL when ((OP_DI_EX = x"01") or (OP_DI_EX =x"02") or (OP_DI_EX =x"03") or (OP_DI_EX =x"04")) else B_DI_EX;                           
                               
      NV_EX_MEM : pipeline port map (op1 => OP_DI_EX,
                                 op2 =>  A_DI_EX,
-                                op3 => B_DI_EX ,
+                                op3 => b_exmem_in ,
                                 op4 => (others=>'0') ,
                                 out1 => OP_EX_MEM,
                                 out2 => A_EX_MEM,
