@@ -21,10 +21,10 @@ architecture Behavioral of chemin_donnees is
 
     component ALU
         port(CLK :in std_logic;
-        A,B : in std_logic_vector(7 downto 0);
-        Ctrl_Alu : in std_logic_vector(1 downto 0);
-        S : out std_logic_vector(7 downto 0);
-        Flags : out std_logic_vector(3 downto 0));
+                A,B : in std_logic_vector(7 downto 0);
+                Ctrl_Alu : in std_logic_vector(1 downto 0);
+                S : out std_logic_vector(7 downto 0);
+                Flags : out std_logic_vector(3 downto 0));
         end component ALU;
         
         COMPONENT data_memory
@@ -37,7 +37,6 @@ architecture Behavioral of chemin_donnees is
          end COMPONENT;   
          
          COMPONENT Banc_De_Registres
-         
           Port ( Addr_A : in STD_LOGIC_VECTOR (3 downto 0);
                     Addr_B : in STD_LOGIC_VECTOR (3 downto 0);
                     Addr_W : in STD_LOGIC_VECTOR (3 downto 0);
@@ -50,7 +49,6 @@ architecture Behavioral of chemin_donnees is
          end COMPONENT;
          
          COMPONENT instruction_memory
-         
            Port ( Addr : in STD_LOGIC_VECTOR (7 downto 0);
                     CLK : in STD_LOGIC;
                     O : out STD_LOGIC_VECTOR (31 downto 0));
@@ -97,9 +95,14 @@ signal B_MEM_RE : STD_LOGIC_VECTOR (7 downto 0);
 signal C_MEM_RE : STD_LOGIC_VECTOR (7 downto 0);
 signal OP_MEM_RE : STD_LOGIC_VECTOR (7 downto 0);
 
+signal QA : STD_LOGIC_VECTOR (7 downto 0);
+signal QB : STD_LOGIC_VECTOR (7 downto 0);
+
 --BDR
 signal LC : STD_LOGIC ;
   
+signal b_diex_in : STD_LOGIC_VECTOR (7 downto 0);
+signal op_diex_in : STD_LOGIC_VECTOR (7 downto 0);
 begin
 
 --instruction AFC
@@ -109,7 +112,7 @@ INS_MEM : instruction_memory port map (IP_1, CLK, OUT_1);
 process
 begin
    wait until CLK'event and CLK='1';
-   if (rst='1') then 
+   if (rst='0') then 
    IP_1 <= ("00000000");
    else
    IP_1 <= IP_1 + 1;
@@ -121,42 +124,58 @@ begin
                                  op2 =>  out_1(23 downto 16),
                                  op3 => out_1(15 downto 8) ,
                                  op4 => out_1(7 downto 0) ,
-                                 out1 => OP_DI_EX,
-                                 out2 => A_DI_EX,
-                                 out3 => B_DI_EX,
+                                 out1 => OP_LI_DI,
+                                 out2 => A_LI_DI,
+                                 out3 => B_LI_DI,
+                                 out4 => C_LI_DI,
                                  
                                  CLK => CLK,  
                                  rst => rst);
    
+   b_diex_in <= QA when OP_LI_DI = x"07" else B_LI_DI;
+   op_diex_in <= x"06" when OP_LI_DI = x"07" else OP_LI_DI;
    
-    NV_DI_EX : pipeline port map (op1 => OP_DI_EX,
-                              op2 =>  A_DI_EX,
-                              op3 => B_DI_EX ,
-                              op4 => (others=>'0'),
-                              out1 => OP_EX_MEM,
-                              out2 => A_EX_MEM,
-                              out3 => B_EX_MEM,
+    NV_DI_EX : pipeline port map (op1 => op_diex_in,
+                              op2 =>  A_LI_DI,
+                              op3 => b_diex_in ,
+                              op4 => C_LI_DI,
+                              out1 => OP_DI_EX,
+                              out2 => A_DI_EX,
+                              out3 => B_DI_EX,
+                              out4 => C_DI_EX,
                               
                               CLK => CLK,  
                               rst => rst);
                               
-     NV_MEM_RE : pipeline port map (op1 => OP_DI_EX,
+     NV_EX_MEM : pipeline port map (op1 => OP_DI_EX,
                                 op2 =>  A_DI_EX,
                                 op3 => B_DI_EX ,
                                 op4 => (others=>'0') ,
+                                out1 => OP_EX_MEM,
+                                out2 => A_EX_MEM,
+                                out3 => B_EX_MEM,
+                                CLK => CLK,  
+                                rst => rst);
+                                                              
+     NV_MEM_RE : pipeline port map (op1 => OP_EX_MEM,
+                                op2 =>  A_EX_MEM,
+                                op3 => B_EX_MEM ,
+                                op4 => C_EX_MEM ,
                                 out1 => OP_MEM_RE,
                                 out2 => A_MEM_RE,
                                 out3 => B_MEM_RE,
                                 CLK => CLK,  
                                 rst => rst);
-                                
-     LC <= '0' when OP_MEM_RE = ("110") ;
+
+     LC <= '1' when OP_MEM_RE = x"06" else '0';
      
-     BDR : Banc_De_Registres port map (Addr_w (3 downto 0) => A_MEM_RE ,
+     BDR : Banc_De_Registres port map (Addr_w => A_MEM_RE (3 downto 0) ,
                                      W => LC , 
+                                     QA => QA, 
+                                     QB => QB,
                                      DATA => B_MEM_RE ,
-                                     Addr_A => (others =>'0'),
-                                     Addr_B => (others =>'0'),
+                                     Addr_A => B_LI_DI(3 downto 0),
+                                     Addr_B => C_LI_DI(3 downto 0),
                                      rst => rst,
                                      clk => clk) ;
    

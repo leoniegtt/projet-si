@@ -60,7 +60,7 @@ begin
     process 
         begin
         wait until CLK'event and CLK='1';
-        if rst ='1' then
+        if rst ='0' then
             inter_op1 <= "00000000";
             inter_op2 <= "00000000";
             inter_op3 <= "00000000";

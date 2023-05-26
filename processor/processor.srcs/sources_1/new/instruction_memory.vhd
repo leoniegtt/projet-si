@@ -19,18 +19,27 @@ end instruction_memory;
 
 architecture Behavioral of instruction_memory is
 
-    type myTab is array(255 downto 0) of std_logic_vector(31 downto 0);
-    signal registre : myTab:= (others => "11110000111100001111000011110000"); -- init des valeurs pour test
+    type myTab is array(0 to 255) of std_logic_vector(31 downto 0);
+    signal registre : myTab:=
+        (x"00000000",
+         x"06015600",
+         x"00000000",
+         x"00000000",
+         x"00000000",
+         x"00000000",
+         x"00000000",
+         x"00000000",
+         x"07020100",
+         others => x"00000000"); -- init des valeurs pour test
     signal Aux : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
 
 begin
     O <= Aux;
-process 
-begin
-    
-    wait until CLK'event and CLK='1';
-    Aux <= registre(to_integer(unsigned(Addr)));
-    
-end process;
+
+    process 
+    begin
+        wait until CLK'event and CLK='1';
+        Aux <= registre(to_integer(unsigned(Addr)));
+    end process;
 
 end Behavioral;

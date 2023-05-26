@@ -17,7 +17,7 @@ end test_CDD;
 
 architecture Behavioral of test_CDD is
 
-COMPONENT chemin_donnes
+COMPONENT chemin_donnees
     Port ( rst : in STD_LOGIC;
        CLK: in STD_LOGIC);
 end COMPONENT;
@@ -27,10 +27,10 @@ end COMPONENT;
 
 begin
 
-test_CDD : chemin_donnes port map (rst => rst_test, CLK => clk_test);
+  test_CDD : chemin_donnees port map (rst => rst_test, CLK => clk_test);
 
- CLK_test <= '1';
-  IP_1 <= "00000000";
+  rst_test <= '1' after 100 ns;
 
+  CLK_test <= not CLK_test after 20 ns;
 
 end Behavioral;

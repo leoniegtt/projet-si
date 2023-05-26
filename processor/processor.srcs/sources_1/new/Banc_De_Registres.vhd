@@ -37,7 +37,7 @@ begin
 
 process
     begin
-    wait until CLK'event and CLK='1';
+    wait until CLK'event and CLK='0';
     if (RST='1') then
         --lecture
         Aux_A <= registre(to_integer(unsigned(Addr_A)));
@@ -53,9 +53,7 @@ process
             end if; 
         end if;
     else  
-        reset :for i IN 15 downto 0 LOOP
-        registre(i) <=  (others => '0');
-        end loop reset;
+        registre <=  (others => x"00");
     end if;
 end process;
 
