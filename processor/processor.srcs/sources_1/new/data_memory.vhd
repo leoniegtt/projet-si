@@ -22,21 +22,21 @@ entity data_memory is
 end data_memory;
 
 architecture Behavioral of data_memory is
-type myTab is array(255 downto 0) of std_logic_vector(7 downto 0);
-signal registre : myTab:= (others => "11110011");
+type myTab is array(0 to 255) of std_logic_vector(7 downto 0);
+signal registre : myTab;
 signal Aux : STD_LOGIC_VECTOR (7 downto 0):= (others => '0');
 
 begin
-
 O <= Aux;
 
 process 
 begin
     wait until CLK'event and CLK='1';
-    if RST ='1' then
+    if RST ='0' then
          reset :for i IN 255 downto 0 LOOP
                    registre(i) <=  (others => '0');
                    end loop reset;
+                   --registre(0) <=  "11111111";
     else
         if RW = '0' then 
         --ecriture
@@ -44,7 +44,7 @@ begin
         else
         --lecture
             Aux <= registre(to_integer(unsigned(Addr)));
-    end if;
+        end if;
         
     end if;
     

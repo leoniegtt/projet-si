@@ -42,10 +42,10 @@ test_DM : data_memory PORT MAP (
         CLK => CLK_test,
         O => O_test);
 
-Addr_test <= "00000000";
+Addr_test <= "00000010";
 I_test <= "10101010";
 RW_test <= '1'; 
-RST_test <= '0';
+RST_test <= '1';
 CLK_test <='1'; 
 
 

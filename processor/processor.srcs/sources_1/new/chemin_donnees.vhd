@@ -109,31 +109,35 @@ signal O : STD_LOGIC;
 signal Z : STD_LOGIC ;
 signal C : STD_LOGIC ;
 
+--DM
+signal LC_DM : STD_LOGIC;
+signal OUT_DM : STD_LOGIC_VECTOR (7 downto 0);
+signal in_MEM :STD_logic_VECTOR (7 downto 0 ) ;
+signal b_memre_in : STD_LOGIC_VECTOR(7 downto 0) ;
+signal bd_memre_in : STD_LOGIC_VECTOR(7 downto 0) ;
 
 --BDR
 signal LC : STD_LOGIC ;
   
 signal b_diex_in : STD_LOGIC_VECTOR (7 downto 0);
 signal op_diex_in : STD_LOGIC_VECTOR (7 downto 0);
-
 signal b_exmem_in : STD_LOGIC_VECTOR (7 downto 0);
 
 
 begin
 
-INS_MEM : instruction_memory port map (IP_1, CLK, OUT_1);
+    INS_MEM : instruction_memory port map (IP_1, CLK, OUT_1);
+    
+    process
+    begin
+       wait until CLK'event and CLK='1';
+       if (rst='0') then 
+       IP_1 <= ("00000000");
+       else
+       IP_1 <= IP_1 + 1;
+       end if;
+    end process;
 
-process
-begin
-   wait until CLK'event and CLK='1';
-   if (rst='0') then 
-   IP_1 <= ("00000000");
-   else
-   IP_1 <= IP_1 + 1;
-   end if;
-   end process;
-   
-   UAL : ALU port map (B_DI_EX, C_DI_EX, N,O,Z,C, S_UAL, LC_UAL);
    
    NV_LI_DI : pipeline port map (op1 => out_1(31 downto 24),
                                  op2 =>  out_1(23 downto 16),
@@ -147,9 +151,9 @@ begin
                                  CLK => CLK,  
                                  rst => rst);
    
-   b_diex_in <= QA when OP_LI_DI = x"07" or OP_LI_DI = x"02" or OP_LI_DI = x"03" or OP_LI_DI = x"01" else B_LI_DI;
+   b_diex_in <= QA when OP_LI_DI = x"05" or OP_LI_DI = x"02" or OP_LI_DI = x"03" or OP_LI_DI = x"08" or OP_LI_DI = x"01" else B_LI_DI;
    
-   op_diex_in <= x"06" when OP_LI_DI = x"07" else OP_LI_DI;
+   op_diex_in <= x"06" when OP_LI_DI = x"05" else OP_LI_DI;
    
     NV_DI_EX : pipeline port map (op1 => op_diex_in,
                               op2 =>  A_LI_DI,
@@ -163,7 +167,9 @@ begin
                               CLK => CLK,  
                               rst => rst);
                               
-   LC_UAL <= OP_DI_EX(2 downto 0) when OP_DI_EX =x"01" or OP_DI_EX =x"02" or OP_DI_EX =x"03" or OP_DI_EX =x"4" else "000";                        
+   UAL : ALU port map (B_DI_EX, C_DI_EX, N,O,Z,C, S_UAL, LC_UAL);                           
+                              
+   LC_UAL <= OP_DI_EX(2 downto 0) when OP_DI_EX =x"01" or OP_DI_EX =x"02" or OP_DI_EX =x"03" else "000";   --OP                     
    b_exmem_in <= S_UAL when ((OP_DI_EX = x"01") or (OP_DI_EX =x"02") or (OP_DI_EX =x"03") or (OP_DI_EX =x"04")) else B_DI_EX;                           
                               
      NV_EX_MEM : pipeline port map (op1 => OP_DI_EX,
@@ -175,10 +181,17 @@ begin
                                 out3 => B_EX_MEM,
                                 CLK => CLK,  
                                 rst => rst);
+       
+     bd_memre_in <= A_EX_MEM when OP_EX_MEM = x"08" else B_EX_MEM ;
+                                
+     DM : data_memory port map ( bd_memre_in, B_EX_MEM  , LC_DM,rst ,clk ,OUT_DM );                           
+                                
+     LC_DM <= '0' when OP_EX_MEM =x"08" else '1'; --LOAD   
+     b_memre_in <= OUT_DM when OP_EX_MEM =x"7" else B_EX_MEM;                   
                                                               
      NV_MEM_RE : pipeline port map (op1 => OP_EX_MEM,
                                 op2 =>  A_EX_MEM,
-                                op3 => B_EX_MEM ,
+                                op3 => b_memre_in ,
                                 op4 => C_EX_MEM ,
                                 out1 => OP_MEM_RE,
                                 out2 => A_MEM_RE,
@@ -186,7 +199,7 @@ begin
                                 CLK => CLK,  
                                 rst => rst);
 
-     LC <= '1' when OP_MEM_RE = x"06" or  OP_MEM_RE=x"01" or OP_MEM_RE = x"02" or  OP_MEM_RE=x"03" else '0';
+     LC <= '1' when OP_MEM_RE = x"06" or  OP_MEM_RE=x"01" or OP_MEM_RE = x"02" or  OP_MEM_RE=x"03" or OP_MEM_RE = x"07" else '0';
      
      BDR : Banc_De_Registres port map (Addr_w => A_MEM_RE (3 downto 0) ,
                                      W => LC , 

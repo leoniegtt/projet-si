@@ -33,6 +33,7 @@ read_vhdl -library xil_defaultlib {
   /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/ALU.vhd
   /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd
   /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd
+  /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/data_memory.vhd
   /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd
   /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd
 }
