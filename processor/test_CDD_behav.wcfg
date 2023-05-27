@@ -11,12 +11,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1000000001fs"></ZoomEndTime>
-      <Cursor1Time time="180000000fs"></Cursor1Time>
+      <ZoomEndTime time="934754522fs"></ZoomEndTime>
+      <Cursor1Time time="20000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="138"></NameColumnWidth>
-      <ValueColumnWidth column_width="112"></ValueColumnWidth>
+      <NameColumnWidth column_width="158"></NameColumnWidth>
+      <ValueColumnWidth column_width="75"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="8" />
    <wvobject type="group" fp_name="group176">
@@ -116,6 +116,7 @@
    <wvobject type="group" fp_name="group101">
       <obj_property name="label">diex</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/NV_DI_EX/op1">
          <obj_property name="ElementShortName">op1[7:0]</obj_property>
          <obj_property name="ObjectShortName">op1[7:0]</obj_property>
@@ -176,7 +177,6 @@
    <wvobject type="group" fp_name="group116">
       <obj_property name="label">exmem</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/NV_EX_MEM/op1">
          <obj_property name="ElementShortName">op1[7:0]</obj_property>
          <obj_property name="ObjectShortName">op1[7:0]</obj_property>
@@ -237,7 +237,6 @@
    <wvobject type="group" fp_name="group131">
       <obj_property name="label">memre</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/NV_MEM_RE/op1">
          <obj_property name="ElementShortName">op1[7:0]</obj_property>
          <obj_property name="ObjectShortName">op1[7:0]</obj_property>
@@ -330,6 +329,7 @@
       <wvobject type="array" fp_name="/test_CDD/test_CDD/BDR/QA">
          <obj_property name="ElementShortName">QA[7:0]</obj_property>
          <obj_property name="ObjectShortName">QA[7:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/BDR/QB">
          <obj_property name="ElementShortName">QB[7:0]</obj_property>
@@ -338,6 +338,7 @@
       <wvobject type="array" fp_name="/test_CDD/test_CDD/BDR/registre">
          <obj_property name="ElementShortName">registre[15:0][7:0]</obj_property>
          <obj_property name="ObjectShortName">registre[15:0][7:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/BDR/Aux_A">
          <obj_property name="ElementShortName">Aux_A[7:0]</obj_property>
@@ -419,7 +420,6 @@
       <wvobject type="array" fp_name="/test_CDD/test_CDD/DM/registre">
          <obj_property name="ElementShortName">registre[0:255][7:0]</obj_property>
          <obj_property name="ObjectShortName">registre[0:255][7:0]</obj_property>
-         <obj_property name="isExpanded"></obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/DM/Aux">
          <obj_property name="ElementShortName">Aux[7:0]</obj_property>

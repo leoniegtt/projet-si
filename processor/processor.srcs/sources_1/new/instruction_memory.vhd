@@ -23,13 +23,16 @@ architecture Behavioral of instruction_memory is
     type myTab is array(0 to 255) of std_logic_vector(31 downto 0);
     signal registre : myTab:=
         (--test aléa 1
-         x"06034500",
-         x"08020300",
-         x"06010600",
-
-           x"06010500",
-           x"06020400",
-           x"01030102",
+--         x"06034500",
+--         x"08020300",
+--         x"06010600",
+--         x"06010500",
+--         x"06020400",
+--         x"01030102",
+         x"06011400",
+         x"06020800",
+         x"06011200",
+         x"05020100",
          others => x"00000000"); -- init des valeurs pour test
     signal Aux : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
 
@@ -38,7 +41,7 @@ begin
 
     process 
     begin
-        wait until CLK'event and CLK='0';
+        wait until CLK'event and CLK='1';
         if (bloque ='1') then 
             Aux <= registre(to_integer(unsigned(Addr)));
         end if;
