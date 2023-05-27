@@ -74,7 +74,7 @@ architecture Behavioral of chemin_donnees is
          end COMPONENT;
          
 -- Instruction memory   
-signal IP_1 : STD_LOGIC_VECTOR (7 downto 0); 
+signal IP_1 : STD_LOGIC_VECTOR (7 downto 0):= x"00"; 
 signal OUT_1 : STD_LOGIC_VECTOR (31 downto 0);  
         
 --LI/DI 
@@ -137,7 +137,7 @@ signal b_exmem_in : STD_LOGIC_VECTOR (7 downto 0);
 signal lidi_read : STD_LOGIC;
 signal diex_write : STD_LOGIC;
 signal exmem_write : STD_LOGIC;
-signal alea : std_logic ;
+signal alea : std_logic :='1';
 
 
 
@@ -253,8 +253,8 @@ begin
   diex_write <= '1' when OP_LI_DI  = x"06" or OP_LI_DI  = x"01" or OP_LI_DI  = x"02" or OP_LI_DI  = x"03" else '0';
   exmem_write <= '1' when OP_DI_EX = x"06"  or OP_DI_EX = x"07" or OP_DI_EX= x"01" or OP_DI_EX= x"02" or OP_DI_EX= x"03" else '0'  ;
        
-   alea <= '0' when ((lidi_read ='1' and diex_write='1' )  and (A_LI_DI =out_1(15 downto 8) or A_LI_DI = out_1(7 downto 0))) or ((lidi_read ='1' and exmem_write='1' )  and (A_di_ex = out_1(15 downto 8) or A_di_ex = out_1(7 downto 0) )) else '1';
-   --alea <= '0' when (lidi_read ='1' and exmem_write='1' )  and (A_ex_mem = B_li_di or A_ex_mem = C_LI_DI ) else '1'; 
+  alea <= '0' when ((lidi_read ='1' and diex_write='1' )  and (A_LI_DI =out_1(15 downto 8) or A_LI_DI = out_1(7 downto 0))) or ((lidi_read ='1' and exmem_write='1' )  and (A_di_ex = out_1(15 downto 8) or A_di_ex = out_1(7 downto 0) )) else '1';
+  --alea <= '0' when (lidi_read ='1' and exmem_write='1' )  and (A_ex_mem = B_li_di or A_ex_mem = C_LI_DI ) else '1'; 
 
 end Behavioral;
 
