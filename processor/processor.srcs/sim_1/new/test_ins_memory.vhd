@@ -29,23 +29,31 @@ use IEEE.NUMERIC_STD.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity instruction_memory is
-    Port ( Addr : in STD_LOGIC_VECTOR (7 downto 0);
+entity test_ins_memory is
+
+end test_ins_memory;
+
+architecture Behavioral of test_ins_memory is
+COMPONENT instruction_memory
+
+  Port ( Addr : in STD_LOGIC_VECTOR (7 downto 0);
            CLK : in STD_LOGIC;
            O : out STD_LOGIC_VECTOR (31 downto 0));
-end instruction_memory;
+end COMPONENT;
 
-architecture Behavioral of instruction_memory is
-type myTab is array(255 downto 0) of std_logic_vector(31 downto 0);
-signal registre : myTab;
-
+        SIGNAL Addr_test : STD_LOGIC_VECTOR (7 downto 0):= (others => '0');
+        SIGNAL CLK_test : STD_LOGIC:='0';
+        SIGNAL O_test : STD_LOGIC_VECTOR (31 downto 0):= (others => '0');
+        
 begin
 
-process 
-begin
-    wait until CLK'event and CLK='1';
-    O <= registre(to_integer(unsigned(Addr)));
-    
-end process;
+test_ins_memory : instruction_memory PORT MAP (
+        Addr => Addr_test,
+        CLK => CLK_test,
+        O => O_test);
+        
+ --test lecture
+ Addr_test <= "11111111";
+ CLK_test <= '1'; 
 
 end Behavioral;
