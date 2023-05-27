@@ -3,4 +3,14 @@
 Jun 14 2018
 20:07:38
 /home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sim_1/new/test_ALU.vhd,1684154809,vhdl,,,,test_alu,,,,,,,,
-/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/ALU.vhd,1684155691,vhdl,,,,alu,,,,,,,,
+/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sim_1/new/test_BDR.vhd,1684422141,vhdl,,,,test_bdr,,,,,,,,
+/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sim_1/new/test_CDD.vhd,1685116571,vhdl,,,,test_cdd,,,,,,,,
+/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sim_1/new/test_DM.vhd,1685116454,vhdl,,,,test_dm,,,,,,,,
+/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sim_1/new/test_ins_memory.vhd,1684411485,vhdl,,,,test_ins_memory,,,,,,,,
+/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sim_1/new/test_pipeline.vhd,1684413607,vhdl,,,,test_pipeline,,,,,,,,
+/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/ALU.vhd,1685106516,vhdl,,,,alu,,,,,,,,
+/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd,1685189702,vhdl,,,,banc_de_registres,,,,,,,,
+/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd,1685195736,vhdl,,,,pipeline,,,,,,,,
+/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd,1685198732,vhdl,,,,chemin_donnees,,,,,,,,
+/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/data_memory.vhd,1685119684,vhdl,,,,data_memory,,,,,,,,
+/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd,1685199569,vhdl,,,,instruction_memory,,,,,,,,

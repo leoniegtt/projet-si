@@ -1,22 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 15.05.2023 14:53:39
--- Design Name: 
--- Module Name: Banc_De_Registres - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
 
 
 library IEEE;
@@ -45,28 +26,35 @@ entity Banc_De_Registres is
 end Banc_De_Registres;
 
 architecture Behavioral of Banc_De_Registres is
-type myTab is array(15 downto 0) of std_logic_vector(7 downto 0);
-signal registre : myTab;
+    type myTab is array(15 downto 0) of std_logic_vector(7 downto 0);
+    signal registre : myTab := (others => "00000000");
+    signal Aux_A : STD_LOGIC_VECTOR (7 downto 0):= (others => '0');
+    signal Aux_B : STD_LOGIC_VECTOR (7 downto 0):= (others => '0');
 
 begin
-            QA <= Data when (Addr_A = Addr_W and w='1') 
-                else registre(to_integer(unsigned(Addr_A)));
-            QB <= Data when (Addr_B = Addr_W and w='1') 
-                else registre(to_integer(unsigned(Addr_B)));
-            
-        process
-            begin
-            if (RST='1') then
-                if(W='1') then
-                wait until CLK'event and CLK='1';
+    QA <= Aux_A;
+    QB <= Aux_B;
+
+process
+    begin
+    wait until CLK'event and CLK='0';
+    if (RST='1') then
+        --lecture
+        Aux_A <= registre(to_integer(unsigned(Addr_A)));
+        Aux_B <= registre(to_integer(unsigned(Addr_B)));
+        --écriture
+        if (W='1') then
+            if (Addr_A = Addr_W) then
+                Aux_A <= Data;
+            elsif (Addr_B = Addr_W) then
+                Aux_B <= Data;
+            else 
                 registre(to_integer(unsigned(Addr_W))) <= Data;
-                end if;
-             else  
-                reset :for i IN 15 downto 0 LOOP
-                registre(i) <=  (others => '0');
-                end loop reset;
-             end if;
-       end process;  
-           
-        
+            end if; 
+        end if;
+    else  
+        registre <=  (others => x"00");
+    end if;
+end process;
+
 end Behavioral;
