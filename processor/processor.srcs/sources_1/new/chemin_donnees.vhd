@@ -54,7 +54,8 @@ architecture Behavioral of chemin_donnees is
          COMPONENT instruction_memory
            Port ( Addr : in STD_LOGIC_VECTOR (7 downto 0);
                     CLK : in STD_LOGIC;
-                    O : out STD_LOGIC_VECTOR (31 downto 0));
+                    O : out STD_LOGIC_VECTOR (31 downto 0);
+                    bloque : in Std_LOGIC);
          end COMPONENT;
          
          COMPONENT pipeline
@@ -67,7 +68,9 @@ architecture Behavioral of chemin_donnees is
                   out3 : out STD_LOGIC_VECTOR (7 downto 0);
                   out4 : out STD_LOGIC_VECTOR (7 downto 0);
                   CLK : in STD_LOGIC;
-                  rst : in STD_LOGIC);
+                  rst : in STD_LOGIC;
+                  enable : in std_logic;
+                  nop : in std_logic);
          end COMPONENT;
          
 -- Instruction memory   
@@ -79,27 +82,35 @@ signal A_LI_DI : STD_LOGIC_VECTOR (7 downto 0);
 signal B_LI_DI : STD_LOGIC_VECTOR (7 downto 0);
 signal C_LI_DI : STD_LOGIC_VECTOR (7 downto 0);
 signal OP_LI_DI : STD_LOGIC_VECTOR (7 downto 0);
+signal enable_LI_DI : std_logic :='0';
+signal nop_LI_DI : std_logic :='1';
+
 
 --DI/EX 
 signal A_DI_EX : STD_LOGIC_VECTOR (7 downto 0);
 signal B_DI_EX : STD_LOGIC_VECTOR (7 downto 0);
 signal C_DI_EX : STD_LOGIC_VECTOR (7 downto 0);
 signal OP_DI_EX : STD_LOGIC_VECTOR (7 downto 0);
+signal enable_DI_EX : std_logic :='0';
+signal nop_DI_EX : std_logic :='1';
 
 --EX/Mem 
 signal A_EX_MEM : STD_LOGIC_VECTOR (7 downto 0);
 signal B_EX_MEM : STD_LOGIC_VECTOR (7 downto 0);
 signal C_EX_MEM : STD_LOGIC_VECTOR (7 downto 0);
 signal OP_EX_MEM : STD_LOGIC_VECTOR (7 downto 0);
+signal enable_EX_MEM : std_logic :='0';
+signal nop_EX_MEM  : std_logic :='1';
 
 --Mem/RE 
 signal A_MEM_RE : STD_LOGIC_VECTOR (7 downto 0);
 signal B_MEM_RE : STD_LOGIC_VECTOR (7 downto 0);
 signal C_MEM_RE : STD_LOGIC_VECTOR (7 downto 0);
 signal OP_MEM_RE : STD_LOGIC_VECTOR (7 downto 0);
-
 signal QA : STD_LOGIC_VECTOR (7 downto 0);
 signal QB : STD_LOGIC_VECTOR (7 downto 0);
+signal enable_MEM_RE : std_logic :='0';
+signal nop_MEM_RE : std_logic :='1';
 
 --UAL
 signal S_UAL : STD_LOGIC_VECTOR (7 downto 0);
@@ -118,23 +129,32 @@ signal bd_memre_in : STD_LOGIC_VECTOR(7 downto 0) ;
 
 --BDR
 signal LC : STD_LOGIC ;
-  
 signal b_diex_in : STD_LOGIC_VECTOR (7 downto 0);
 signal op_diex_in : STD_LOGIC_VECTOR (7 downto 0);
 signal b_exmem_in : STD_LOGIC_VECTOR (7 downto 0);
 
+ --alea
+signal lidi_read : STD_LOGIC;
+signal diex_write : STD_LOGIC;
+signal exmem_write : STD_LOGIC;
+signal alea : std_logic ;
+
+
 
 begin
 
-    INS_MEM : instruction_memory port map (IP_1, CLK, OUT_1);
+    INS_MEM : instruction_memory port map (IP_1, CLK, OUT_1 , alea);
     
     process
     begin
        wait until CLK'event and CLK='1';
        if (rst='0') then 
-       IP_1 <= ("00000000");
-       else
-       IP_1 <= IP_1 + 1;
+            IP_1 <= ("00000000");
+       else 
+       if( alea='1') then 
+            IP_1 <= IP_1 +1 ;
+            
+       end if;
        end if;
     end process;
 
@@ -147,9 +167,12 @@ begin
                                  out2 => A_LI_DI,
                                  out3 => B_LI_DI,
                                  out4 => C_LI_DI,
-                                 
                                  CLK => CLK,  
-                                 rst => rst);
+                                 rst=> rst,
+                                 --enable => exmem_write ,
+                                 enable => '1',
+                                 nop => alea
+                                 );
    
    b_diex_in <= QA when OP_LI_DI = x"05" or OP_LI_DI = x"02" or OP_LI_DI = x"03" or OP_LI_DI = x"08" or OP_LI_DI = x"01" else B_LI_DI;
    
@@ -163,9 +186,11 @@ begin
                               out2 => A_DI_EX,
                               out3 => B_DI_EX,
                               out4 => C_DI_EX,
-                              
                               CLK => CLK,  
-                              rst => rst);
+                              rst => rst,
+                              --enable => enable_DI_EX,
+                              enable => '1',
+                              nop => nop_DI_EX);
                               
    UAL : ALU port map (B_DI_EX, C_DI_EX, N,O,Z,C, S_UAL, LC_UAL);                           
                               
@@ -180,7 +205,10 @@ begin
                                 out2 => A_EX_MEM,
                                 out3 => B_EX_MEM,
                                 CLK => CLK,  
-                                rst => rst);
+                                rst => rst,
+                                --enable => enable_EX_MEM,
+                                enable => '1',
+                                nop => nop_EX_MEM);
        
      bd_memre_in <= A_EX_MEM when OP_EX_MEM = x"08" else B_EX_MEM ;
                                 
@@ -197,7 +225,10 @@ begin
                                 out2 => A_MEM_RE,
                                 out3 => B_MEM_RE,
                                 CLK => CLK,  
-                                rst => rst);
+                                rst => rst,
+                                --enable => enable_MEM_RE,
+                                enable => '1',
+                                nop => nop_MEM_RE);
 
      LC <= '1' when OP_MEM_RE = x"06" or  OP_MEM_RE=x"01" or OP_MEM_RE = x"02" or  OP_MEM_RE=x"03" or OP_MEM_RE = x"07" else '0';
      
@@ -212,4 +243,18 @@ begin
                                      clk => clk) ;
    
    
+   -- gestion des aléas
+   --lidi_read <= '1' when out_1(31 downto 24) = x"05" or out_1(31 downto 24) = x"02" or out_1(31 downto 24) = x"03" or out_1(31 downto 24) = x"08" or out_1(31 downto 24) = x"01" else '0';
+   --diex_write <= '1' when OP_LI_DI = x"06" or OP_LI_DI = x"01" or OP_LI_DI = x"02" or OP_LI_DI = x"03" else '0';
+   --exmem_write <= '1' when OP_DI_EX = x"06"  or OP_DI_EX = x"07" or OP_DI_EX  = x"01" or OP_DI_EX  = x"02" or OP_DI_EX  = x"03" else '0'  ;
+  
+  
+  lidi_read <= '1' when out_1(31 downto 24)= x"05" or out_1(31 downto 24) = x"02" or out_1(31 downto 24)= x"03" or out_1(31 downto 24)= x"08" or out_1(31 downto 24)= x"01" else '0';
+  diex_write <= '1' when OP_LI_DI  = x"06" or OP_LI_DI  = x"01" or OP_LI_DI  = x"02" or OP_LI_DI  = x"03" else '0';
+  exmem_write <= '1' when OP_DI_EX = x"06"  or OP_DI_EX = x"07" or OP_DI_EX= x"01" or OP_DI_EX= x"02" or OP_DI_EX= x"03" else '0'  ;
+       
+   alea <= '0' when ((lidi_read ='1' and diex_write='1' )  and (A_LI_DI =out_1(15 downto 8) or A_LI_DI = out_1(7 downto 0))) or ((lidi_read ='1' and exmem_write='1' )  and (A_di_ex = out_1(15 downto 8) or A_di_ex = out_1(7 downto 0) )) else '1';
+   --alea <= '0' when (lidi_read ='1' and exmem_write='1' )  and (A_ex_mem = B_li_di or A_ex_mem = C_LI_DI ) else '1'; 
+
 end Behavioral;
+

@@ -14,6 +14,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity instruction_memory is
     Port ( Addr : in STD_LOGIC_VECTOR (7 downto 0);
            CLK : in STD_LOGIC;
+           bloque : in STD_LOGIC;
            O : out STD_LOGIC_VECTOR (31 downto 0));
 end instruction_memory;
 
@@ -21,19 +22,20 @@ architecture Behavioral of instruction_memory is
 
     type myTab is array(0 to 255) of std_logic_vector(31 downto 0);
     signal registre : myTab:=
-        (x"00000000",
-         x"06010600",
-         x"00000000",
-         x"06000405",
-         x"00000000",
-         x"06020200",
-         x"00000000",
+        (--x"00000000",
+         --x"06010600",
+         --x"00000000",
+         --x"06000405",
+         --x"00000000",
+         --x"06020200",
+         --x"00000000",
          x"00000000",
          x"06034500",
-         x"00000000",
-         x"00000000",
-         x"00000000",
+--         x"00000000",
+--         x"00000000",
+--         x"00000000",
          x"08020300",
+         x"06010600",
          others => x"00000000"); -- init des valeurs pour test
     signal Aux : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
 
@@ -43,7 +45,9 @@ begin
     process 
     begin
         wait until CLK'event and CLK='1';
-        Aux <= registre(to_integer(unsigned(Addr)));
+        if (bloque ='1') then 
+            Aux <= registre(to_integer(unsigned(Addr)));
+        end if;
     end process;
 
 end Behavioral;

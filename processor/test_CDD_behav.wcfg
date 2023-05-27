@@ -10,30 +10,19 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="166666666fs"></ZoomStartTime>
-      <ZoomEndTime time="1166666667fs"></ZoomEndTime>
-      <Cursor1Time time="638645000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1000000001fs"></ZoomEndTime>
+      <Cursor1Time time="180000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="165"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <NameColumnWidth column_width="138"></NameColumnWidth>
+      <ValueColumnWidth column_width="112"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="12" />
-   <wvobject type="logic" fp_name="/test_CDD/CLK_test">
-      <obj_property name="ElementShortName">CLK_test</obj_property>
-      <obj_property name="ObjectShortName">CLK_test</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/test_CDD/rst_test">
-      <obj_property name="ElementShortName">rst_test</obj_property>
-      <obj_property name="ObjectShortName">rst_test</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/test_CDD/test_CDD/IP_1">
-      <obj_property name="ElementShortName">IP_1[7:0]</obj_property>
-      <obj_property name="ObjectShortName">IP_1[7:0]</obj_property>
-   </wvobject>
+   <WVObjectSize size="8" />
    <wvobject type="group" fp_name="group176">
       <obj_property name="label">mi</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/INS_MEM/Addr">
          <obj_property name="ElementShortName">Addr[7:0]</obj_property>
          <obj_property name="ObjectShortName">Addr[7:0]</obj_property>
@@ -58,6 +47,7 @@
    <wvobject type="group" fp_name="group86">
       <obj_property name="label">lidi</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/NV_LI_DI/op1">
          <obj_property name="ElementShortName">op1[7:0]</obj_property>
          <obj_property name="ObjectShortName">op1[7:0]</obj_property>
@@ -97,6 +87,14 @@
       <wvobject type="logic" fp_name="/test_CDD/test_CDD/NV_LI_DI/rst">
          <obj_property name="ElementShortName">rst</obj_property>
          <obj_property name="ObjectShortName">rst</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/test_CDD/test_CDD/NV_LI_DI/enable">
+         <obj_property name="ElementShortName">enable</obj_property>
+         <obj_property name="ObjectShortName">enable</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/test_CDD/test_CDD/NV_LI_DI/nop">
+         <obj_property name="ElementShortName">nop</obj_property>
+         <obj_property name="ObjectShortName">nop</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/NV_LI_DI/inter_op1">
          <obj_property name="ElementShortName">inter_op1[7:0]</obj_property>
@@ -178,6 +176,7 @@
    <wvobject type="group" fp_name="group116">
       <obj_property name="label">exmem</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/NV_EX_MEM/op1">
          <obj_property name="ElementShortName">op1[7:0]</obj_property>
          <obj_property name="ObjectShortName">op1[7:0]</obj_property>
@@ -238,6 +237,7 @@
    <wvobject type="group" fp_name="group131">
       <obj_property name="label">memre</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/NV_MEM_RE/op1">
          <obj_property name="ElementShortName">op1[7:0]</obj_property>
          <obj_property name="ObjectShortName">op1[7:0]</obj_property>
@@ -295,10 +295,6 @@
          <obj_property name="ObjectShortName">inter_op4[7:0]</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject type="logic" fp_name="/test_CDD/test_CDD/LC">
-      <obj_property name="ElementShortName">LC</obj_property>
-      <obj_property name="ObjectShortName">LC</obj_property>
-   </wvobject>
    <wvobject type="group" fp_name="group144">
       <obj_property name="label">br</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -342,7 +338,6 @@
       <wvobject type="array" fp_name="/test_CDD/test_CDD/BDR/registre">
          <obj_property name="ElementShortName">registre[15:0][7:0]</obj_property>
          <obj_property name="ObjectShortName">registre[15:0][7:0]</obj_property>
-         <obj_property name="isExpanded"></obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/BDR/Aux_A">
          <obj_property name="ElementShortName">Aux_A[7:0]</obj_property>
@@ -425,38 +420,6 @@
          <obj_property name="ElementShortName">registre[0:255][7:0]</obj_property>
          <obj_property name="ObjectShortName">registre[0:255][7:0]</obj_property>
          <obj_property name="isExpanded"></obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/test_CDD/test_CDD/DM/Aux">
-         <obj_property name="ElementShortName">Aux[7:0]</obj_property>
-         <obj_property name="ObjectShortName">Aux[7:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/test_CDD/test_CDD/DM/Addr">
-         <obj_property name="ElementShortName">Addr[7:0]</obj_property>
-         <obj_property name="ObjectShortName">Addr[7:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/test_CDD/test_CDD/DM/I">
-         <obj_property name="ElementShortName">I[7:0]</obj_property>
-         <obj_property name="ObjectShortName">I[7:0]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/test_CDD/test_CDD/DM/RW">
-         <obj_property name="ElementShortName">RW</obj_property>
-         <obj_property name="ObjectShortName">RW</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/test_CDD/test_CDD/DM/RST">
-         <obj_property name="ElementShortName">RST</obj_property>
-         <obj_property name="ObjectShortName">RST</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/test_CDD/test_CDD/DM/CLK">
-         <obj_property name="ElementShortName">CLK</obj_property>
-         <obj_property name="ObjectShortName">CLK</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/test_CDD/test_CDD/DM/O">
-         <obj_property name="ElementShortName">O[7:0]</obj_property>
-         <obj_property name="ObjectShortName">O[7:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/test_CDD/test_CDD/DM/registre">
-         <obj_property name="ElementShortName">registre[0:255][7:0]</obj_property>
-         <obj_property name="ObjectShortName">registre[0:255][7:0]</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/DM/Aux">
          <obj_property name="ElementShortName">Aux[7:0]</obj_property>

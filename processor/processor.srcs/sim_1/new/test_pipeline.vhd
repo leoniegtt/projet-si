@@ -26,7 +26,9 @@ COMPONENT pipeline
          out3 : out STD_LOGIC_VECTOR (7 downto 0);
          out4 : out STD_LOGIC_VECTOR (7 downto 0);
          CLK : in STD_LOGIC;
-         rst : in STD_LOGIC);
+         rst : in STD_LOGIC;
+         enable : in STD_LOGIC;
+         nop : in STD_LOGIC);
 end COMPONENT;
 
          SIGNAL op1_test  : STD_LOGIC_VECTOR (7 downto 0):= (others => '0');
@@ -39,7 +41,8 @@ end COMPONENT;
          SIGNAL out4_test : STD_LOGIC_VECTOR (7 downto 0):= (others => '0');
          SIGNAL CLK_test  : STD_LOGIC := '0';
          SIGNAL flush_test : STD_LOGIC := '0';
-
+         SIGNAL enable_test  : STD_LOGIC := '0';
+         SIGNAL nop_test : STD_LOGIC := '0';
 begin
 
 test_pipeline : pipeline PORT MAP (
@@ -52,7 +55,9 @@ test_pipeline : pipeline PORT MAP (
         out3 => out3_test,
         out4 => out4_test,
         CLK => CLK_test,
-        rst => flush_test);
+        rst => flush_test,
+        enable => enable_test,
+        nop => nop_test);
         
         
  --test pipeline

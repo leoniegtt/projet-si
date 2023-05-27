@@ -1,23 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 17.05.2023 11:55:32
--- Design Name: 
--- Module Name: Pipeline - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -41,7 +21,9 @@ entity Pipeline is
            out3 : out STD_LOGIC_VECTOR (7 downto 0);
            out4 : out STD_LOGIC_VECTOR (7 downto 0);
            CLK : in STD_LOGIC;
-           rst : in STD_LOGIC);
+           rst : in STD_LOGIC;
+           enable : in STD_LOGIC;
+           nop : in STD_LOGIC);
 end Pipeline;
 
 architecture Behavioral of Pipeline is
@@ -60,16 +42,19 @@ begin
     process 
         begin
         wait until CLK'event and CLK='1';
-        if rst ='0' then
-            inter_op1 <= "00000000";
-            inter_op2 <= "00000000";
-            inter_op3 <= "00000000";
-            inter_op4 <= "00000000";
-        else
-            inter_op1 <= op1;
-            inter_op2 <= op2;
-            inter_op3 <= op3;
-            inter_op4 <= op4;
-            end if;
+        --if enable='0' then
+            if rst ='0' or nop='0' then
+                inter_op1 <= "00000000";
+                inter_op2 <= "00000000";
+                inter_op3 <= "00000000";
+                inter_op4 <= "00000000";
+            else
+                inter_op1 <= op1;
+                inter_op2 <= op2;
+                inter_op3 <= op3;
+                inter_op4 <= op4;
+                end if;
+               
+         --end if;
       end process;
 end Behavioral;

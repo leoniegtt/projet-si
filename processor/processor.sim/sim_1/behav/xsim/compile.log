@@ -323,3 +323,124 @@ INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/pro
 INFO: [VRFC 10-307] analyzing entity instruction_memory
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity instruction_memory
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity instruction_memory
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity instruction_memory
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Pipeline
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity instruction_memory
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Pipeline
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity instruction_memory
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Pipeline
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Pipeline
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Pipeline
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity instruction_memory
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Pipeline
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity instruction_memory
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Banc_De_Registres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Pipeline
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Pipeline
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity instruction_memory
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity instruction_memory
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Pipeline
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Pipeline
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Pipeline
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity instruction_memory
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Pipeline
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity chemin_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity instruction_memory
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity instruction_memory
