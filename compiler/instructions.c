@@ -159,6 +159,16 @@ void nop_ins(){
     k=k+1;
     printf("NOP 0 0 0\n");
 }
+
+void push_ins(int pos ){
+
+    instructions[k][0] = 14;
+    instructions[k][1] = pos;
+    instructions[k][2] = 0;
+    k=k+1;
+    printf("push %d 0 0\n",pos);
+}
+
 int get_current_ins(){
     return k-1;
 }

@@ -1,9 +1,9 @@
-/*int f(int a) {
+int f(int a) {
       return a + 2;
 }
 void main(){
     int a=f(2);
-}*/
+}
 /*void main(){
     int a =0;
     int b = 1;
@@ -16,13 +16,13 @@ void main(){
     int c=2;
 
 }*/
-  int a=8;
+  /*int a=8;
   if(a){
     int b=0;
   }
   else{
     a=9;
-  }
+  }*/
 
     /*int a = 7;
     if (a) {

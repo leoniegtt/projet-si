@@ -16,3 +16,4 @@ void patch_jmp(int pos);
 void patch_jmf(int pos);
 int get_current_ins();
 void cop_tmp();
+void push_ins(int pos);

@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "fonctions.h"
 #include "stack.h"
 #include "instructions.h"
 
@@ -43,8 +43,8 @@ program :
     ;
 
 function :
-    {stack_delete();} tVOID tID tLPAR {inc(); stack_push("?adr");stack_push("?val"); if(strcmp($3 , "main")!=0){jmp_ins(-1);}; } parameters tRPAR tLBRACE {inc();} statement {dec();}tRBRACE
-    | {stack_delete();} tINT tID tLPAR {inc(); stack_push("?adr");stack_push("?val"); jmp_ins(-1);} parameters {dec();}tRPAR tLBRACE statement Return {cop_ins(find_element("?val"));ret_ins();ret_ins();} tSEMI tRBRACE
+    {stack_delete();} tVOID tID {add_func($3,get_current_ins());}tLPAR {inc(); stack_push("?adr");stack_push("?val"); if(strcmp($3 , "main")!=0){jmp_ins(-1);}; } parameters tRPAR tLBRACE {inc();} statement {dec();}tRBRACE
+    | {stack_delete();} tINT tID tLPAR {inc(); stack_push("?adr");stack_push("?val"); jmp_ins(-1);add_func($3,get_current_ins()+1);} parameters {dec(); } tRPAR tLBRACE statement Return {cop_ins(find_element("?val"));ret_ins();} tSEMI tRBRACE
 ;
 
 statement :
@@ -93,7 +93,7 @@ print :
 ;
 
 Return :
-    tRETURN term
+    tRETURN term {ret_ins();}
 ;
 
 while :
@@ -124,7 +124,7 @@ term :
     | term tADD term {add_ins();}
     | term tMUL term {mul_ins();}
     | term tDIV term {div_ins();}
-    | tID {stack_push("!adr");stack_push("!val");}tLPAR args tRPAR {}
+    | tID {stack_push("!adr");stack_push("!val");}tLPAR args tRPAR {push_ins(find_element("!adr"));}
 ;
 
 args :
