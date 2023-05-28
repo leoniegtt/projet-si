@@ -196,20 +196,19 @@ void patch_jmp(int pos){
 }
 
 void generateFileFromTab(int instructions[][4], int numRows) {
-    FILE *file = fopen("output.txt", "w");  // Open the file in write mode (creates if not exists)
+    FILE *fp = fopen("output.txt", "w");  // Open the file in write mode
 
-    if (file == NULL) {
+    if (fp == NULL) {
         printf("Failed to open the file.\n");
         return;
     }
 
-    // Write the tabular data to the file
     for (int i = 0; i < numRows; i++) {
-        fprintf(file, "%d %d %d %d\n", instructions[i][0], instructions[i][1],
+        fprintf(fp, "%d %d %d %d\n", instructions[i][0], instructions[i][1],
                 instructions[i][2], instructions[i][3]);
     }
 
-    fclose(file);  // Close the file
+    fclose(fp);
 }
 
 
