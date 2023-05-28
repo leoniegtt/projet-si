@@ -2,9 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "fonctions.h"
 #include "stack.h"
 #include "instructions.h"
+#include "interpreteur.h"
 
 int yylex (void);
 void yyerror (const char *);
@@ -89,7 +91,7 @@ parameter :
 
 
 print : 
-    tPRINT tLPAR tID tRPAR tSEMI
+    tPRINT tLPAR tID tRPAR tSEMI {print_ins($3); }
 ;
 
 Return :
@@ -162,6 +164,15 @@ void yyerror(const char *msg) {
 //main function
 int main (int argc, char **argv){
   yyparse();
+
   main1();
+
+  //build_table();
+  //interpret();
+  main_int();
+
+  printf("j'ai fini\n");
+
+  return 0;
 }
 

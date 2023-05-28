@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "instructions.h"
+#include "interpreteur.h"
+
 #include "stack.h"
 int instructions[1024][4];
 int k =0;
@@ -23,6 +25,7 @@ ret 13
 nop 14
 pop 15
 push 16
+print 17 TODO
 
 */
 void sub_ins() {
@@ -156,7 +159,7 @@ void jmp_ins(int arg){
     //stack_pop(); //temp var
     instructions[k][0] = 7;
     instructions[k][1] = op1 ;
-
+    instructions[k][2] = 0;
     k=k+1;
     printf("JMP %d \n", op1);
 }
@@ -181,7 +184,7 @@ void nop_ins(){
 
 void push_ins(int pos ){
 
-    instructions[k][0] = 15;
+    instructions[k][0] = 16;
     instructions[k][1] = pos;
     instructions[k][2] = 0;
     k=k+1;
@@ -204,6 +207,13 @@ void pop_ins (int pos){
      printf("pop %d 0 0\n",pos);
 }
 
+void print_ins (char * pos){
+     instructions[k][0] = 17;
+     //instructions[k][1] = pos;
+     k=k+1;
+     printf("print %s \n",pos);
+}
+
 int get_current_ins(){
     return k-1;
 }
@@ -216,7 +226,7 @@ void patch_jmp(int pos){
 
 void generateFileFromTab(int instructions[][4], int numRows) {
     FILE *fp = fopen("output.txt", "w");  // Open the file in write mode
-
+    printf("generatefile\n");
     if (fp == NULL) {
         printf("Failed to open the file.\n");
         return;
@@ -234,9 +244,11 @@ void generateFileFromTab(int instructions[][4], int numRows) {
 void main1(){
     for (int i =0 ; i<1024 ; i++){
         for (int j = 0 ; j<4 ; j++){
-        printf("%d",instructions[i][j]);}
-    printf("\n");
+        //printf("%d",instructions[i][j]);
+        }
+    //printf("\n");
+
     }
-     generateFileFromTab(instructions, 1024);
+    generateFileFromTab(instructions, 1024);
 
 }

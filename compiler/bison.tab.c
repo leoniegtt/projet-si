@@ -71,14 +71,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "fonctions.h"
 #include "stack.h"
 #include "instructions.h"
+#include "interpreteur.h"
 
 int yylex (void);
 void yyerror (const char *);
 
-#line 82 "bison.tab.c"
+#line 84 "bison.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -164,10 +166,10 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 16 "bison.y"
+#line 18 "bison.y"
  int num; char var[16];int index;
 
-#line 171 "bison.tab.c"
+#line 173 "bison.tab.c"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -545,14 +547,14 @@ static const yytype_int8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    40,    40,    41,    46,    46,    46,    46,    46,    46,
-      47,    47,    47,    47,    47,    51,    52,    53,    54,    55,
-      56,    57,    60,    63,    64,    64,    66,    66,    68,    71,
-      72,    72,    75,    76,    79,    80,    84,    85,    86,    92,
-      96,   100,   100,   103,   106,   107,   107,   108,   109,   113,
-     113,   117,   121,   122,   123,   124,   125,   126,   127,   127,
-     131,   132,   136,   137,   138,   139,   140,   141,   142,   145,
-     146,   147
+       0,    42,    42,    43,    48,    48,    48,    48,    48,    48,
+      49,    49,    49,    49,    49,    53,    54,    55,    56,    57,
+      58,    59,    62,    65,    66,    66,    68,    68,    70,    73,
+      74,    74,    77,    78,    81,    82,    86,    87,    88,    94,
+      98,   102,   102,   105,   108,   109,   109,   110,   111,   115,
+     115,   119,   123,   124,   125,   126,   127,   128,   129,   129,
+     133,   134,   138,   139,   140,   141,   142,   143,   144,   147,
+     148,   149
 };
 #endif
 
@@ -1435,283 +1437,289 @@ yyreduce:
   switch (yyn)
     {
   case 3:
-#line 41 "bison.y"
+#line 43 "bison.y"
                        {nop_ins();}
-#line 1441 "bison.tab.c"
+#line 1443 "bison.tab.c"
     break;
 
   case 4:
-#line 46 "bison.y"
+#line 48 "bison.y"
     {stack_delete();}
-#line 1447 "bison.tab.c"
+#line 1449 "bison.tab.c"
     break;
 
   case 5:
-#line 46 "bison.y"
+#line 48 "bison.y"
                                 {add_func((yyvsp[0].var),get_current_ins());}
-#line 1453 "bison.tab.c"
+#line 1455 "bison.tab.c"
     break;
 
   case 6:
-#line 46 "bison.y"
+#line 48 "bison.y"
                                                                        {inc(); stack_push("?adr");stack_push("?val"); if(strcmp((yyvsp[-2].var) , "main")!=0){jmp_ins(-1);}; }
-#line 1459 "bison.tab.c"
+#line 1461 "bison.tab.c"
     break;
 
   case 7:
-#line 46 "bison.y"
+#line 48 "bison.y"
                                                                                                                                                                                            {inc();}
-#line 1465 "bison.tab.c"
+#line 1467 "bison.tab.c"
     break;
 
   case 8:
-#line 46 "bison.y"
+#line 48 "bison.y"
                                                                                                                                                                                                               {dec();}
-#line 1471 "bison.tab.c"
+#line 1473 "bison.tab.c"
     break;
 
   case 10:
-#line 47 "bison.y"
+#line 49 "bison.y"
       {stack_delete();}
-#line 1477 "bison.tab.c"
+#line 1479 "bison.tab.c"
     break;
 
   case 11:
-#line 47 "bison.y"
+#line 49 "bison.y"
                                        {inc(); stack_push("?adr");stack_push("?val"); jmp_ins(-1);add_func((yyvsp[-1].var),get_current_ins()+1);}
-#line 1483 "bison.tab.c"
+#line 1485 "bison.tab.c"
     break;
 
   case 12:
-#line 47 "bison.y"
+#line 49 "bison.y"
                                                                                                                                                 {dec(); }
-#line 1489 "bison.tab.c"
+#line 1491 "bison.tab.c"
     break;
 
   case 13:
-#line 47 "bison.y"
+#line 49 "bison.y"
                                                                                                                                                                                          {cop_ins(find_element("?val"));ret_ins();}
-#line 1495 "bison.tab.c"
+#line 1497 "bison.tab.c"
     break;
 
   case 18:
-#line 54 "bison.y"
+#line 56 "bison.y"
                              {pop_tmp();}
-#line 1501 "bison.tab.c"
+#line 1503 "bison.tab.c"
     break;
 
   case 23:
-#line 63 "bison.y"
+#line 65 "bison.y"
         { stack_push((yyvsp[0].var)); }
-#line 1507 "bison.tab.c"
+#line 1509 "bison.tab.c"
     break;
 
   case 24:
-#line 64 "bison.y"
+#line 66 "bison.y"
         {  stack_push((yyvsp[0].var));  }
-#line 1513 "bison.tab.c"
+#line 1515 "bison.tab.c"
     break;
 
   case 25:
-#line 64 "bison.y"
+#line 66 "bison.y"
                                            {cop_ins( find_element((yyvsp[-3].var)));stack_pop();}
-#line 1519 "bison.tab.c"
+#line 1521 "bison.tab.c"
     break;
 
   case 29:
-#line 71 "bison.y"
+#line 73 "bison.y"
         { stack_push((yyvsp[0].var)); }
-#line 1525 "bison.tab.c"
+#line 1527 "bison.tab.c"
     break;
 
   case 30:
-#line 72 "bison.y"
+#line 74 "bison.y"
         {  stack_push((yyvsp[0].var));  }
-#line 1531 "bison.tab.c"
+#line 1533 "bison.tab.c"
     break;
 
   case 31:
-#line 72 "bison.y"
+#line 74 "bison.y"
                                             { cop_ins( find_element((yyvsp[-3].var)));stack_pop(); }
-#line 1537 "bison.tab.c"
+#line 1539 "bison.tab.c"
     break;
 
   case 38:
-#line 86 "bison.y"
+#line 88 "bison.y"
                { stack_push((yyvsp[0].var)); }
-#line 1543 "bison.tab.c"
+#line 1545 "bison.tab.c"
+    break;
+
+  case 39:
+#line 94 "bison.y"
+                                 {print_ins((yyvsp[-2].var)); }
+#line 1551 "bison.tab.c"
     break;
 
   case 40:
-#line 96 "bison.y"
+#line 98 "bison.y"
                  {ret_ins();}
-#line 1549 "bison.tab.c"
+#line 1557 "bison.tab.c"
     break;
 
   case 41:
-#line 100 "bison.y"
+#line 102 "bison.y"
                                   {jmf_ins(); stack_pop();(yyvsp[-3].index)=get_current_ins();}
-#line 1555 "bison.tab.c"
+#line 1563 "bison.tab.c"
     break;
 
   case 42:
-#line 100 "bison.y"
+#line 102 "bison.y"
                                                                                        { jmp_ins((yyvsp[-5].index));patch_jmf((yyvsp[-5].index)); }
-#line 1561 "bison.tab.c"
+#line 1569 "bison.tab.c"
     break;
 
   case 43:
-#line 103 "bison.y"
+#line 105 "bison.y"
                   {jmf_ins(); stack_pop();(yyval.index)=get_current_ins();}
-#line 1567 "bison.tab.c"
+#line 1575 "bison.tab.c"
     break;
 
   case 44:
-#line 106 "bison.y"
+#line 108 "bison.y"
                                                 {patch_jmf((yyvsp[-1].index)); }
-#line 1573 "bison.tab.c"
+#line 1581 "bison.tab.c"
     break;
 
   case 45:
-#line 107 "bison.y"
+#line 109 "bison.y"
                                                 {jmp_ins(-1);(yyvsp[-5].index)=get_current_ins();patch_jmf((yyvsp[-1].index));}
-#line 1579 "bison.tab.c"
+#line 1587 "bison.tab.c"
     break;
 
   case 46:
-#line 107 "bison.y"
+#line 109 "bison.y"
                                                                                                            {patch_jmp((yyvsp[-8].index));}
-#line 1585 "bison.tab.c"
+#line 1593 "bison.tab.c"
     break;
 
   case 49:
-#line 113 "bison.y"
+#line 115 "bison.y"
             {inc(); printf(" la prondeur actuelle en entree est : %d",get_profondeur()); }
-#line 1591 "bison.tab.c"
+#line 1599 "bison.tab.c"
     break;
 
   case 50:
-#line 113 "bison.y"
+#line 115 "bison.y"
                                                                                                              {profondeur_pop(); printf(" la prondeur actuelle en sortie est : %d",get_profondeur());  }
-#line 1597 "bison.tab.c"
+#line 1605 "bison.tab.c"
     break;
 
   case 51:
-#line 117 "bison.y"
+#line 119 "bison.y"
                      {cop_ins( find_element((yyvsp[-2].var)));stack_pop();}
-#line 1603 "bison.tab.c"
+#line 1611 "bison.tab.c"
     break;
 
   case 52:
-#line 121 "bison.y"
+#line 123 "bison.y"
           {stack_push("0") ; cop_tmp(find_element((yyvsp[0].var)));}
-#line 1609 "bison.tab.c"
+#line 1617 "bison.tab.c"
     break;
 
   case 53:
-#line 122 "bison.y"
+#line 124 "bison.y"
           {int arg = (yyvsp[0].num); afc_ins(arg);}
-#line 1615 "bison.tab.c"
+#line 1623 "bison.tab.c"
     break;
 
   case 54:
-#line 123 "bison.y"
+#line 125 "bison.y"
                      {sub_ins();}
-#line 1621 "bison.tab.c"
+#line 1629 "bison.tab.c"
     break;
 
   case 55:
-#line 124 "bison.y"
+#line 126 "bison.y"
                      {add_ins();}
-#line 1627 "bison.tab.c"
+#line 1635 "bison.tab.c"
     break;
 
   case 56:
-#line 125 "bison.y"
+#line 127 "bison.y"
                      {mul_ins();}
-#line 1633 "bison.tab.c"
+#line 1641 "bison.tab.c"
     break;
 
   case 57:
-#line 126 "bison.y"
+#line 128 "bison.y"
                      {div_ins();}
-#line 1639 "bison.tab.c"
+#line 1647 "bison.tab.c"
     break;
 
   case 58:
-#line 127 "bison.y"
+#line 129 "bison.y"
           {stack_push("!adr");stack_push("!val");}
-#line 1645 "bison.tab.c"
+#line 1653 "bison.tab.c"
     break;
 
   case 59:
-#line 127 "bison.y"
+#line 129 "bison.y"
                                                                    {push_ins(find_element("!adr"));call_ins(get_position((yyvsp[-4].var)));push_ins(find_element("!adr"));}
-#line 1651 "bison.tab.c"
+#line 1659 "bison.tab.c"
     break;
 
   case 62:
-#line 136 "bison.y"
+#line 138 "bison.y"
        { stack_push("0") ; cop_tmp(find_element((yyvsp[0].var))) ; stack_pop(); }
-#line 1657 "bison.tab.c"
+#line 1665 "bison.tab.c"
     break;
 
   case 63:
-#line 137 "bison.y"
+#line 139 "bison.y"
                    {printf("not equal\n") ;}
-#line 1663 "bison.tab.c"
+#line 1671 "bison.tab.c"
     break;
 
   case 64:
-#line 138 "bison.y"
+#line 140 "bison.y"
                    {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("EQU %d %d %d\n" , last_address(),op1, op2 ) ;}
-#line 1669 "bison.tab.c"
+#line 1677 "bison.tab.c"
     break;
 
   case 65:
-#line 139 "bison.y"
+#line 141 "bison.y"
                    {printf("greater or equal\n") ;}
-#line 1675 "bison.tab.c"
+#line 1683 "bison.tab.c"
     break;
 
   case 66:
-#line 140 "bison.y"
+#line 142 "bison.y"
                    {printf("less or equal\n") ;}
-#line 1681 "bison.tab.c"
+#line 1689 "bison.tab.c"
     break;
 
   case 67:
-#line 141 "bison.y"
+#line 143 "bison.y"
                    {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("INF %d %d %d\n" , last_address(),op1, op2 ) ;}
-#line 1687 "bison.tab.c"
+#line 1695 "bison.tab.c"
     break;
 
   case 68:
-#line 142 "bison.y"
+#line 144 "bison.y"
                    {int op2 = stack_pop(); int op1= stack_pop() ;stack_push("0"); printf("SUP %d %d %d\n" , last_address(),op1, op2 ) ;}
-#line 1693 "bison.tab.c"
+#line 1701 "bison.tab.c"
     break;
 
   case 69:
-#line 145 "bison.y"
+#line 147 "bison.y"
                                {printf("and\n") ;}
-#line 1699 "bison.tab.c"
+#line 1707 "bison.tab.c"
     break;
 
   case 70:
-#line 146 "bison.y"
+#line 148 "bison.y"
                                 {printf("or\n") ;}
-#line 1705 "bison.tab.c"
+#line 1713 "bison.tab.c"
     break;
 
   case 71:
-#line 147 "bison.y"
+#line 149 "bison.y"
                       {printf("not\n") ;}
-#line 1711 "bison.tab.c"
+#line 1719 "bison.tab.c"
     break;
 
 
-#line 1715 "bison.tab.c"
+#line 1723 "bison.tab.c"
 
       default: break;
     }
@@ -1943,7 +1951,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 153 "bison.y"
+#line 155 "bison.y"
 
 
 
@@ -1956,6 +1964,15 @@ void yyerror(const char *msg) {
 //main function
 int main (int argc, char **argv){
   yyparse();
+
   main1();
+
+  //build_table();
+  //interpret();
+  main_int();
+
+  printf("j'ai fini\n");
+
+  return 0;
 }
 
