@@ -17,7 +17,6 @@ void read_file() {
         printf("test\n");
     }
 
-
     fclose(fp);
 }
 
