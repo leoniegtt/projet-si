@@ -1,10 +1,13 @@
-/*int f(int a) {
+int f(int a) {
       return a + 2;
 }
-void main(){
+
+
+int main(){
     int a=f(2);
-}*/
-void main(){
+    return 0;
+}
+/*void main(){
     int a =0;
     int b = 1;
     while(a){
@@ -15,7 +18,7 @@ void main(){
 
     int c=2;
 
-}
+}*/
   /*int a=8;
   if(a){
     int b=0;
