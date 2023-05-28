@@ -6,6 +6,25 @@
 int instructions[1024][4];
 int k =0;
 
+/*
+add 1
+mul 2
+sub 3
+div 4
+cop 5
+afc 6
+jmp 7
+jmf 8
+inf 9
+sup 10
+equ 11
+call 12
+ret 13
+nop 14
+pop 15
+push 16
+
+*/
 void sub_ins() {
     int op2 = stack_pop();
     int op1= stack_pop() ;
@@ -63,7 +82,7 @@ void equ_ins() {
     instructions[k][2] = op1;
     instructions[k][3] = op2;
     k=k+1;
-    printf("DIV %d %d %d\n" , last_address(),op1, op2 ) ;
+    printf("EQU %d %d %d\n" , last_address(),op1, op2 ) ;
 }
 void inf_ins() {
     int op2 = stack_pop();
@@ -162,7 +181,7 @@ void nop_ins(){
 
 void push_ins(int pos ){
 
-    instructions[k][0] = 14;
+    instructions[k][0] = 15;
     instructions[k][1] = pos;
     instructions[k][2] = 0;
     k=k+1;
@@ -178,7 +197,7 @@ void call_ins (int pos){
 }
 
 void pop_ins (int pos){
-     instructions[k][0] = 14;
+     instructions[k][0] = 15;
      instructions[k][1] = pos;
      instructions[k][2] = 0;
      k=k+1;
