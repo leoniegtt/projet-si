@@ -124,7 +124,7 @@ term :
     | term tADD term {add_ins();}
     | term tMUL term {mul_ins();}
     | term tDIV term {div_ins();}
-    | tID {stack_push("!adr");stack_push("!val");}tLPAR args tRPAR {push_ins(find_element("!adr"));}
+    | tID {stack_push("!adr");stack_push("!val");}tLPAR args tRPAR {push_ins(find_element("!adr"));call_ins(get_position($1));push_ins(find_element("!adr"));}
 ;
 
 args :

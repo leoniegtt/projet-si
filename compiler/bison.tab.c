@@ -1646,7 +1646,7 @@ yyreduce:
 
   case 59:
 #line 127 "bison.y"
-                                                                   {push_ins(find_element("!adr"));}
+                                                                   {push_ins(find_element("!adr"));call_ins(get_position((yyvsp[-4].var)));push_ins(find_element("!adr"));}
 #line 1651 "bison.tab.c"
     break;
 

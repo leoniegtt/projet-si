@@ -169,6 +169,22 @@ void push_ins(int pos ){
     printf("push %d 0 0\n",pos);
 }
 
+void call_ins (int pos){
+     instructions[k][0] = 14;
+     instructions[k][1] = pos;
+     instructions[k][2] = 0;
+     k=k+1;
+     printf("call %d 0 0\n",pos);
+}
+
+void pop_ins (int pos){
+     instructions[k][0] = 14;
+     instructions[k][1] = pos;
+     instructions[k][2] = 0;
+     k=k+1;
+     printf("pop %d 0 0\n",pos);
+}
+
 int get_current_ins(){
     return k-1;
 }
@@ -179,11 +195,30 @@ void patch_jmp(int pos){
     instructions[pos][1] = k;
 }
 
+void generateFileFromTab(int instructions[][4], int numRows) {
+    FILE *file = fopen("output.txt", "w");  // Open the file in write mode (creates if not exists)
+
+    if (file == NULL) {
+        printf("Failed to open the file.\n");
+        return;
+    }
+
+    // Write the tabular data to the file
+    for (int i = 0; i < numRows; i++) {
+        fprintf(file, "%d %d %d %d\n", instructions[i][0], instructions[i][1],
+                instructions[i][2], instructions[i][3]);
+    }
+
+    fclose(file);  // Close the file
+}
+
+
 void main1(){
     for (int i =0 ; i<1024 ; i++){
         for (int j = 0 ; j<4 ; j++){
         printf("%d",instructions[i][j]);}
     printf("\n");
     }
+     generateFileFromTab(instructions, 1024);
 
 }

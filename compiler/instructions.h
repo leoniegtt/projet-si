@@ -14,6 +14,7 @@ void jmf_ins();
 void jmp_ins(int arg);
 void patch_jmp(int pos);
 void patch_jmf(int pos);
+void call_ins(int pos);
 int get_current_ins();
 void cop_tmp();
 void push_ins(int pos);
