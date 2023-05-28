@@ -18,4 +18,4 @@ void call_ins(int pos);
 int get_current_ins();
 void cop_tmp();
 void push_ins(int pos);
-void print_ins(char * pos);
+void print_ins(int pos);

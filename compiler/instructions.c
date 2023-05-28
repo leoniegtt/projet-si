@@ -207,11 +207,11 @@ void pop_ins (int pos){
      printf("pop %d 0 0\n",pos);
 }
 
-void print_ins (char * pos){
+void print_ins (int pos){
      instructions[k][0] = 17;
-     //instructions[k][1] = pos;
+     instructions[k][1] = pos;
      k=k+1;
-     printf("print %s \n",pos);
+     printf("print %d \n",pos);
 }
 
 int get_current_ins(){

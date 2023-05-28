@@ -59,7 +59,7 @@ void interpret(){
                 i = registre[instructions_bis[i][1]]; // Subtract 1 to account for the loop's increment
                 break;
             case 8: //JMF
-                if (registre[instructions_bis[i][1]]) {
+                if (!registre[instructions_bis[i][1]]) {
                     i = instructions_bis[i][2]; // Subtract 1 to account for the loop's increment
                 }
                 break;
@@ -88,7 +88,7 @@ void interpret(){
             //TO DO
                 break;
             case 17://PRI
-                printf("%d\n",instructions_bis[i][1]);
+                printf("%d\n",registre[instructions_bis[i][1]]);
                 break;
         }  
         i++;

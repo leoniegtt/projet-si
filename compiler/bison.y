@@ -91,7 +91,7 @@ parameter :
 
 
 print : 
-    tPRINT tLPAR tID tRPAR tSEMI {print_ins($3); }
+    tPRINT tLPAR tID tRPAR tSEMI {print_ins(find_element($3)); }
 ;
 
 Return :

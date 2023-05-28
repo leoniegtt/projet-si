@@ -1,9 +1,13 @@
 void fonc(){
-  int a=3;
+  /*
+  int a=0;
   int b =1;
   if(a){
     b=0;
   }
+  */
+ int a = 5;
+ print(a);
 
 }
 //int a = 1

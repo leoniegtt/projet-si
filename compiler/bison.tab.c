@@ -1546,7 +1546,7 @@ yyreduce:
 
   case 39:
 #line 94 "bison.y"
-                                 {print_ins((yyvsp[-2].var)); }
+                                 {print_ins(find_element((yyvsp[-2].var))); }
 #line 1551 "bison.tab.c"
     break;
 
