@@ -3,12 +3,26 @@
 #include <string.h>
 #include "interpreteur.h"
 #include "instructions.h"
-#include "stack.h"
-#include <stdio.h>
 
 int registre[64];
 int instructions_bis[1024][4];
 int nb_instructions = 0;
+
+void generateFileFromTab_bis(int instructions[][4], int numRows) {
+    FILE *fp = fopen("output_bis.txt", "w");  // Open the file in write mode
+    printf("generatefile\n");
+    if (fp == NULL) {
+        printf("Failed to open the file.\n");
+        return;
+    }
+
+    for (int i = 0; i < numRows; i++) {
+        fprintf(fp, "%d %d %d %d\n", instructions[i][0], instructions[i][1],
+                instructions[i][2], instructions[i][3]);
+    }
+
+    fclose(fp);
+}
 
 void build_table() {   
     printf("build table\n");
@@ -32,7 +46,6 @@ void interpret(){
 
     int i = 0 ;
 
-    //for (int i = 0; i < nb_instructions; i++) {
     while (i<nb_instructions){
         switch(instructions_bis[i][0]){
             case 1: //ADD
@@ -112,4 +125,5 @@ void main_int(){
     printf("main_int\n");
     build_table();
     interpret();
+    generateFileFromTab_bis(instructions_bis, 1024);
 }

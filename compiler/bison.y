@@ -7,6 +7,7 @@
 #include "stack.h"
 #include "instructions.h"
 #include "interpreteur.h"
+#include "cross.h"
 
 int yylex (void);
 void yyerror (const char *);
@@ -46,7 +47,7 @@ program :
 
 function :
     {stack_delete();} tVOID tID {add_func($3,get_current_ins());}tLPAR {inc(); stack_push("?adr");stack_push("?val");  } parameters tRPAR tLBRACE {inc();} statement {dec();}tRBRACE
-    | {stack_delete();} tINT tID tLPAR {inc(); stack_push("?adr");stack_push("?val");if(strcmp($3 , "main")==0){init( get_current_ins());};add_func($3,get_current_ins()+1);} parameters {dec(); } tRPAR tLBRACE statement Return {cop_ins(find_element("?val"));if(strcmp($3 , "main")==0){ret_ins() ; nop_ins();} else {ret_ins();ret_ins();}} tSEMI tRBRACE
+    | {stack_delete();} tINT tID tLPAR {inc(); stack_push("?adr");stack_push("?val");if(strcmp($3 , "main")==0){init( get_current_ins()+ 1);};add_func($3,get_current_ins()+1);} parameters {dec(); } tRPAR tLBRACE statement Return {cop_ins(find_element("?val"));if(strcmp($3 , "main")==0){ret_ins() ; nop_ins();} else {ret_ins();ret_ins();}} tSEMI tRBRACE
 ;
 
 statement :
@@ -172,6 +173,8 @@ int main (int argc, char **argv){
   //build_table();
   //interpret();
   main_int();
+
+  main_cross();
 
   printf("j'ai fini\n");
 
