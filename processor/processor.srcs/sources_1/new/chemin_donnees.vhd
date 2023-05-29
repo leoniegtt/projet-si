@@ -39,7 +39,7 @@ architecture Behavioral of chemin_donnees is
                O : out STD_LOGIC_VECTOR (7 downto 0));
          end COMPONENT;   
          
-         COMPONENT Banc_De_Registres
+         COMPONENT Banc_de_Registres
           Port ( Addr_A : in STD_LOGIC_VECTOR (3 downto 0);
                     Addr_B : in STD_LOGIC_VECTOR (3 downto 0);
                     Addr_W : in STD_LOGIC_VECTOR (3 downto 0);
@@ -232,7 +232,7 @@ begin
 
      LC <= '1' when OP_MEM_RE = x"06" or  OP_MEM_RE=x"01" or OP_MEM_RE = x"02" or  OP_MEM_RE=x"03" or OP_MEM_RE = x"07" else '0';
      
-     BDR : Banc_De_Registres port map (Addr_w => A_MEM_RE (3 downto 0) ,
+     BDR : Banc_de_Registres port map (Addr_w => A_MEM_RE (3 downto 0) ,
                                      W => LC , 
                                      QA => QA, 
                                      QB => QB,
@@ -250,7 +250,7 @@ begin
   
   
   lidi_read <= '1' when out_1(31 downto 24)= x"05" or out_1(31 downto 24) = x"02" or out_1(31 downto 24)= x"03" or out_1(31 downto 24)= x"08" or out_1(31 downto 24)= x"01" else '0';
-  diex_write <= '1' when OP_LI_DI  = x"06" or OP_LI_DI  = x"01" or OP_LI_DI  = x"02" or OP_LI_DI  = x"03" else '0';
+  diex_write <= '1' when OP_LI_DI  = x"06" or OP_LI_DI  = x"01" or OP_LI_DI  = x"02" or OP_LI_DI  = x"03" or OP_LI_DI  = x"07" else '0';
   exmem_write <= '1' when OP_DI_EX = x"06"  or OP_DI_EX = x"07" or OP_DI_EX= x"01" or OP_DI_EX= x"02" or OP_DI_EX= x"03" else '0'  ;
        
   alea <= '0' when ((lidi_read ='1' and diex_write='1' )  and (A_LI_DI =out_1(15 downto 8) or A_LI_DI = out_1(7 downto 0))) or ((lidi_read ='1' and exmem_write='1' )  and (A_di_ex = out_1(15 downto 8) or A_di_ex = out_1(7 downto 0) )) else '1';

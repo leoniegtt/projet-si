@@ -39,60 +39,63 @@ void cross(){
         switch(instruction_mem[i][0]){
             case 1: //ADD
 
-                instruction_cross[j][0] = 7;instruction_cross[j][1] = 0;instruction_cross[j][2] = instruction_mem[i][2] ;
+                instruction_cross[j][0] = 7;instruction_cross[j][1] = 1;instruction_cross[j][2] = instruction_mem[i][2] ;
                 j= j+1;
-                instruction_cross[j][0] = 7;instruction_cross[j][1] = 1;instruction_cross[j][2] = instruction_mem[i][3] ;
+                instruction_cross[j][0] = 7;instruction_cross[j][1] = 2;instruction_cross[j][2] = instruction_mem[i][3] ;
                 j=j+1 ;
-                instruction_cross[j][0] = 1; instruction_cross[j][1] = 2;instruction_cross[j][2] = 0;instruction_cross[j][3] = 1;
+                instruction_cross[j][0] = 1; instruction_cross[j][1] = 3;instruction_cross[j][2] = 1;instruction_cross[j][3] = 2;
                 j=j+1;
-                instruction_cross[j][0] = 8; instruction_cross[j][1] = instruction_mem[i][1] ; instruction_cross[j][2] = 2;
+                instruction_cross[j][0] = 8; instruction_cross[j][1] = instruction_mem[i][1] ; instruction_cross[j][2] = 3;
                 break;
 
             case 2: //MUL
 
-                instruction_cross[j][0] = 7;instruction_cross[j][1] = 0;instruction_cross[j][2] = instruction_mem[i][2] ;
+                 instruction_cross[j][0] = 7;instruction_cross[j][1] = 1;instruction_cross[j][2] = instruction_mem[i][2] ;
                 j= j+1;
-                instruction_cross[j][0] = 7;instruction_cross[j][1] = 1;instruction_cross[j][2] = instruction_mem[i][3] ;
+                instruction_cross[j][0] = 7;instruction_cross[j][1] = 2;instruction_cross[j][2] = instruction_mem[i][3] ;
                 j=j+1 ;
-                instruction_cross[j][0] = 1; instruction_cross[j][1] = 2;instruction_cross[j][2] = 0;instruction_cross[j][3] = 1;
+                instruction_cross[j][0] = 1; instruction_cross[j][1] = 3;instruction_cross[j][2] = 1;instruction_cross[j][3] = 2;
                 j=j+1;
-                instruction_cross[j][0] = 8; instruction_cross[j][1] = instruction_mem[i][1] ; instruction_cross[j][2] = 2;
-            
+                instruction_cross[j][0] = 8; instruction_cross[j][1] = instruction_mem[i][1] ; instruction_cross[j][2] = 3;
+                break;
+
             case 3: //SUB
 
-                instruction_cross[j][0] = 7;instruction_cross[j][1] = 0;instruction_cross[j][2] = instruction_mem[i][2] ;
+                 instruction_cross[j][0] = 7;instruction_cross[j][1] = 1;instruction_cross[j][2] = instruction_mem[i][2] ;
                 j= j+1;
-                instruction_cross[j][0] = 7;instruction_cross[j][1] = 1;instruction_cross[j][2] = instruction_mem[i][3] ;
+                instruction_cross[j][0] = 7;instruction_cross[j][1] = 2;instruction_cross[j][2] = instruction_mem[i][3] ;
                 j=j+1 ;
-                instruction_cross[j][0] = 1; instruction_cross[j][1] = 2;instruction_cross[j][2] = 0;instruction_cross[j][3] = 1;
+                instruction_cross[j][0] = 1; instruction_cross[j][1] = 3;instruction_cross[j][2] = 1;instruction_cross[j][3] = 2;
                 j=j+1;
-                instruction_cross[j][0] = 8; instruction_cross[j][1] = instruction_mem[i][1] ; instruction_cross[j][2] = 2;
+                instruction_cross[j][0] = 8; instruction_cross[j][1] = instruction_mem[i][1] ; instruction_cross[j][2] = 3;
                 break;
+
 
             case 4: //DIV
 
-                instruction_cross[j][0] = 7;instruction_cross[j][1] = 0;instruction_cross[j][2] = instruction_mem[i][2] ;
+                 instruction_cross[j][0] = 7;instruction_cross[j][1] = 1;instruction_cross[j][2] = instruction_mem[i][2] ;
                 j= j+1;
-                instruction_cross[j][0] = 7;instruction_cross[j][1] = 1;instruction_cross[j][2] = instruction_mem[i][3] ;
+                instruction_cross[j][0] = 7;instruction_cross[j][1] = 2;instruction_cross[j][2] = instruction_mem[i][3] ;
                 j=j+1 ;
-                instruction_cross[j][0] = 1; instruction_cross[j][1] = 2;instruction_cross[j][2] = 0;instruction_cross[j][3] = 1;
+                instruction_cross[j][0] = 1; instruction_cross[j][1] = 3;instruction_cross[j][2] = 1;instruction_cross[j][3] = 2;
                 j=j+1;
-                instruction_cross[j][0] = 8; instruction_cross[j][1] = instruction_mem[i][1] ; instruction_cross[j][2] = 2;
+                instruction_cross[j][0] = 8; instruction_cross[j][1] = instruction_mem[i][1] ; instruction_cross[j][2] = 3;
                 break;
+
 
             case 5: //COP
 
-                instruction_cross[j][0] = 7;instruction_cross[j][1] = 0;instruction_cross[j][2] = instruction_mem[i][2] ;
+                instruction_cross[j][0] = 7;instruction_cross[j][1] = 1;instruction_cross[j][2] = instruction_mem[i][2] ;
                 j=j+1;
-                instruction_cross[j][0] = 8;instruction_cross[j][1] = instruction_mem[i][1]; instruction_cross[j][2] = 0;
+                instruction_cross[j][0] = 8;instruction_cross[j][1] = instruction_mem[i][1]; instruction_cross[j][2] = 1;
                 j=j+1 ;
                 
                 break;
             case 6: //AFC 
 
-                instruction_cross[j][0] = 6 ; instruction_cross[j][1] = 0 ; instruction_cross[j][2] = instruction_mem[i][2] ;
+                instruction_cross[j][0] = 6 ; instruction_cross[j][1] = 1 ; instruction_cross[j][2] = instruction_mem[i][2] ;
                 j = j+1 ;
-                instruction_cross[j][0] = 8 ; instruction_cross[j][1] = instruction_mem[i][1] ; instruction_cross[j][2] = 0 ;
+                instruction_cross[j][0] = 8 ; instruction_cross[j][1] = instruction_mem[i][1] ; instruction_cross[j][2] = 1 ;
                 j = j+1;
 
                 break;

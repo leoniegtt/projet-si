@@ -31,6 +31,6 @@ begin
 
   rst_test <= '1' after 100 ns;
 
-  CLK_test <= not CLK_test after 20 ns;
+  CLK_test <= not CLK_test after 10 ns;
 
 end Behavioral;

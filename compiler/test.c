@@ -1,7 +1,4 @@
-int f(int a){
-  return a+1;
-}
 int main(){
-  int b = f(2);
+  int a = 2+3 ;
   return 0;
 }

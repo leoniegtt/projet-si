@@ -27,11 +27,11 @@ signal registre : myTab;
 signal Aux : STD_LOGIC_VECTOR (7 downto 0):= (others => '0');
 
 begin
-O <= Aux;
+--O <= Aux;
 
 process 
 begin
-    wait until CLK'event and CLK='1';
+    wait until CLK'event and CLK='0';
     if RST ='0' then
          reset :for i IN 255 downto 0 LOOP
                    registre(i) <=  (others => '0');
@@ -43,7 +43,7 @@ begin
             registre(to_integer(unsigned(Addr))) <= I;
         else
         --lecture
-            Aux <= registre(to_integer(unsigned(Addr)));
+            O <= registre(to_integer(unsigned(Addr)));
         end if;
         
     end if;
