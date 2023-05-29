@@ -54,7 +54,7 @@ printf("?????????? %s\n", id);
              strcpy(p_l->id,id);
 
              (*p_l).address = address;
-             address = address +4 ;
+             address = address +1 ;
              (*p_l).profondeur = profondeur ;
              // add new element at the end of the stack
              p_l->next = NULL;
@@ -85,7 +85,7 @@ printf("?????????? %s\n", id);
                    strcpy(p_l->id,id);
 
                    (*p_l).address = address;
-                   address = address +4 ;
+                   address = address +1 ;
                    (*p_l).profondeur = profondeur ;
                    // add new element at the end of the stack
                    p_l->next = NULL;
@@ -108,7 +108,7 @@ int stack_pop ()
       stack_s *p_p = p_l->prev;
 
       int ret = pp_stack->address;
-      address-=4;
+      address-=1;
       free(pp_stack);
       pp_stack = p_p;
 
@@ -123,6 +123,12 @@ int stack_pop ()
 int last_address() {
     if (pp_stack == NULL) {return 0;}
     return pp_stack->address;
+}
+
+void pop_call (char* id){
+while (strcmp(pp_stack->id, id) != 0){
+      stack_pop(pp_stack);
+   }
 }
 
 int find_element(char* id){

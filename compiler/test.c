@@ -1,3 +1,4 @@
+
 void main(){
   
   int a=0;
@@ -13,17 +14,16 @@ void main(){
 //int a = 1
 
 /*int f(int a) {
+
+int f(int a) {
+
       return a + 2;
 }
-void main(){
+
+
+int main(){
     int a=f(2);
-}
-void main(){
-    int a =6;
-    int b = 9;
-    int c = a +b;
-    //print(c);
-    /*while(a){
+
         a=1;
 
         while(b){ int c = b+a ;}
@@ -32,7 +32,6 @@ void main(){
 
     //int c=2;
 
-//}
   /*int a=8;
   if(a){
     int b=0;

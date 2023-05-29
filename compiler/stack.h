@@ -21,6 +21,7 @@ void printstack ();
 void hautPile();
 //stack_s* getprev();
 void pop_tmp();
+void pop_call (char* id);
 //int getaddress(stack_s* pp);
 
 #endif /* not H_PILE */

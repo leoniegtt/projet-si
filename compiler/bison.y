@@ -18,7 +18,7 @@ void yyerror (const char *);
 %union { int num; char var[16];int index;}
 
 %type <index> tIF tWHILE
-%type <index> index_jmf
+%type <index> index_jmf index_adr
 
 
 %token tIF tELSE tWHILE 
@@ -40,13 +40,13 @@ void yyerror (const char *);
 %%
 program :
     %empty
-    | program function {nop_ins();}
+    | program function
 
     ;
 
 function :
-    {stack_delete();} tVOID tID {add_func($3,get_current_ins());}tLPAR {inc(); stack_push("?adr");stack_push("?val"); if(strcmp($3 , "main")!=0){jmp_ins(-1);}; } parameters tRPAR tLBRACE {inc();} statement {dec();}tRBRACE
-    | {stack_delete();} tINT tID tLPAR {inc(); stack_push("?adr");stack_push("?val"); jmp_ins(-1);add_func($3,get_current_ins()+1);} parameters {dec(); } tRPAR tLBRACE statement Return {cop_ins(find_element("?val"));ret_ins();} tSEMI tRBRACE
+    {stack_delete();} tVOID tID {add_func($3,get_current_ins());}tLPAR {inc(); stack_push("?adr");stack_push("?val");  } parameters tRPAR tLBRACE {inc();} statement {dec();}tRBRACE
+    | {stack_delete();} tINT tID tLPAR {inc(); stack_push("?adr");stack_push("?val");if(strcmp($3 , "main")==0){init( get_current_ins());};add_func($3,get_current_ins()+1);} parameters {dec(); } tRPAR tLBRACE statement Return {cop_ins(find_element("?val"));if(strcmp($3 , "main")==0){ret_ins() ; nop_ins();} else {ret_ins();ret_ins();}} tSEMI tRBRACE
 ;
 
 statement :
@@ -95,7 +95,7 @@ print :
 ;
 
 Return :
-    tRETURN term {ret_ins();}
+    tRETURN term {}
 ;
 
 while :
@@ -119,6 +119,8 @@ assign :
     tID tASSIGN term {cop_ins( find_element($1));stack_pop();}
 ;
 
+index_adr :%empty {}
+
 term :
       tID {stack_push("0") ; cop_tmp(find_element($1));}
     | tNB {int arg = $1; afc_ins(arg);}
@@ -126,7 +128,7 @@ term :
     | term tADD term {add_ins();}
     | term tMUL term {mul_ins();}
     | term tDIV term {div_ins();}
-    | tID {stack_push("!adr");stack_push("!val");}tLPAR args tRPAR {push_ins(find_element("!adr"));call_ins(get_position($1));push_ins(find_element("!adr"));}
+    | tID index_adr {stack_push("!adr");stack_push("!val");}tLPAR args tRPAR {push_ins(find_element("!adr"));call_ins(get_position($1));$2 = find_element("!val");pop_ins(find_element("!adr"));pop_call("!adr");cop_tmp($2);}
 ;
 
 args :

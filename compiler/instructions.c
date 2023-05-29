@@ -5,8 +5,11 @@
 #include "interpreteur.h"
 
 #include "stack.h"
+#include "fonctions.h"
+
 int instructions[1024][4];
-int k =0;
+
+int k =1;
 
 /*
 add 1
@@ -28,15 +31,22 @@ push 16
 print 17 TODO
 
 */
+
+void init(int addr){
+     instructions[0][0] = 7;
+     instructions[0][1] = addr;
+     instructions[0][2] = 0;
+     instructions[0][3] = 0;
+}
+
 void sub_ins() {
     int op2 = stack_pop();
     int op1= stack_pop() ;
     stack_push("0");
-    instructions[k][0] = 3;
+    instructions[k][0] = 1;
     instructions[k][1] = last_address();
     instructions[k][2] = op1;
     instructions[k][3] = op2;
-    k=k+1;
     printf("SOU %d %d %d\n" , last_address(),op1, op2 ) ;
 }
 
@@ -224,6 +234,8 @@ void patch_jmp(int pos){
     instructions[pos][1] = k;
 }
 
+
+
 void generateFileFromTab(int instructions[][4], int numRows) {
     FILE *fp = fopen("output.txt", "w");  // Open the file in write mode
     printf("generatefile\n");
@@ -242,6 +254,7 @@ void generateFileFromTab(int instructions[][4], int numRows) {
 
 
 void main1(){
+
     for (int i =0 ; i<1024 ; i++){
         for (int j = 0 ; j<4 ; j++){
         //printf("%d",instructions[i][j]);
