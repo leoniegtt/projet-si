@@ -1,15 +1,15 @@
-void fonc(){
-  /*
+void main(){
+  
   int a=0;
   int b =1;
   if(a){
-    b=0;
+    b=10;
   }
-  */
- int a = 5;
- print(a);
-
+  else{b=100;}
+ 
 }
+
+
 //int a = 1
 
 /*int f(int a) {

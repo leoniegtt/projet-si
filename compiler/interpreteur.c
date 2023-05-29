@@ -10,7 +10,6 @@ int registre[64];
 int instructions_bis[1024][4];
 int nb_instructions = 0;
 
-
 void build_table() {   
     printf("build table\n");
     FILE *fp;
@@ -32,7 +31,6 @@ void build_table() {
 void interpret(){
 
     int i = 0 ;
-    printf("coucou interpret\n");
 
     //for (int i = 0; i < nb_instructions; i++) {
     while (i<nb_instructions){
@@ -56,14 +54,13 @@ void interpret(){
                 registre[instructions_bis[i][1]]= instructions_bis[i][2];
                 break;
             case 7: //JMP
-                i = registre[instructions_bis[i][1]]; // Subtract 1 to account for the loop's increment
+                i = instructions_bis[i][1]-1; 
                 break;
             case 8: //JMF
                 if (!registre[instructions_bis[i][1]]) {
-                    i = instructions_bis[i][2]; // Subtract 1 to account for the loop's increment
+                    i = instructions_bis[i][2]-1; 
                 }
                 break;
-                    
             case 9: //INF
                 registre[instructions_bis[i][1]]= instructions_bis[i][2] < instructions_bis[i][3];
                 break;
@@ -74,7 +71,7 @@ void interpret(){
                 registre[instructions_bis[i][1]]= (instructions_bis[i][2] == instructions_bis[i][3]);
                 break;
             case 12: //CALL
-                //TO DO: registre[instructions_bis[i][1]]= instructions_bis[i][2] == instructions_bis[i][3];
+            //TO DO: registre[instructions_bis[i][1]]= instructions_bis[i][2] == instructions_bis[i][3];
                 break;
             case 13: //RET
             //TO DO: registre[instructions_bis[i][1]]= instructions_bis[i][2] == instructions_bis[i][3];
