@@ -67,6 +67,8 @@ ALUtest : ALU PORT MAP (
             C => C_test,
             S => S_test,
             Ctrl_Alu => Ctrl_Alu_test);
+            
+           
 --test add
 --A_test <= "10000000";
 --B_test <= "10000000";

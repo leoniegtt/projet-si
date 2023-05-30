@@ -139,21 +139,31 @@ signal diex_write : STD_LOGIC;
 signal exmem_write : STD_LOGIC;
 signal alea : std_logic :='1';
 
-
+ --alea de branchement
+signal jump :std_logic;
 
 begin
 
     INS_MEM : instruction_memory port map (IP_1, CLK, OUT_1 , alea);
     
+    jump <= '0' when  out_1(31 downto 24) = x"09" else '1';
+    
     process
     begin
        wait until CLK'event and CLK='1';
        if (rst='0') then 
+       
             IP_1 <= ("00000000");
        else 
-       if( alea='1') then 
+       if( alea='1' and jump='1' ) then 
+       
             IP_1 <= IP_1 +1 ;
+       else 
+       if( jump='0' ) then 
+       
+            IP_1 <= out_1(23 downto 16) ; 
             
+       end if;
        end if;
        end if;
     end process;
@@ -254,8 +264,8 @@ begin
   lidi_read <= '1' when out_1(31 downto 24)= x"05" or out_1(31 downto 24) = x"02" or out_1(31 downto 24)= x"03" or out_1(31 downto 24)= x"08" or out_1(31 downto 24)= x"01" else '0';
   diex_write <= '1' when OP_LI_DI  = x"06" or OP_LI_DI  = x"01" or OP_LI_DI  = x"02" or OP_LI_DI  = x"03" or OP_LI_DI  = x"07" else '0';
   exmem_write <= '1' when OP_DI_EX = x"06"  or OP_DI_EX = x"07" or OP_DI_EX= x"01" or OP_DI_EX= x"02" or OP_DI_EX= x"03" else '0'  ;
-       
-  alea <= '0' when ((lidi_read ='1' and diex_write='1' )  and (A_LI_DI =out_1(15 downto 8) or A_LI_DI = out_1(7 downto 0))) or ((lidi_read ='1' and exmem_write='1' )  and (A_di_ex = out_1(15 downto 8) or A_di_ex = out_1(7 downto 0) )) else '1';
+  --jump<= '1' when out_1(31 downto 24) = x"09" or OP_LI_DI = x"09" or OP_DI_EX = x"09" else '0';     
+  alea <= '0' when ((lidi_read ='1' and diex_write='1' )  and (A_LI_DI =out_1(15 downto 8) or A_LI_DI = out_1(7 downto 0))) or ((lidi_read ='1' and exmem_write='1' )  and (A_di_ex = out_1(15 downto 8) or A_di_ex = out_1(7 downto 0) ))  else '1';
   --alea <= '0' when (lidi_read ='1' and exmem_write='1' )  and (A_ex_mem = B_li_di or A_ex_mem = C_LI_DI ) else '1'; 
 
 end Behavioral;

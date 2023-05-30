@@ -70,7 +70,6 @@ void interpret(){
                 break;
             case 7: //JMP
                 i = instructions_bis[i][1]-1 ; 
-                printf("j'ai un jump \n");
                 break;
             case 8: //JMF
                 if (!registre[instructions_bis[i][1]]) {
@@ -91,7 +90,6 @@ void interpret(){
                 break;
             case 12: //CALL
                 registre[pt] = i +1;
-                printf("je suis dans le call\n");
                 i = instructions_bis[i][1]-1;
                 break;
             case 13: //RET
@@ -116,7 +114,7 @@ void interpret(){
         } 
 
         i++;
-        printf("%d \n",i); 
+        //printf("%d \n",i); 
     }
     //print instructions
     for (int i =0 ; i<nb_instructions ; i++){
