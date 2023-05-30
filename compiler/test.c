@@ -1,4 +1,11 @@
+int fact(int a){
+  int res=1;
+  if(a){
+    res = fact(a-1)*a;
+}
+
+  return res;
+}
 int main(){
-  int a = 2+3 ;
-  return 0;
+ return fact(3);
 }

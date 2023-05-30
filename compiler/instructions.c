@@ -49,6 +49,7 @@ void sub_ins() {
     instructions[k][1] = last_address();
     instructions[k][2] = op1;
     instructions[k][3] = op2;
+    k=k+1;
     printf("SOU %d %d %d\n" , last_address(),op1, op2 ) ;
 }
 
@@ -199,12 +200,13 @@ void push_ins(int pos ){
     instructions[k][0] = 16;
     instructions[k][1] = pos;
     instructions[k][2] = 0;
+    instructions[k][3] = 0;
     k=k+1;
     printf("push %d 0 0\n",pos);
 }
 
 void call_ins (int pos){
-     instructions[k][0] = 14;
+     instructions[k][0] = 12;
      instructions[k][1] = pos;
      instructions[k][2] = 0;
      k=k+1;
