@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include  <stdbool.h>
 #include "interpreteur.h"
 #include "instructions.h"
 
@@ -46,8 +47,8 @@ void interpret(){
 
     int i = 0 ;
     int pt =0;
-
-    while (i<nb_instructions){
+    bool end = false;
+    while (!end){
         switch(instructions_bis[i][0]){
             case 1: //ADD
                 registre[pt+instructions_bis[i][1]]= registre[pt+instructions_bis[i][2]]+registre[pt+instructions_bis[i][3]];
@@ -68,7 +69,8 @@ void interpret(){
                 registre[pt+instructions_bis[i][1]]= instructions_bis[i][2];
                 break;
             case 7: //JMP
-                i = instructions_bis[i][1]-1; 
+                i = instructions_bis[i][1]-1 ; 
+                printf("j'ai un jump \n");
                 break;
             case 8: //JMF
                 if (!registre[instructions_bis[i][1]]) {
@@ -93,23 +95,28 @@ void interpret(){
                 i = instructions_bis[i][1]-1;
                 break;
             case 13: //RET
+
                 i = registre[pt]-1;
+                if(i == -1){
+                    end = true;
+                }
                 break;
             case 14: //NOP
+                end = true;
                 break;
             case 15: //POP
                 pt = pt-instructions_bis[i][1];
-                //registre[pt]= instructions_bis[i][2];
                 break;
             case 16: //PUSH
                 pt = pt+instructions_bis[i][1];
-                //registre[pt]= instructions_bis[i][2];
                 break;
             case 17://PRI
-                printf("%d\n",registre[instructions_bis[i][1]]);
+                //printf("%d\n",registre[instructions_bis[i][1]]);
                 break;
-        }  
+        } 
+
         i++;
+        printf("%d \n",i); 
     }
     //print instructions
     for (int i =0 ; i<nb_instructions ; i++){
