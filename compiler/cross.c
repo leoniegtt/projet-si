@@ -107,19 +107,41 @@ void cross(){
                 break;
 
             case 7: //JMP
-                
+                instruction_cross[j][0] = 9 ; instruction_cross[j][1] = 1 ; instruction_cross[j][2] = instruction_mem[i][2] ;
+                j = j+1 ;
                 break;
             case 8: //JMF
                 
                 break;
             case 9: //INF
-               
+                instruction_cross[j][0] = 7;instruction_cross[j][1] = 1;instruction_cross[j][2] = instruction_mem[i][2] ;
+                j= j+1;
+                instruction_cross[j][0] = 7;instruction_cross[j][1] = 2;instruction_cross[j][2] = instruction_mem[i][3] ;
+                j=j+1 ;
+                instruction_cross[j][0] = 11; instruction_cross[j][1] = 1;instruction_cross[j][2] = 1;instruction_cross[j][3] = 2;
+                j=j+1;
+                instruction_cross[j][0] = 8; instruction_cross[j][1] = instruction_mem[i][1] ; instruction_cross[j][2] = 1;
+                 j=j+1;
                 break;
             case 10: //SUP
-                
+                instruction_cross[j][0] = 7;instruction_cross[j][1] = 1;instruction_cross[j][2] = instruction_mem[i][2] ;
+                j= j+1;
+                instruction_cross[j][0] = 7;instruction_cross[j][1] = 2;instruction_cross[j][2] = instruction_mem[i][3] ;
+                j=j+1 ;
+                instruction_cross[j][0] = 12; instruction_cross[j][1] = 1;instruction_cross[j][2] = 1;instruction_cross[j][3] = 2;
+                j=j+1;
+                instruction_cross[j][0] = 8; instruction_cross[j][1] = instruction_mem[i][1] ; instruction_cross[j][2] = 1;
+                j=j+1;
                 break;
             case 11: //EQU
-                
+                instruction_cross[j][0] = 7;instruction_cross[j][1] = 1;instruction_cross[j][2] = instruction_mem[i][2] ;
+                j= j+1;
+                instruction_cross[j][0] = 7;instruction_cross[j][1] = 2;instruction_cross[j][2] = instruction_mem[i][3] ;
+                j=j+1 ;
+                instruction_cross[j][0] = 13; instruction_cross[j][1] = 1;instruction_cross[j][2] = 1;instruction_cross[j][3] = 2;
+                j=j+1;
+                instruction_cross[j][0] = 8; instruction_cross[j][1] = instruction_mem[i][1] ; instruction_cross[j][2] = 1;
+                j=j+1;
                 break;
             case 12: //CALL
             //TO DO: registre[instructions_bis[i][1]]= instructions_bis[i][2] == instructions_bis[i][3];
@@ -128,13 +150,16 @@ void cross(){
             //TO DO: registre[instructions_bis[i][1]]= instructions_bis[i][2] == instructions_bis[i][3];
                 break;
             case 14: //NOP
+                instruction_cross[j][0] = 0;instruction_cross[j][1] = 0;instruction_cross[j][2] = 0 ;instruction_cross[j][3] = 0 ;
+                j= j+1;
                 break;
             case 15: //POP
-            //TO DO
+                instruction_cross[j][0] = 14 ; instruction_cross[j][1] = 1 ; instruction_cross[j][2] = instruction_mem[i][2] ;
+                j = j+1 ;
                 break;
             case 16: //PUSH
-            //TO DO
-                break;
+                instruction_cross[j][0] = 15 ; instruction_cross[j][1] = 1 ; instruction_cross[j][2] = instruction_mem[i][2] ;
+                j = j+1 ;                break;
             case 17://PRI
 
                 break;

@@ -143,15 +143,17 @@ signal alea : std_logic :='1';
 
  --alea de branchement
 signal jump :std_logic;
+signal jumpif :std_logic;
+signal jmp :std_logic;
 --signal jump_propag :std_logic;
 
 begin
 
-    INS_MEM : instruction_memory port map (addr => IP_1 , entre=> out_1(23 downto 16) , clk => CLK, O => OUT_1 , jmp=>jump , bloque => alea);
+    INS_MEM : instruction_memory port map (addr => IP_1 , entre=> out_1(23 downto 16) , clk => CLK, O => OUT_1 , jmp=>jmp , bloque => alea);
     
-    jump <= '0' when  out_1(31 downto 24)= x"09" else '1';
+    jump <= '0' when  out_1(31 downto 24)= x"09"  else '1';
     --jump_propag <= '0' when B_LI_DI = x"09" else '1';
-    
+    jmp <= '0' when jump = '0' or jumpif ='0' else '1';
     process
     begin
        wait until CLK'event and CLK='1';
@@ -191,6 +193,7 @@ begin
    
    op_diex_in <= x"06" when OP_LI_DI = x"05" else OP_LI_DI;
    
+    jumpif <= '0' when op_diex_in = x"10" and QA = 0 else '1';
     NV_DI_EX : pipeline port map (op1 => op_diex_in,
                               op2 =>  A_LI_DI,
                               op3 => b_diex_in ,
