@@ -53,8 +53,10 @@ architecture Behavioral of chemin_donnees is
          
          COMPONENT instruction_memory
            Port ( Addr : in STD_LOGIC_VECTOR (7 downto 0);
+                    entre : in STD_LOGIC_VECTOR (7 downto 0);
                     CLK : in STD_LOGIC;
                     O : out STD_LOGIC_VECTOR (31 downto 0);
+                    jmp : in STD_LOGIC;
                     bloque : in Std_LOGIC);
          end COMPONENT;
          
@@ -141,12 +143,14 @@ signal alea : std_logic :='1';
 
  --alea de branchement
 signal jump :std_logic;
+--signal jump_propag :std_logic;
 
 begin
 
-    INS_MEM : instruction_memory port map (IP_1, CLK, OUT_1 , alea);
+    INS_MEM : instruction_memory port map (addr => IP_1 , entre=> out_1(23 downto 16) , clk => CLK, O => OUT_1 , jmp=>jump , bloque => alea);
     
-    jump <= '0' when  out_1(31 downto 24) = x"09" else '1';
+    jump <= '0' when  out_1(31 downto 24)= x"09" else '1';
+    --jump_propag <= '0' when B_LI_DI = x"09" else '1';
     
     process
     begin
@@ -154,18 +158,17 @@ begin
        if (rst='0') then 
        
             IP_1 <= ("00000000");
+   
        else 
        if( alea='1' and jump='1' ) then 
-       
             IP_1 <= IP_1 +1 ;
-       else 
-       if( jump='0' ) then 
+       else if (jump ='0') then
+            ip_1 <= out_1(23 downto 16);
        
-            IP_1 <= out_1(23 downto 16) ; 
-            
+       end if ;   
        end if;
        end if;
-       end if;
+       
     end process;
 
    

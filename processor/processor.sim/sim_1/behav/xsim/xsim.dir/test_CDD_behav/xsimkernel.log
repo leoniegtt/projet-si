@@ -1,4 +1,4 @@
-Running: xsim.dir/test_CDD_behav/xsimk -simmode gui -wdb test_CDD_behav.wdb -simrunnum 0 -socket 41743
+Running: xsim.dir/test_CDD_behav/xsimk -simmode gui -wdb test_CDD_behav.wdb -simrunnum 0 -socket 44149
 Design successfully loaded
 Design Loading Memory Usage: 32736 KB (Peak: 32788 KB)
-Design Loading CPU Usage: 40 ms
+Design Loading CPU Usage: 30 ms

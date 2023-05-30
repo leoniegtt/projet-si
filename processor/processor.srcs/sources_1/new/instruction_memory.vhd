@@ -13,8 +13,10 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity instruction_memory is
     Port ( Addr : in STD_LOGIC_VECTOR (7 downto 0);
+           entre : in STD_LOGIC_VECTOR (7 downto 0);
            CLK : in STD_LOGIC;
            bloque : in STD_LOGIC;
+           jmp : in STD_LOGIC;
            O : out STD_LOGIC_VECTOR (31 downto 0));
 end instruction_memory;
 
@@ -23,12 +25,14 @@ architecture Behavioral of instruction_memory is
     type myTab is array(0 to 255) of std_logic_vector(31 downto 0);
     signal registre : myTab:=
         (--test aléa 1
-        x"09040000",
+        x"00000000",
+        x"09050000",
         x"06010200",
         x"06010800",
         x"00000000",
-        x"06010300", -- afc
-        x"09010000", --store
+        x"07010300", -- afc
+--        x"09010000", --store
+--        x"07010000",
 --        x"06010300", -- 
 --        x"08040100", --
 --        x"07010300", --load
@@ -84,7 +88,11 @@ begin
     begin
         wait until CLK'event and CLK='1';
         if (bloque ='1') then 
+            if (jmp='0') then 
+            Aux <= registre(to_integer(unsigned(entre)));    
+            else   
             Aux <= registre(to_integer(unsigned(Addr)));
+        end if;
         end if;
     end process;
 
