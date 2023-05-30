@@ -45,7 +45,7 @@ void sub_ins() {
     int op2 = stack_pop();
     int op1= stack_pop() ;
     stack_push("0");
-    instructions[k][0] = 1;
+    instructions[k][0] = 2;
     instructions[k][1] = last_address();
     instructions[k][2] = op1;
     instructions[k][3] = op2;
@@ -264,7 +264,6 @@ void main1(){
         //printf("%d",instructions[i][j]);
         }
     //printf("\n");
-
     }
     generateFileFromTab(instructions, 1024);
 

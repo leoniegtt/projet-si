@@ -36,6 +36,7 @@ int getaddress(stack_s* pp){
 void hautPile (){
     BP = pp_stack->address;
 }
+
 void stack_push (char* id){
 printf("?????????? %s\n", id);
     if (strcmp(id,"0")!=0){

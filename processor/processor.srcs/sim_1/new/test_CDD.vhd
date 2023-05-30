@@ -29,7 +29,7 @@ begin
 
   test_CDD : chemin_donnees port map (rst => rst_test, CLK => clk_test);
 
-  rst_test <= '1' after 100 ns;
+  rst_test <= '1' after 20 ns;
 
   CLK_test <= not CLK_test after 10 ns;
 

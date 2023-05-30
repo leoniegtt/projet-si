@@ -31,7 +31,7 @@ begin
 
 process 
 begin
-    wait until CLK'event and CLK='0';
+    wait until CLK'event and CLK='1';
     if RST ='0' then
          reset :for i IN 255 downto 0 LOOP
                    registre(i) <=  (others => '0');

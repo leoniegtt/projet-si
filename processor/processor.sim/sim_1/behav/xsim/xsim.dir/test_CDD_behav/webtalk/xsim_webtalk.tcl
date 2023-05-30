@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir /home/goutte/4A/Projet_SI/projet-si/processor/processor.sim/sim_1/behav/xsim/xsim.dir/test_CDD_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Tue May 30 10:11:35 2023" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Tue May 30 11:38:01 2023" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2018.2 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2258646" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "LIN64" -context "software_version_and_target_device"
@@ -14,19 +14,19 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "e4a59f0a-9a4e-47fa-894d-c3d502d948b2" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "6ab6d51602b14d59b8c661b87e5f4ca7" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "390" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "400" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Ubuntu" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "Ubuntu 20.04.6 LTS" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz" -context "user_environment"
-webtalk_add_data -client project -key cpu_speed -value "3200.000 MHz" -context "user_environment"
+webtalk_add_data -client project -key cpu_speed -value "4300.000 MHz" -context "user_environment"
 webtalk_add_data -client project -key total_processors -value "1" -context "user_environment"
 webtalk_add_data -client project -key system_ram -value "67.000 GB" -context "user_environment"
 webtalk_register_client -client xsim
 webtalk_add_data -client xsim -key Command -value "xsim" -context "xsim\\command_line_options"
 webtalk_add_data -client xsim -key trace_waveform -value "true" -context "xsim\\usage"
-webtalk_add_data -client xsim -key runtime -value "2 us" -context "xsim\\usage"
+webtalk_add_data -client xsim -key runtime -value "1 us" -context "xsim\\usage"
 webtalk_add_data -client xsim -key iteration -value "1" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Time -value "0.01_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Time -value "0.02_sec" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Simulation_Memory -value "122668_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 3238983842 -regid "" -xml /home/goutte/4A/Projet_SI/projet-si/processor/processor.sim/sim_1/behav/xsim/xsim.dir/test_CDD_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/goutte/4A/Projet_SI/projet-si/processor/processor.sim/sim_1/behav/xsim/xsim.dir/test_CDD_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/goutte/4A/Projet_SI/projet-si/processor/processor.sim/sim_1/behav/xsim/xsim.dir/test_CDD_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_transmit -clientid 3969152795 -regid "" -xml /home/goutte/4A/Projet_SI/projet-si/processor/processor.sim/sim_1/behav/xsim/xsim.dir/test_CDD_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/goutte/4A/Projet_SI/projet-si/processor/processor.sim/sim_1/behav/xsim/xsim.dir/test_CDD_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/goutte/4A/Projet_SI/projet-si/processor/processor.sim/sim_1/behav/xsim/xsim.dir/test_CDD_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

@@ -45,26 +45,33 @@ void build_table() {
 void interpret(){
 
     int i = 0 ;
+    int pt =0;
 
     while (i<nb_instructions){
         switch(instructions_bis[i][0]){
             case 1: //ADD
                 registre[instructions_bis[i][1]]= registre[instructions_bis[i][2]]+registre[instructions_bis[i][3]];
+                pt = instructions_bis[i][1];
                 break;
             case 2: //MUL
                 registre[instructions_bis[i][1]]= registre[instructions_bis[i][2]]*registre[instructions_bis[i][3]];
+                pt = instructions_bis[i][1];
                 break;
             case 3: //SUB
                 registre[instructions_bis[i][1]]= registre[instructions_bis[i][2]]-registre[instructions_bis[i][3]];
+                pt = instructions_bis[i][1];
                 break;
             case 4: //DIV
                 registre[instructions_bis[i][1]]= registre[instructions_bis[i][2]]/registre[instructions_bis[i][3]];
+                pt = instructions_bis[i][1];
                 break;
             case 5: //COP
                 registre[instructions_bis[i][1]]= registre[instructions_bis[i][2]];
+                pt = instructions_bis[i][1];
                 break;
             case 6: //AFC
                 registre[instructions_bis[i][1]]= instructions_bis[i][2];
+                pt = instructions_bis[i][1];
                 break;
             case 7: //JMP
                 i = instructions_bis[i][1]-1; 
@@ -76,26 +83,29 @@ void interpret(){
                 break;
             case 9: //INF
                 registre[instructions_bis[i][1]]= instructions_bis[i][2] < instructions_bis[i][3];
+                pt = instructions_bis[i][1];
                 break;
             case 10: //SUP
                 registre[instructions_bis[i][1]]= instructions_bis[i][2] > instructions_bis[i][3];
+                pt = instructions_bis[i][1];
                 break;
             case 11: //EQU
                 registre[instructions_bis[i][1]]= (instructions_bis[i][2] == instructions_bis[i][3]);
+                pt = instructions_bis[i][1];
                 break;
             case 12: //CALL
-            //TO DO: registre[instructions_bis[i][1]]= instructions_bis[i][2] == instructions_bis[i][3];
+                i = instructions_bis[i][1]-1;
                 break;
             case 13: //RET
-            //TO DO: registre[instructions_bis[i][1]]= instructions_bis[i][2] == instructions_bis[i][3];
+            //TO DO
                 break;
             case 14: //NOP
                 break;
             case 15: //POP
-            //TO DO
+                registre[pt-instructions_bis[i][1]];
                 break;
             case 16: //PUSH
-            //TO DO
+                registre[pt+instructions_bis[i][1]];
                 break;
             case 17://PRI
                 printf("%d\n",registre[instructions_bis[i][1]]);
