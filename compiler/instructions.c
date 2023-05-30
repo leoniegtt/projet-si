@@ -28,7 +28,9 @@ ret 13
 nop 14
 pop 15
 push 16
-print 17 TODO
+print 17 
+store 18
+load 19
 
 */
 
