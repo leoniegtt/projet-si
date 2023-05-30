@@ -219,7 +219,7 @@ begin
                                                               
      NV_MEM_RE : pipeline port map (op1 => OP_EX_MEM,
                                 op2 =>  A_EX_MEM,
-                                op3 => b_memre_in ,
+                                op3 =>  b_memre_in,
                                 op4 => C_EX_MEM ,
                                 out1 => OP_MEM_RE,
                                 out2 => A_MEM_RE,
@@ -232,17 +232,19 @@ begin
 
      LC <= '1' when OP_MEM_RE = x"06" or  OP_MEM_RE=x"01" or OP_MEM_RE = x"02" or  OP_MEM_RE=x"03" or OP_MEM_RE = x"07" else '0';
      
-     BDR : Banc_de_Registres port map (Addr_w => A_MEM_RE (3 downto 0) ,
+     BDR : Banc_de_Registres port map (
+                                     Addr_w => A_MEM_RE (3 downto 0) ,
                                      W => LC , 
                                      QA => QA, 
                                      QB => QB,
-                                     DATA => B_MEM_RE ,
+                                     Data => B_MEM_RE ,
+                                     
                                      Addr_A => B_LI_DI(3 downto 0),
                                      Addr_B => C_LI_DI(3 downto 0),
-                                     rst => rst,
+                                     RST => rst,
                                      clk => clk) ;
-   
-   
+                                     
+                                    
    -- gestion des aléas
    --lidi_read <= '1' when out_1(31 downto 24) = x"05" or out_1(31 downto 24) = x"02" or out_1(31 downto 24) = x"03" or out_1(31 downto 24) = x"08" or out_1(31 downto 24) = x"01" else '0';
    --diex_write <= '1' when OP_LI_DI = x"06" or OP_LI_DI = x"01" or OP_LI_DI = x"02" or OP_LI_DI = x"03" else '0';

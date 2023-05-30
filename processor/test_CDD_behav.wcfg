@@ -12,10 +12,10 @@
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
       <ZoomEndTime time="1000000001fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <Cursor1Time time="159292000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="145"></NameColumnWidth>
+      <NameColumnWidth column_width="141"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="14" />
@@ -199,6 +199,7 @@
    <wvobject type="group" fp_name="group116">
       <obj_property name="label">exmem</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/NV_EX_MEM/op1">
          <obj_property name="ElementShortName">op1[7:0]</obj_property>
          <obj_property name="ObjectShortName">op1[7:0]</obj_property>
@@ -319,6 +320,7 @@
    <wvobject type="group" fp_name="group365">
       <obj_property name="label">ual</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/UAL/A">
          <obj_property name="ElementShortName">A[7:0]</obj_property>
          <obj_property name="ObjectShortName">A[7:0]</obj_property>
@@ -387,6 +389,7 @@
       <wvobject type="array" fp_name="/test_CDD/test_CDD/DM/registre">
          <obj_property name="ElementShortName">registre[0:255][7:0]</obj_property>
          <obj_property name="ObjectShortName">registre[0:255][7:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/test_CDD/test_CDD/DM/Aux">
          <obj_property name="ElementShortName">Aux[7:0]</obj_property>

@@ -50,28 +50,22 @@ void interpret(){
     while (i<nb_instructions){
         switch(instructions_bis[i][0]){
             case 1: //ADD
-                registre[instructions_bis[i][1]]= registre[instructions_bis[i][2]]+registre[instructions_bis[i][3]];
-                pt = instructions_bis[i][1];
+                registre[pt+instructions_bis[i][1]]= registre[pt+instructions_bis[i][2]]+registre[pt+instructions_bis[i][3]];
                 break;
             case 2: //MUL
-                registre[instructions_bis[i][1]]= registre[instructions_bis[i][2]]*registre[instructions_bis[i][3]];
-                pt = instructions_bis[i][1];
+                registre[pt+instructions_bis[i][1]]= registre[pt+instructions_bis[i][2]]*registre[pt+instructions_bis[i][3]];
                 break;
             case 3: //SUB
-                registre[instructions_bis[i][1]]= registre[instructions_bis[i][2]]-registre[instructions_bis[i][3]];
-                pt = instructions_bis[i][1];
+                registre[pt+instructions_bis[i][1]]= registre[pt+instructions_bis[i][2]]-registre[pt+instructions_bis[i][3]];
                 break;
             case 4: //DIV
-                registre[instructions_bis[i][1]]= registre[instructions_bis[i][2]]/registre[instructions_bis[i][3]];
-                pt = instructions_bis[i][1];
+                registre[pt+instructions_bis[i][1]]= registre[pt+instructions_bis[i][2]]/registre[pt+instructions_bis[i][3]];
                 break;
             case 5: //COP
-                registre[instructions_bis[i][1]]= registre[instructions_bis[i][2]];
-                pt = instructions_bis[i][1];
+                registre[pt+instructions_bis[i][1]]= registre[pt+instructions_bis[i][2]];
                 break;
             case 6: //AFC
-                registre[instructions_bis[i][1]]= instructions_bis[i][2];
-                pt = instructions_bis[i][1];
+                registre[pt+instructions_bis[i][1]]= instructions_bis[i][2];
                 break;
             case 7: //JMP
                 i = instructions_bis[i][1]-1; 
@@ -94,25 +88,28 @@ void interpret(){
                 pt = instructions_bis[i][1];
                 break;
             case 12: //CALL
+                registre[pt] = i +1;
+                printf("je suis dans le call\n");
                 i = instructions_bis[i][1]-1;
                 break;
             case 13: //RET
-            //TO DO
+                i = registre[pt]-1;
                 break;
             case 14: //NOP
                 break;
             case 15: //POP
-                registre[pt-instructions_bis[i][1]];
+                pt = pt-instructions_bis[i][1];
+                //registre[pt]= instructions_bis[i][2];
                 break;
             case 16: //PUSH
-                registre[pt+instructions_bis[i][1]];
+                pt = pt+instructions_bis[i][1];
+                //registre[pt]= instructions_bis[i][2];
                 break;
             case 17://PRI
                 printf("%d\n",registre[instructions_bis[i][1]]);
                 break;
         }  
         i++;
-       
     }
     //print instructions
     for (int i =0 ; i<nb_instructions ; i++){

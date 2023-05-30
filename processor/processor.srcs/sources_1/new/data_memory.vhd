@@ -41,13 +41,14 @@ begin
         if RW = '0' then 
         --ecriture
             registre(to_integer(unsigned(Addr))) <= I;
-        else
-        --lecture
-            O <= registre(to_integer(unsigned(Addr)));
+--        else
+--        --lecture
+--            O <= registre(to_integer(unsigned(Addr)));
         end if;
         
     end if;
     
 end process;
+O <= registre(to_integer(unsigned(Addr)));
 
 end Behavioral;
