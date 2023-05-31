@@ -7,15 +7,15 @@
   return 0;
 }*/
 int fact(int a){
-int res;
+int res = 1000;
   if(a){
-    res = fact(a-1)*a+10000;
+    res = fact(a-1)*a;
 }
   return res;
 }
 
 int main(){
-  int a = fact(5);
+  int a = fact(4);
  return a;
 }
 

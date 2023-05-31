@@ -193,7 +193,8 @@ begin
    
    op_diex_in <= x"06" when OP_LI_DI = x"05" else OP_LI_DI;
    
-    jumpif <= '0' when op_diex_in = x"10" and QA = 0 else '1';
+    jumpif <= '0' when op_diex_in = x"0a" and QA = 0 else '1';
+    
     NV_DI_EX : pipeline port map (op1 => op_diex_in,
                               op2 =>  A_LI_DI,
                               op3 => b_diex_in ,

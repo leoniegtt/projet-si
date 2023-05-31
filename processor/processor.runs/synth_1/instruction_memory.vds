@@ -1,0 +1,261 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed May 31 11:58:07 2023
+# Process ID: 12382
+# Current directory: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1
+# Command line: vivado -log instruction_memory.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source instruction_memory.tcl
+# Log file: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/instruction_memory.vds
+# Journal file: /home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source instruction_memory.tcl -notrace
+Command: synth_design -top instruction_memory -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 12393 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1255.277 ; gain = 83.812 ; free physical = 7582 ; free virtual = 19844
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'instruction_memory' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd:23]
+INFO: [Synth 8-256] done synthesizing module 'instruction_memory' (1#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd:23]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1299.902 ; gain = 128.438 ; free physical = 7587 ; free virtual = 19850
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1299.902 ; gain = 128.438 ; free physical = 7586 ; free virtual = 19849
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1307.906 ; gain = 136.441 ; free physical = 7586 ; free virtual = 19849
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "registre" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1315.914 ; gain = 144.449 ; free physical = 7585 ; free virtual = 19848
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	 257 Input     32 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module instruction_memory 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	 257 Input     32 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-3886] merging instance 'Aux_reg[0]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[1]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[2]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[3]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[4]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[5]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[6]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[7]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[10]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[12]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[13]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[14]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[15]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[17]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[18]' (FDE) to 'Aux_reg[27]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[19]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[20]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[21]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[22]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[23]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[25]' (FDE) to 'Aux_reg[26]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[28]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[29]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[30]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Aux_reg[31] )
+WARNING: [Synth 8-3332] Sequential element (Aux_reg[31]) is unused and will be removed from module instruction_memory.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7423 ; free virtual = 19687
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7423 ; free virtual = 19687
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7422 ; free virtual = 19686
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     1|
+|2     |LUT3 |     4|
+|3     |LUT5 |     5|
+|4     |LUT6 |     5|
+|5     |FDRE |     7|
+|6     |IBUF |    19|
+|7     |OBUF |    32|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    73|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7429 ; free virtual = 19693
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.031 ; gain = 262.559 ; free physical = 7445 ; free virtual = 19709
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 19 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+37 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:18 . Memory (MB): peak = 1563.051 ; gain = 403.227 ; free physical = 7401 ; free virtual = 19665
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/instruction_memory.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file instruction_memory_utilization_synth.rpt -pb instruction_memory_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.13 . Memory (MB): peak = 1587.062 ; gain = 0.000 ; free physical = 7403 ; free virtual = 19667
+INFO: [Common 17-206] Exiting Vivado at Wed May 31 11:58:35 2023...

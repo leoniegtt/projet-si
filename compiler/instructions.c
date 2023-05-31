@@ -126,7 +126,6 @@ void sup_ins() {
 void cop_ins(int arg){
     int op1 = arg;
     int op2 =  last_address();
-    //stack_pop(); //temp var
     instructions[k][0] = 5;
     instructions[k][1] = op1;
     instructions[k][2] = op2;
@@ -136,7 +135,6 @@ void cop_ins(int arg){
 void cop_tmp(int arg){
     int op2 = arg;
     int op1 =  last_address();
-    //stack_pop(); //temp var
     instructions[k][0] = 5;
     instructions[k][1] = op1;
     instructions[k][2] = op2;
@@ -147,8 +145,6 @@ void cop_tmp(int arg){
 void afc_ins(int arg){
     stack_push("0");
     int op1 = last_address();
-    //int op1 = 1;
-    //temp var
     instructions[k][0] = 6;
     instructions[k][1] = op1;
     instructions[k][2] = arg;
@@ -159,7 +155,6 @@ void jmf_ins(){
     stack_push("0");
     int op1 = last_address();
     int op2 =  -1;
-    //stack_pop(); //temp var
     instructions[k][0] = 8;
     instructions[k][1] = op1;
     instructions[k][2] = op2;
@@ -169,7 +164,6 @@ void jmf_ins(){
 void jmp_ins(int arg){
 
     int op1 = arg;
-    //stack_pop(); //temp var
     instructions[k][0] = 7;
     instructions[k][1] = op1 ;
     instructions[k][2] = 0;
@@ -177,8 +171,6 @@ void jmp_ins(int arg){
     printf("JMP %d \n", op1);
 }
 void ret_ins(){
-    //int op1 = 1;
-    //temp var
     instructions[k][0] = 13;
     instructions[k][1] = 0;
     instructions[k][2] = 0;
@@ -186,8 +178,6 @@ void ret_ins(){
     printf("RET 0 0 0\n");
 }
 void nop_ins(){
-    //int op1 = 1;
-    //temp var
     instructions[k][0] = 14;
     instructions[k][1] = 0;
     instructions[k][2] = 0;
@@ -196,7 +186,6 @@ void nop_ins(){
 }
 
 void push_ins(int pos ){
-
     instructions[k][0] = 16;
     instructions[k][1] = pos;
     instructions[k][2] = 0;
@@ -239,10 +228,10 @@ void patch_jmp(int pos){
 }
 
 
-
 void generateFileFromTab(int instructions[][4], int numRows) {
     FILE *fp = fopen("output.txt", "w");  // Open the file in write mode
     printf("generatefile\n");
+
     if (fp == NULL) {
         printf("Failed to open the file.\n");
         return;
@@ -266,5 +255,4 @@ void main1(){
     //printf("\n");
     }
     generateFileFromTab(instructions, 1024);
-
 }

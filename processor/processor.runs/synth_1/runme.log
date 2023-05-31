@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log chemin_donnees.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source chemin_donnees.tcl
+    with args -log instruction_memory.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source instruction_memory.tcl
 
 
 ****** Vivado v2018.2 (64-bit)
@@ -8,43 +8,23 @@
   **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
-source chemin_donnees.tcl -notrace
-Command: synth_design -top chemin_donnees -part xc7a35tcpg236-1
+source instruction_memory.tcl -notrace
+Command: synth_design -top instruction_memory -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 28611 
+INFO: Helper process launched with PID 12393 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1255.270 ; gain = 83.828 ; free physical = 659 ; free virtual = 13373
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1255.277 ; gain = 83.812 ; free physical = 7582 ; free virtual = 19844
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'chemin_donnees' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:20]
-INFO: [Synth 8-3491] module 'instruction_memory' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd:14' bound to instance 'INS_MEM' of component 'instruction_memory' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:152]
 INFO: [Synth 8-638] synthesizing module 'instruction_memory' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd:23]
 INFO: [Synth 8-256] done synthesizing module 'instruction_memory' (1#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/instruction_memory.vhd:23]
-INFO: [Synth 8-3491] module 'Pipeline' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:14' bound to instance 'NV_LI_DI' of component 'pipeline' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:177]
-INFO: [Synth 8-638] synthesizing module 'Pipeline' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:29]
-INFO: [Synth 8-256] done synthesizing module 'Pipeline' (2#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:29]
-INFO: [Synth 8-3491] module 'Pipeline' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:14' bound to instance 'NV_DI_EX' of component 'pipeline' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:197]
-INFO: [Synth 8-3491] module 'ALU' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/ALU.vhd:17' bound to instance 'UAL' of component 'ALU' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:211]
-INFO: [Synth 8-638] synthesizing module 'ALU' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/ALU.vhd:28]
-INFO: [Synth 8-256] done synthesizing module 'ALU' (3#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/ALU.vhd:28]
-INFO: [Synth 8-3491] module 'Pipeline' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:14' bound to instance 'NV_EX_MEM' of component 'pipeline' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:216]
-INFO: [Synth 8-3491] module 'data_memory' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/data_memory.vhd:15' bound to instance 'DM' of component 'data_memory' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:231]
-INFO: [Synth 8-638] synthesizing module 'data_memory' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/data_memory.vhd:24]
-INFO: [Synth 8-256] done synthesizing module 'data_memory' (4#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/data_memory.vhd:24]
-INFO: [Synth 8-3491] module 'Pipeline' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:14' bound to instance 'NV_MEM_RE' of component 'pipeline' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:236]
-INFO: [Synth 8-3491] module 'Banc_De_Registres' declared at '/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:15' bound to instance 'BDR' of component 'Banc_de_Registres' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:251]
-INFO: [Synth 8-638] synthesizing module 'Banc_De_Registres' [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:27]
-INFO: [Synth 8-256] done synthesizing module 'Banc_De_Registres' (5#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Banc_De_Registres.vhd:27]
-WARNING: [Synth 8-3848] Net C_EX_MEM in module/entity chemin_donnees does not have driver. [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:102]
-INFO: [Synth 8-256] done synthesizing module 'chemin_donnees' (6#1) [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/chemin_donnees.vhd:20]
-WARNING: [Synth 8-3331] design Pipeline has unconnected port enable
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1314.895 ; gain = 143.453 ; free physical = 649 ; free virtual = 13363
+Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1299.902 ; gain = 128.438 ; free physical = 7587 ; free virtual = 19850
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1314.895 ; gain = 143.453 ; free physical = 652 ; free virtual = 13366
+Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1299.902 ; gain = 128.438 ; free physical = 7586 ; free virtual = 19849
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -52,127 +32,11 @@ Start Loading Part and Timing Information
 Loading part: xc7a35tcpg236-1
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1322.898 ; gain = 151.457 ; free physical = 652 ; free virtual = 13366
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1307.906 ; gain = 136.441 ; free physical = 7586 ; free virtual = 19849
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "registre" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[0]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[1]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[2]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[3]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[4]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[5]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[6]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[7]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[8]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[9]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[10]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[11]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[12]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[13]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[14]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[15]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[16]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[17]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[18]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[19]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[20]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[21]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[22]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[23]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[24]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[25]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[26]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[27]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[28]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[29]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[30]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[31]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[32]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[33]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[34]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[35]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[36]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[37]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[38]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[39]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[40]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[41]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[42]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[43]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[44]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[45]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[46]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[47]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[48]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[49]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[50]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[51]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[52]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[53]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[54]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[55]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[56]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[57]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[58]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[59]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[60]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[61]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[62]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[63]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[64]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[65]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[66]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[67]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[68]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[69]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[70]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[71]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[72]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[73]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[74]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[75]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[76]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[77]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[78]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[79]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[80]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[81]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[82]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[83]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[84]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[85]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[86]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[87]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[88]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[89]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[90]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[91]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[92]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[93]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[94]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[95]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[96]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[97]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "registre_reg[98]" won't be mapped to RAM because it is too sparse
-INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-5544] ROM "registre_reg[15]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[14]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[13]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[12]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[11]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[10]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[9]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[8]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[7]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[6]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[5]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[4]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[3]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[2]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[1]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "registre_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1339.922 ; gain = 168.480 ; free physical = 591 ; free virtual = 13306
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1315.914 ; gain = 144.449 ; free physical = 7585 ; free virtual = 19848
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -185,21 +49,11 @@ No constraint files found.
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
-+---Adders : 
-	   3 Input     16 Bit       Adders := 1     
-	   2 Input      9 Bit       Adders := 1     
-	   2 Input      8 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 1     
-	                8 Bit    Registers := 291   
 +---Muxes : 
 	 257 Input     32 Bit        Muxes := 1     
-	   4 Input     16 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 13    
-	   2 Input      3 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 293   
-	   3 Input      1 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -207,17 +61,6 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module chemin_donnees 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      8 Bit       Adders := 1     
-+---Registers : 
-	                8 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 7     
-	   2 Input      3 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 5     
-	   3 Input      1 Bit        Muxes := 1     
 Module instruction_memory 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -225,31 +68,6 @@ Detailed RTL Component Info :
 +---Muxes : 
 	 257 Input     32 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 1     
-Module Pipeline 
-Detailed RTL Component Info : 
-+---Registers : 
-	                8 Bit    Registers := 4     
-Module ALU 
-Detailed RTL Component Info : 
-+---Adders : 
-	   3 Input     16 Bit       Adders := 1     
-	   2 Input      9 Bit       Adders := 1     
-+---Muxes : 
-	   4 Input     16 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 1     
-Module data_memory 
-Detailed RTL Component Info : 
-+---Registers : 
-	                8 Bit    Registers := 256   
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 256   
-Module Banc_De_Registres 
-Detailed RTL Component Info : 
-+---Registers : 
-	                8 Bit    Registers := 18    
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 5     
-	   2 Input      1 Bit        Muxes := 32    
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -267,111 +85,34 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-6014] Unused sequential element NV_EX_MEM/inter_op4_reg was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:39]
-WARNING: [Synth 8-6014] Unused sequential element NV_MEM_RE/inter_op4_reg was removed.  [/home/goutte/4A/Projet_SI/projet-si/processor/processor.srcs/sources_1/new/Pipeline.vhd:39]
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[0][7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[0][6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[0][5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[0][4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[0][3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[0][2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[0][1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[0][0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[1][7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[1][6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[1][5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[1][4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[1][3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[1][2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[1][1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[1][0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[2][7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[2][6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[2][5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[2][4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[2][3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[2][2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[2][1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[2][0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[3][7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[3][6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[3][5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[3][4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[3][3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[3][2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[3][1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[3][0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[4][7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[4][6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[4][5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[4][4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[4][3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[4][2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[4][1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[4][0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[5][7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[5][6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[5][5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[5][4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[5][3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[5][2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[5][1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[5][0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[6][7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[6][6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[6][5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[6][4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[6][3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[6][2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[6][1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[6][0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[7][7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[7][6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[7][5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[7][4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[7][3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[7][2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[7][1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[7][0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[8][7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[8][6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[8][5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[8][4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[8][3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[8][2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[8][1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[8][0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[9][7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[9][6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[9][5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[9][4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[9][3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[9][2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[9][1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[9][0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[10][7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[10][6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[10][5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[10][4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[10][3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[10][2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[10][1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[10][0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[11][7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[11][6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[11][5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[11][4]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[11][3]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[11][2]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[11][1]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[11][0]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[12][7]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[12][6]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[12][5]) is unused and will be removed from module chemin_donnees.
-WARNING: [Synth 8-3332] Sequential element (DM/registre_reg[12][4]) is unused and will be removed from module chemin_donnees.
-INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'Aux_reg[0]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[1]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[2]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[3]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[4]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[5]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[6]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[7]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[10]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[12]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[13]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[14]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[15]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[17]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[18]' (FDE) to 'Aux_reg[27]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[19]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[20]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[21]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[22]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[23]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[25]' (FDE) to 'Aux_reg[26]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[28]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[29]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3886] merging instance 'Aux_reg[30]' (FDE) to 'Aux_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Aux_reg[31] )
+WARNING: [Synth 8-3332] Sequential element (Aux_reg[31]) is unused and will be removed from module instruction_memory.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:26 . Memory (MB): peak = 1425.008 ; gain = 253.566 ; free physical = 489 ; free virtual = 13207
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7423 ; free virtual = 19687
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -384,7 +125,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:26 . Memory (MB): peak = 1425.008 ; gain = 253.566 ; free physical = 489 ; free virtual = 13207
+Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7423 ; free virtual = 19687
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -396,7 +137,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:26 . Memory (MB): peak = 1425.008 ; gain = 253.566 ; free physical = 489 ; free virtual = 13207
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7422 ; free virtual = 19686
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -420,7 +161,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:27 . Memory (MB): peak = 1425.008 ; gain = 253.566 ; free physical = 489 ; free virtual = 13207
+Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -433,7 +174,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:27 . Memory (MB): peak = 1425.008 ; gain = 253.566 ; free physical = 489 ; free virtual = 13207
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -445,25 +186,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:27 . Memory (MB): peak = 1425.008 ; gain = 253.566 ; free physical = 489 ; free virtual = 13207
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:27 . Memory (MB): peak = 1425.008 ; gain = 253.566 ; free physical = 489 ; free virtual = 13207
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:27 . Memory (MB): peak = 1425.008 ; gain = 253.566 ; free physical = 489 ; free virtual = 13207
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:27 . Memory (MB): peak = 1425.008 ; gain = 253.566 ; free physical = 489 ; free virtual = 13207
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -476,35 +217,44 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+-+-----+------+
-| |Cell |Count |
-+-+-----+------+
-+-+-----+------+
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     1|
+|2     |LUT3 |     4|
+|3     |LUT5 |     5|
+|4     |LUT6 |     5|
+|5     |FDRE |     7|
+|6     |IBUF |    19|
+|7     |OBUF |    32|
++------+-----+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |     0|
+|1     |top      |       |    73|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:27 . Memory (MB): peak = 1425.008 ; gain = 253.566 ; free physical = 489 ; free virtual = 13207
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7421 ; free virtual = 19685
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 2348 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:27 . Memory (MB): peak = 1425.008 ; gain = 253.566 ; free physical = 489 ; free virtual = 13207
-Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:27 . Memory (MB): peak = 1425.016 ; gain = 253.566 ; free physical = 504 ; free virtual = 13223
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.023 ; gain = 262.559 ; free physical = 7429 ; free virtual = 19693
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1434.031 ; gain = 262.559 ; free physical = 7445 ; free virtual = 19709
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 19 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-145 Infos, 104 Warnings, 0 Critical Warnings and 0 Errors encountered.
+37 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:28 . Memory (MB): peak = 1503.031 ; gain = 343.215 ; free physical = 470 ; free virtual = 13190
+synth_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:18 . Memory (MB): peak = 1563.051 ; gain = 403.227 ; free physical = 7401 ; free virtual = 19665
 WARNING: [Constraints 18-5210] No constraint will be written out.
-INFO: [Common 17-1381] The checkpoint '/home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/chemin_donnees.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file chemin_donnees_utilization_synth.rpt -pb chemin_donnees_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.14 . Memory (MB): peak = 1527.043 ; gain = 0.000 ; free physical = 475 ; free virtual = 13194
-INFO: [Common 17-206] Exiting Vivado at Tue May 30 19:15:49 2023...
+INFO: [Common 17-1381] The checkpoint '/home/goutte/4A/Projet_SI/projet-si/processor/processor.runs/synth_1/instruction_memory.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file instruction_memory_utilization_synth.rpt -pb instruction_memory_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.13 . Memory (MB): peak = 1587.062 ; gain = 0.000 ; free physical = 7403 ; free virtual = 19667
+INFO: [Common 17-206] Exiting Vivado at Wed May 31 11:58:35 2023...

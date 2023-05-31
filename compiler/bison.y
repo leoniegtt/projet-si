@@ -46,7 +46,7 @@ program :
     ;
 
 function :
-    {stack_delete();} tVOID tID {add_func($3,get_current_ins());}tLPAR {inc(); stack_push("?adr");stack_push("?val");  } parameters tRPAR tLBRACE {inc();} statement {dec();}tRBRACE
+    {stack_delete();} tVOID tID {add_func($3,get_current_ins());}tLPAR {inc(); stack_push("?adr");stack_push("?val");  } parameters tRPAR tLBRACE {inc();} statement {dec();}tRBRACE{ret_ins();}
     | {stack_delete();} tINT tID tLPAR {inc(); stack_push("?adr");stack_push("?val");if(strcmp($3 , "main")==0){init( get_current_ins()+ 1);};add_func($3,get_current_ins()+1);} parameters {dec(); } tRPAR tLBRACE statement Return {cop_ins(find_element("?val"));if(strcmp($3 , "main")==0){ret_ins() ; nop_ins();} else {ret_ins();ret_ins();}} tSEMI tRBRACE
 ;
 
@@ -108,7 +108,7 @@ index_jmf :%empty {jmf_ins(); stack_pop();$$=get_current_ins();}
 if : 
       tIF tLPAR expression tRPAR index_jmf body {patch_jmf($5); }
     | tIF tLPAR expression tRPAR index_jmf body {jmp_ins(-1);$1=get_current_ins();patch_jmf($5);}tELSE body{patch_jmp($1);}
-    |  tIF tLPAR logique tRPAR body
+    | tIF tLPAR logique tRPAR body
     | tIF tLPAR logique tRPAR body tELSE body
 ;
 

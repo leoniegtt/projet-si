@@ -66,9 +66,9 @@ test_pipeline : pipeline PORT MAP (
  op3_test <= "00000000";
  op4_test <= "00000001";
  
- CLK_test <= '1';
- --flush_test <= '1';
-        
+CLK_test <= not CLK_test after 10 ns;
+ flush_test <= '1' after 100ns;
+ nop_test <= '1' after 150ns;      
         
 
 

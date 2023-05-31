@@ -37,12 +37,19 @@ architecture Behavioral of test_ins_memory is
 COMPONENT instruction_memory
 
   Port ( Addr : in STD_LOGIC_VECTOR (7 downto 0);
-           CLK : in STD_LOGIC;
+             entre : in STD_LOGIC_VECTOR (7 downto 0);
+            CLK : in STD_LOGIC;
+            bloque : in STD_LOGIC;
+            jmp : in STD_LOGIC;
            O : out STD_LOGIC_VECTOR (31 downto 0));
 end COMPONENT;
 
+
         SIGNAL Addr_test : STD_LOGIC_VECTOR (7 downto 0):= (others => '0');
         SIGNAL CLK_test : STD_LOGIC:='0';
+        SIGNAL entre_test : STD_LOGIC_VECTOR (7 downto 0) := (others => '0');
+        SIGNAL jmp_test: STD_logic := '0';
+        SIGNAL bloque_test: STD_logic := '0';
         SIGNAL O_test : STD_LOGIC_VECTOR (31 downto 0):= (others => '0');
         
 begin
@@ -50,10 +57,20 @@ begin
 test_ins_memory : instruction_memory PORT MAP (
         Addr => Addr_test,
         CLK => CLK_test,
+        entre => entre_test,
+        jmp => jmp_test,
+        bloque => bloque_test,
         O => O_test);
         
  --test lecture
- Addr_test <= "11111111";
- CLK_test <= '1'; 
+ Addr_test <= "00000001";
+
+CLK_test <= not CLK_test after 10 ns;
+
+bloque_test <= '1' after 50ns;
+
+jmp_test<= '1'after 100ns;
+
+entre_test <= x"02";
 
 end Behavioral;

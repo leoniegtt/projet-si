@@ -49,6 +49,7 @@ void interpret(){
     int pt =0;
     bool end = false;
     while (!end){
+        
         switch(instructions_bis[i][0]){
             case 1: //ADD
                 registre[pt+instructions_bis[i][1]]= registre[pt+instructions_bis[i][2]]+registre[pt+instructions_bis[i][3]];
@@ -66,6 +67,8 @@ void interpret(){
                 registre[pt+instructions_bis[i][1]]= registre[pt+instructions_bis[i][2]];
                 break;
             case 6: //AFC
+             printf("registre n°%d: %d \n",pt+instructions_bis[i][1], instructions_bis[i][2]);
+
                 registre[pt+instructions_bis[i][1]]= instructions_bis[i][2];
                 break;
             case 7: //JMP
@@ -112,10 +115,24 @@ void interpret(){
                 //printf("%d\n",registre[instructions_bis[i][1]]);
                 break;
         } 
+printf("----%d\n",instructions_bis[i][0]);
+ printf("%d %d %d %d\n", instructions_bis[i][0],instructions_bis[i][1],instructions_bis[i][2],instructions_bis[i][3]);
+    
+  //print registres
+    for (int i =0 ; i<10 ; i++){
+        printf("registre n°%d: %d \n",i, registre[i]);
+
+    } 
 
         i++;
         printf("%d \n",i); 
     }
+
+    //print registres
+    for (int i =0 ; i<10 ; i++){
+        printf("registre n°%d: %d \n",i, registre[i]);
+
+    } 
     //print instructions
     for (int i =0 ; i<nb_instructions ; i++){
             if (instructions_bis[i][0]==0){
@@ -123,13 +140,9 @@ void interpret(){
             }
             else{
                 printf("%d %d %d %d\n", instructions_bis[i][0],instructions_bis[i][1],instructions_bis[i][2],instructions_bis[i][3]);
-            }
-    }
-    //print registres
-    for (int i =0 ; i<64 ; i++){
-        printf("registre n°%d: %d \n",i, registre[i]);
-
-    }
+            }}
+   
+    
     printf("fin interpret\n");
 }
 

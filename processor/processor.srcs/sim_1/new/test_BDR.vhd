@@ -59,10 +59,13 @@ Addr_W_test <= "1101";
 
 Data_test <= "10101010";
 
-RST_test <= '1'; --actif à 0
+RST_test <= '1' after 50ns; --actif à 0
 
-W_test <= '1';
-CLK_test <='1';
+W_test <= '1'after 100ns;
+
+
+
+CLK_test <= not CLK_test after 10 ns;
 
 
 

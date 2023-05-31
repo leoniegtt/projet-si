@@ -44,9 +44,11 @@ test_DM : data_memory PORT MAP (
 
 Addr_test <= "00000010";
 I_test <= "10101010";
-RW_test <= '1'; 
-RST_test <= '1';
-CLK_test <='1'; 
+RW_test <= '1' after 100ns; 
+
+rst_test <= '1' after 20 ns;
+
+CLK_test <= not CLK_test after 10 ns;
 
 
 
